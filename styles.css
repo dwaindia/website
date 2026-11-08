@@ -1,0 +1,1471 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-black: #000000;
+  --color-dark: #111111;
+  --color-charcoal: #1F2937;
+  --color-cream: #FFFFFF;
+  --color-sand: #F9FAFB;
+  --color-border: #E5E7EB;
+  --color-border-visible: #9CA3AF;
+  --color-border-dark: #111111;
+  
+  /* Primary Theme Accent #04cc86 */
+  --color-lime: #04cc86;
+  --color-neon: #04cc86;
+  --color-neon-hover: #03b677;
+  --color-neon-glow: rgba(4, 204, 134, 0.45);
+  --color-neon-light: #E6FBF3;
+  --color-neon-border: #04cc86;
+  
+  --color-amber: #E2990C;
+  --color-muted: #4B5563;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  color: #000000;
+  background-color: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* All Headings in Roboto Bold */
+h1, h2, h3, h4, h5, h6,
+.font-heading,
+.heading-roboto,
+.hero-title,
+section:first-of-type h1,
+main > section:first-of-type h1,
+header + main > section:first-child h1 {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+}
+
+/* Open Society Foundations (OSF) Typographic Scale */
+.hero-title,
+h1.hero-title,
+section:first-of-type h1,
+main > section:first-of-type h1 {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: clamp(1.45rem, 2.1vw, 2.05rem) !important; /* Decreased size to align proportionally */
+  line-height: 1.24 !important;
+  letter-spacing: -0.015em !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  border-bottom: none !important;
+  text-decoration: none !important;
+  padding-bottom: 0 !important;
+}
+
+.hero-lead {
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem) !important; /* Balanced lead text */
+  line-height: 1.6 !important;
+  font-weight: 400 !important;
+}
+
+h2, .h2-osf {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: clamp(1.45rem, 2.35vw, 2.1rem) !important; /* Decreased font size for all sections */
+  line-height: 1.24 !important;
+  letter-spacing: -0.015em !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  display: inline-block !important;
+  border-bottom: 4px solid var(--color-neon, #04cc86) !important;
+  padding-bottom: 0.5rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+h3, .h3-osf {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem) !important;
+  line-height: 1.28 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+}
+
+h4, .h4-osf {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem) !important;
+  line-height: 1.3 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+}
+
+.font-serif {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.font-sans {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* Ensure all body texts, paragraphs, spans, links, lists, inputs use Inter */
+p, li, td, th, label, input, textarea, select {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Strict WCAG AA focus styles with electric neon green outline */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-neon);
+  outline-offset: 2px;
+}
+
+/* Skip to Content for screen readers and keyboard navigation */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 9999;
+  background: #111111;
+  color: #FFFFFF;
+  padding: 0.75rem 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8125rem;
+  text-decoration: none;
+  border: 1px solid var(--color-neon);
+  transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+  top: 1rem;
+}
+
+/* OSF Graphic Framing Devices - High Visibility Defined Borders */
+.graphic-frame {
+  border: 2px solid var(--color-border);
+}
+
+.frame-b {
+  border-bottom: 2px solid var(--color-border);
+}
+
+.frame-t {
+  border-top: 2px solid var(--color-border);
+}
+
+.frame-r {
+  border-right: 2px solid var(--color-border);
+}
+
+.frame-l {
+  border-left: 2px solid var(--color-border);
+}
+
+/* Editorial Kicker */
+.editorial-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* OSF Editorial Card with Visible Borders & Micro-Interactions */
+.osf-card {
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.24s ease;
+  background: #FFFFFF;
+  border: 2px solid #D4D4D8;
+  box-shadow: none !important;
+}
+
+.osf-card:hover {
+  transform: translateY(-2px);
+  border-color: #000000;
+  box-shadow: none !important;
+}
+
+.osf-card:hover h3 {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+}
+
+/* Visible Distinct Card Views */
+.card-view {
+  border: 2px solid #D4D4D8;
+  background-color: #FFFFFF;
+  box-shadow: none !important;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card-view:hover {
+  border-color: #000000;
+  box-shadow: none !important;
+}
+
+.card-view-subtle {
+  border: 2px solid #D4D4D8;
+  background-color: #FFFFFF;
+  box-shadow: none !important;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card-view-subtle:hover {
+  border-color: #000000;
+  box-shadow: none !important;
+}
+
+/* High-Contrast Neon Green Banners & Buttons - Flat Rectangle with Ample Padding & Margin */
+.banner-neon {
+  background-color: var(--color-neon);
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Universal Button Styling: Normal Rectangle Border, Ample Margin & Padding, No Shadows or Strokes */
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.btn,
+.btn-neon,
+.btn-neon-dark,
+.filter-tab-btn,
+.dwa-filter-btn,
+.donation-amount-btn,
+.donor-toggle-btn,
+.donation-freq-btn,
+a.btn,
+a.btn-neon {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  outline: none;
+}
+
+.btn-neon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-neon);
+  color: #000000 !important;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  padding: 0.75rem 1.75rem;
+  margin: 0.35rem 0.25rem;
+  border: 2px solid #000000;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-neon:hover {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border-color: #000000 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.btn-neon-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #000000;
+  color: #FFFFFF !important;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  padding: 0.75rem 1.75rem;
+  margin: 0.35rem 0.25rem;
+  border: 2px solid #000000;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-neon-dark:hover {
+  background-color: var(--color-neon) !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* High-Contrast Neon Green Accents */
+.highlight-lime {
+  background-color: var(--color-neon);
+  color: #000000;
+  font-weight: 700;
+}
+
+.badge-neon {
+  background-color: var(--color-neon);
+  color: #000000;
+  font-weight: 700;
+  border: 1px solid #000000;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.badge-neon-subtle {
+  background-color: #E6FBF3;
+  color: #065F35;
+  border: 1px solid #04cc86;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.pull-quote-neon {
+  border-left: 4px solid var(--color-neon);
+}
+
+/* Interactive Filter Tab Buttons - Normal Rectangle Border with Enough Margin and Padding */
+.filter-tab-btn,
+.dwa-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.35rem;
+  margin: 0.25rem;
+  border-radius: 0 !important;
+  border: 2px solid #000000;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  white-space: nowrap;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-tab-btn.active,
+.dwa-filter-btn.active {
+  background-color: var(--color-neon) !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+  font-weight: 800 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.filter-tab-btn.active .tab-count,
+.dwa-filter-btn.active span:last-child {
+  background-color: #000000;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.filter-tab-btn:not(.active):hover,
+.dwa-filter-btn:not(.active):hover {
+  background-color: #F4F4F0;
+  border-color: var(--color-black);
+  box-shadow: none !important;
+}
+
+/* Donation Amount Buttons - Rectangle with Ample Padding and Margin */
+.donation-amount-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem !important;
+  margin: 0.25rem !important;
+  border: 2px solid #111111 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.donor-toggle-btn,
+.donation-freq-btn {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Eliminate harsh brutalist drop-shadow strokes, shadows, and faux strokes across the entire site */
+[class*="shadow-["],
+[class*="shadow-"],
+.shadow-sm,
+.shadow-md,
+.shadow-lg,
+.shadow-xl,
+.shadow-2xl,
+.card-view,
+.osf-card {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+.osf-card:hover,
+.card-view:hover,
+.card-view-subtle:hover {
+  box-shadow: none !important;
+}
+
+/* Authentic Full-Color Photo Treatment */
+.documentary-photo {
+  filter: none !important;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.documentary-photo:hover {
+  filter: none !important;
+  transform: scale(1.02);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F1F1;
+}
+::-webkit-scrollbar-thumb {
+  background: #C4C4BC;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #999990;
+}
+
+/* Search Modal backdrop */
+.search-modal {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.22s ease, visibility 0.22s ease;
+}
+
+.search-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile Drawer backdrop */
+.mobile-drawer {
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-drawer.open {
+  transform: translateX(0);
+}
+
+/* Copy feedback toast */
+.toast-notice {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  background: #111111;
+  color: #FFFFFF;
+  padding: 14px 22px;
+  border: 2px solid var(--color-neon);
+  box-shadow: none !important;
+  transform: translateY(120px);
+  opacity: 0;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.toast-notice.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Open Society Foundations Solid White Smart Sticky Header */
+header.site-header,
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: #FFFFFF !important;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+header.site-header.header-hidden,
+header.header-hidden {
+  transform: translateY(-100%) !important;
+  box-shadow: none !important;
+}
+
+header.site-header.header-scrolled,
+header.header-scrolled {
+  border-bottom: 2px solid #111111 !important;
+  box-shadow: none !important;
+}
+
+/* Footer Unified Typography: All titles & texts aligned to exact same size (14px / 0.875rem), except the logo title */
+footer.site-footer,
+footer {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border-top: 2px solid #222222;
+  font-size: 0.875rem !important; /* 14px */
+}
+
+footer h1,
+footer h2,
+footer h3:not(.footer-brand-title):not(.footer-logo-title),
+footer h4:not(.footer-brand-title):not(.footer-logo-title):not(.newsletter-kicker),
+footer h5,
+footer .footer-heading {
+  color: var(--color-neon) !important;
+  font-size: 0.875rem !important; /* 14px */
+  line-height: 1.5 !important;
+  letter-spacing: 0.05em;
+  font-weight: 700 !important;
+}
+
+footer p,
+footer span:not(.footer-brand-title):not(.footer-logo-title),
+footer li,
+footer a,
+footer button,
+footer label,
+footer input,
+footer code,
+footer div:not(.footer-brand-title):not(.footer-logo-title):not([class*="bg-"]):not([class*="border"]):not([class*="text-"]) {
+  font-size: 0.875rem !important; /* 14px */
+  line-height: 1.6 !important;
+}
+
+/* Distinct prominent logo title in footer */
+footer .footer-brand-title,
+footer .footer-logo-title,
+footer span.footer-brand-title,
+footer span.footer-logo-title {
+  font-size: 1.5rem !important; /* 24px */
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  color: var(--color-neon) !important;
+}
+
+/* Footer Organization Description: Crisp White */
+.footer-org-desc,
+footer .footer-org-desc,
+footer p.footer-org-desc {
+  color: #FFFFFF !important;
+}
+
+footer a:not(.btn-neon):not(.footer-social-link) {
+  color: #FFFFFF !important;
+  transition: color 0.2s ease;
+}
+
+footer a:not(.btn-neon):not(.footer-social-link):hover {
+  color: var(--color-neon) !important;
+}
+
+/* Footer Social Media Buttons - Text & Hover Effect */
+footer .footer-social-link,
+footer a.footer-social-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  background-color: #171717 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #404040 !important;
+  padding: 0.5rem 0.875rem !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  border-radius: 0 !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  position: relative !important;
+}
+
+footer .footer-social-link span,
+footer a.footer-social-link span {
+  color: #FFFFFF !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 700 !important;
+  transition: color 0.2s ease, transform 0.2s ease !important;
+}
+
+footer .footer-social-link svg,
+footer a.footer-social-link svg {
+  color: #FFFFFF !important;
+  fill: currentColor !important;
+  transition: color 0.2s ease, transform 0.2s ease !important;
+}
+
+/* Hover state: Button flips to neon green background, text & icon flip to crisp black */
+footer .footer-social-link:hover,
+footer a.footer-social-link:hover {
+  background-color: var(--color-neon) !important; /* Theme colour #04cc86 */
+  border-color: var(--color-neon) !important;
+  color: #000000 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 14px rgba(4, 204, 134, 0.35) !important;
+}
+
+footer .footer-social-link:hover span,
+footer a.footer-social-link:hover span {
+  color: #000000 !important; /* Text on hover effect enabled */
+}
+
+footer .footer-social-link:hover svg,
+footer a.footer-social-link:hover svg {
+  color: #000000 !important; /* Icon on hover effect */
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+footer button:not(.btn-neon):not([type="submit"]) {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: #FFFFFF !important;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+footer button:not(.btn-neon):not([type="submit"]):hover {
+  color: var(--color-neon) !important;
+}
+
+/* Footer buttons and CTA preservation */
+footer .btn-neon,
+footer a.btn-neon,
+footer button[type="submit"] {
+  color: #000000 !important;
+  background-color: var(--color-neon) !important;
+}
+
+footer .btn-neon:hover,
+footer a.btn-neon:hover,
+footer button[type="submit"]:hover {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border-color: #000000 !important;
+}
+
+/* OSF-Style Centered Header Navigation Link Hover Effect */
+.osf-nav-link {
+  position: relative;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: 0.8125rem; /* 13px */
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #111111 !important;
+  padding: 0.5rem 0;
+  transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.osf-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--color-neon);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.osf-nav-link:hover {
+  color: #000000 !important;
+}
+
+.osf-nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.osf-nav-link.active {
+  color: #000000 !important;
+}
+
+.osf-nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Theme Colour Footer Subscription Bar (OSF Style) */
+.footer-subscribe-bar {
+  background-color: var(--color-neon) !important; /* Theme colour #04cc86 */
+  color: #000000 !important; /* Pure black text */
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+}
+
+/* Small Heading in robot style font for Newsletter Subscription */
+.footer-subscribe-bar .newsletter-kicker,
+.footer-subscribe-bar h4,
+footer .footer-subscribe-bar h4 {
+  font-family: 'Roboto', 'Roboto Mono', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: clamp(0.95rem, 1.35vw, 1.15rem) !important; /* Increased heading size as requested */
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: #000000 !important; /* Black font colour */
+  line-height: 1.4 !important;
+  margin-bottom: 0.5rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.footer-subscribe-bar h2,
+.footer-subscribe-bar h3,
+footer .footer-subscribe-bar h3 {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: clamp(1.125rem, 1.8vw, 1.25rem) !important; /* Roboto small heading */
+  line-height: 1.35 !important;
+  letter-spacing: -0.01em !important;
+  font-weight: 700 !important;
+  color: #000000 !important; /* Black font colour */
+  text-transform: none !important;
+}
+
+.footer-subscribe-bar p,
+footer .footer-subscribe-bar p {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 0.9375rem !important;
+  line-height: 1.6 !important;
+  color: #000000 !important; /* Black font colour */
+}
+
+.footer-subscribe-bar button.policy-link,
+footer .footer-subscribe-bar button.policy-link {
+  color: #000000 !important; /* Black font colour */
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+}
+
+.footer-subscribe-bar button.policy-link:hover,
+footer .footer-subscribe-bar button.policy-link:hover {
+  color: #000000 !important;
+  opacity: 0.75;
+}
+
+/* Submit button in footer subscription bar: Clean solid black with NO border on top of background */
+.footer-subscribe-bar button[type="submit"],
+footer .footer-subscribe-bar button[type="submit"] {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border: 0 !important;
+  border-top: 0 !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-radius: 0 !important;
+}
+
+.footer-subscribe-bar button[type="submit"]:hover,
+footer .footer-subscribe-bar button[type="submit"]:hover {
+  background-color: #1F2937 !important;
+  color: #FFFFFF !important;
+  border: 0 !important;
+  border-top: 0 !important;
+}
+
+/* Legal / Policy Modals */
+.policy-modal {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.22s ease, visibility 0.22s ease;
+}
+
+.policy-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.policy-modal.active > div {
+  animation: modalScaleUp 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* High contrast neon selection */
+::selection {
+  background-color: var(--color-neon);
+  color: #000000;
+}
+
+/* Scrollbar utilities for mobile slider */
+.scrollbar-none::-webkit-scrollbar {
+  display: none !important;
+}
+.scrollbar-none {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Tier 1 NGO Style Vision & Mission - Minimal & Editorial */
+.vision-mission-block {
+  border-top: 2px solid #000000 !important;
+  background-color: transparent !important;
+  transition: transform 0.25s ease !important;
+}
+
+/* Trust & Verification Badges, Community Metrics, Vision & Mission, and Featured Programs Cards */
+.trust-badge-card {
+  border: 2px solid #D4D4D8 !important;
+  background-color: #FFFFFF !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.25s ease !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  position: relative;
+  border-radius: 0 !important;
+  text-decoration: none !important;
+}
+
+.trust-badge-card:hover {
+  border-color: #000000 !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08) !important;
+}
+
+.trust-badge-card:hover .trust-badge-arrow {
+  transform: translate(2px, -2px);
+  color: var(--color-neon, #04cc86) !important;
+}
+
+.trust-badge-card:hover .trust-badge-bottom-action {
+  color: var(--color-neon, #04cc86) !important;
+}
+
+/* Historical Eras & Verification Cards (Text is Black Always) */
+.era-history-card,
+.about-tab-panel .trust-badge-card {
+  color: #000000 !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.25s ease !important;
+}
+
+.era-history-card h4,
+.about-tab-panel .trust-badge-card h4 {
+  color: #000000 !important;
+}
+
+.era-history-card span,
+.about-tab-panel .trust-badge-card span {
+  color: #000000 !important;
+}
+
+.era-history-card p,
+.about-tab-panel .trust-badge-card p {
+  color: #000000 !important;
+}
+
+.era-history-card:hover,
+.about-tab-panel .trust-badge-card:hover {
+  border-color: #000000 !important;
+  color: #000000 !important;
+}
+
+.era-history-card:hover h4,
+.about-tab-panel .trust-badge-card:hover h4 {
+  color: #000000 !important;
+}
+
+.era-history-card:hover span,
+.about-tab-panel .trust-badge-card:hover span {
+  color: #000000 !important;
+}
+
+.era-history-card:hover p,
+.about-tab-panel .trust-badge-card:hover p {
+  color: #000000 !important;
+}
+
+/* Hero Section Link Style Replicated System-Wide */
+.hero-style-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: #000000 !important;
+  border-bottom: 2px solid #000000 !important;
+  padding-bottom: 2px;
+  transition: all 0.2s ease !important;
+  text-decoration: none !important;
+}
+
+.hero-style-link:hover,
+.group:hover .hero-style-link,
+.trust-badge-card:hover .hero-style-link,
+.group\/link:hover .hero-style-link {
+  color: var(--color-neon, #04cc86) !important;
+  border-bottom-color: var(--color-neon, #04cc86) !important;
+}
+
+.hero-style-link .hero-arrow,
+.hero-style-link > span:last-child {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  font-family: monospace;
+}
+
+.hero-style-link:hover .hero-arrow,
+.group:hover .hero-style-link .hero-arrow,
+.trust-badge-card:hover .hero-style-link .hero-arrow,
+.group\/link:hover .hero-style-link .hero-arrow,
+.hero-style-link:hover > span:last-child,
+.group:hover .hero-style-link > span:last-child,
+.trust-badge-card:hover .hero-style-link > span:last-child,
+.group\/link:hover .hero-style-link > span:last-child {
+  transform: translateX(6px);
+  color: var(--color-neon, #04cc86) !important;
+}
+
+.trust-badge-card:hover .border-b-2:not(.hero-style-link) {
+  border-color: #000000 !important;
+}
+
+.trust-badge-card img {
+  transition: transform 0.4s ease;
+}
+
+.trust-badge-card:hover img {
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   Community at a Glance: Compact Slide-Up Cards
+   - Decreased card size (compact ~250px)
+   - Grey borders above and below (no side borders)
+   - Dark borders on hover
+   - Front elements aligned horizontally
+   - Back side slides up from bottom (no links)
+   ========================================================================== */
+
+.glance-slide-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 265px;
+  height: 100%;
+  background-color: #FFFFFF;
+  border-top: 2px solid #D4D4D8 !important;
+  border-bottom: 2px solid #D4D4D8 !important;
+  border-left: none !important;
+  border-right: none !important;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.25s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+/* Card hover / active: Dark borders top and bottom, subtle upward slide */
+.glance-slide-card:hover,
+.glance-slide-card:focus-within,
+.glance-slide-card.is-active {
+  border-top-color: #111111 !important;
+  border-bottom-color: #111111 !important;
+  border-left: none !important;
+  border-right: none !important;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px -8px rgba(0, 0, 0, 0.08);
+}
+
+/* Front Face */
+.glance-slide-front {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 1.35rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  z-index: 1;
+}
+
+.glance-slide-card:hover .glance-slide-front,
+.glance-slide-card:focus-within .glance-slide-front,
+.glance-slide-card.is-active .glance-slide-front {
+  transform: translateY(-8px);
+  opacity: 0.12;
+}
+
+/* Back Face: Positioned at bottom, slides up to reveal (No Links) */
+.glance-slide-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1.35rem 1.4rem;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: translateY(100%);
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+}
+
+.glance-slide-card:hover .glance-slide-back,
+.glance-slide-card:focus-within .glance-slide-back,
+.glance-slide-card.is-active .glance-slide-back {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Vision & Mission: Long Horizontal Cards (Aligned Above and Below)
+   - Left 1/3rd part: Image
+   - Right 2/3rd part: Heading, Body, Link
+   - Borders: Same as Community at a Glance (Grey top & bottom, no side borders, dark on hover)
+   ========================================================================== */
+
+.vision-mission-card {
+  position: relative;
+  background-color: #FFFFFF;
+  border: 2px solid #D4D4D8 !important;
+  transition: border-color 0.25s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.vision-mission-card:hover,
+.vision-mission-card:focus-within {
+  border-color: #111111 !important;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
+}
+
+/* Card Headings in Capital Roboto Bold (No Underlines inside cards) */
+.glance-slide-card h3 {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: 0.8125rem !important;
+  line-height: 1.25rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  border-bottom: none !important;
+}
+
+.glance-slide-card h4 {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: 1.05rem !important;
+  line-height: 1.35rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.01em !important;
+  border-bottom: none !important;
+}
+
+.vision-mission-card h3 {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: clamp(1.25rem, 2vw, 1.75rem) !important;
+  line-height: 1.25 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.01em !important;
+  border-bottom: none !important;
+}
+
+.trust-badge-card h3 {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: 1.05rem !important;
+  line-height: 1.3 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.01em !important;
+  border-bottom: none !important;
+}
+
+/* Header Sub-Pages Dropdown Menu Styles */
+.nav-has-subpages {
+  position: relative;
+}
+
+.nav-subpages-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  width: 17rem;
+  background-color: #FFFFFF;
+  border: 2px solid #000000;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  padding: 0.5rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.nav-has-subpages:hover .nav-subpages-dropdown,
+.nav-has-subpages:focus-within .nav-subpages-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+/* Dropdown Bridge to prevent pointer loss on hover */
+.nav-has-subpages::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 14px;
+  display: block;
+}
+
+.nav-subpage-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 1rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #111111;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
+  border-left: 3px solid transparent;
+}
+
+.nav-subpage-item:hover {
+  background-color: #F3F4F6;
+  color: #000000;
+  padding-left: 1.25rem;
+  border-left-color: var(--color-neon, #686cfc);
+}
+
+.nav-subpage-item.active {
+  background-color: #F9FAFB;
+  border-left-color: #000000;
+  color: #000000;
+}
+
+/* ==========================================================================
+   About Us Page: Interactive Horizontal Tabbed Navigation
+   - Sticky on uppermost side (top: 0) without scrolling away
+   - Normal rectangular box (no rounded corners)
+   - Title and icon side-by-side aligned
+   - Decreased thickness of tab section (sleek compact bar)
+   - Grey border (border-2 border-[#D4D4D8])
+   - Black on hover (border-color: #000000)
+   - Theme colour (#686cfc) applied to selected tab button
+   - Aligned horizontally
+   ========================================================================== */
+
+#about-tabs-container,
+#page-tabs-container,
+#programs-tabs-container,
+#accountability-tabs-container,
+.sticky-tab-nav {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 50 !important;
+  background-color: #FFFFFF !important;
+}
+
+.about-tab-btn {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #FFFFFF;
+  border: 2px solid #D4D4D8 !important;
+  border-radius: 0px !important;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  width: 100%;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  min-height: 44px;
+  outline: none;
+  box-shadow: none !important;
+}
+
+.about-tab-btn:hover {
+  border-color: #000000 !important;
+  color: #000000 !important;
+  background-color: #F9FAFB !important;
+  transform: translateY(-1px);
+}
+
+.about-tab-btn.active {
+  background-color: var(--color-lime, #686cfc) !important;
+  color: #FFFFFF !important;
+  border-color: #000000 !important;
+  box-shadow: 2px 2px 0px 0px #000000 !important;
+  transform: translateY(-1px);
+}
+
+.about-tab-btn.active:hover {
+  background-color: #5559eb !important;
+  color: #FFFFFF !important;
+}
+
+.about-tab-btn .tab-icon-wrap {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #111111;
+  transition: color 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.about-tab-btn:hover .tab-icon-wrap {
+  color: #000000;
+  transform: scale(1.08);
+}
+
+.about-tab-btn.active .tab-icon-wrap {
+  color: #FFFFFF !important;
+}
+
+.about-tab-btn.active .tab-icon-wrap svg {
+  stroke: #FFFFFF !important;
+}
+
+.about-tab-btn .tab-title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  color: inherit;
+  white-space: nowrap;
+}
+
+.about-tab-btn.active .tab-title {
+  color: #FFFFFF !important;
+}
+
+/* Tab Panels */
+.about-tab-panel {
+  display: none;
+}
+
+.about-tab-panel.active {
+  display: block;
+  animation: fadeInTab 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInTab {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* About Us Field Archive Image Slider */
+.about-slide-card {
+  border-radius: 0 !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.25s ease !important;
+}
+
+.about-slide-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08) !important;
+}
+
+.about-slide-card img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+
+.about-slide-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Image Lightbox Modal */
+#image-lightbox-modal.flex {
+  animation: fadeInModal 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Comprehensive Mobile & Touch Responsiveness Suite
+   ========================================================================== */
+
+/* 1. Global Viewport & Overflow Safety */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure all media adapts fluidly */
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+img.object-cover {
+  height: 100%;
+}
+
+/* 2. Touch Target Standards (Accessibility & Mobile Comfort) */
+button,
+a,
+input,
+select,
+[role="button"],
+[role="tab"] {
+  touch-action: manipulation;
+}
+
+/* 3. Small-Screen Header Optimization */
+@media (max-width: 640px) {
+  .site-header .h-20 {
+    height: 4.25rem !important; /* 68px on mobile */
+  }
+  
+  .mobile-drawer {
+    width: 85vw !important;
+    max-width: 360px !important;
+  }
+}
+
+/* 4. Hero Section Mobile Optimization */
+@media (max-width: 1023px) {
+  .hero-title {
+    font-size: 1.5rem !important;
+    line-height: 1.25 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 1.25rem !important;
+    line-height: 1.3 !important;
+  }
+}
+
+/* 5. Mobile Tab Navigation (Horizontal Swipeable Pill Bar) */
+@media (max-width: 640px) {
+  .about-tab-btn {
+    min-height: 42px !important;
+    padding: 0.5rem 0.75rem !important;
+  }
+  
+  .about-tab-btn .tab-title {
+    font-size: 0.75rem !important;
+    letter-spacing: 0.02em !important;
+  }
+}
+
+/* 6. Donation Section Mobile Tuning */
+@media (max-width: 640px) {
+  .donation-amount-btn {
+    min-height: 44px;
+    font-size: 0.8125rem !important;
+    padding: 0.5rem 0.25rem !important;
+  }
+
+  .donor-toggle-btn {
+    min-height: 48px;
+    padding: 0.65rem 0.5rem !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+/* 7. Carousel & Lightbox Mobile Controls */
+@media (max-width: 640px) {
+  .about-slide-card {
+    width: 260px !important;
+    height: 195px !important;
+  }
+  
+  #lightbox-prev {
+    left: 0.5rem !important;
+    width: 2.75rem !important;
+    height: 2.75rem !important;
+  }
+  
+  #lightbox-next {
+    right: 0.5rem !important;
+    width: 2.75rem !important;
+    height: 2.75rem !important;
+  }
+  
+  #lightbox-close {
+    width: 2.75rem !important;
+    height: 2.75rem !important;
+  }
+  
+  #lightbox-counter {
+    font-size: 0.75rem !important;
+    padding: 0.25rem 0.5rem !important;
+  }
+  
+  #lightbox-img {
+    max-height: 72vh !important;
+    max-width: 95vw !important;
+  }
+}
