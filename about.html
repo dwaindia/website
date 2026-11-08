@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Dalit Welfare Association (DWA)</title>
+  <meta name="description" content="Our Story, Values & Heart for the Community: Rooted in compassion, 30+ years of dedicated grassroots service across Kurnool District, Andhra Pradesh.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;500;600;700&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#111111',
+              dark: '#181818',
+              charcoal: '#262626',
+              cream: '#FFFFFF',
+              sand: '#F9FAFB',
+              border: '#E5E7EB',
+              lime: '#686cfc',
+              neon: '#686cfc',
+              'lime-hover': '#5559f5',
+              'neon-hover': '#5559f5',
+              amber: '#E2990C',
+              muted: '#5E5E5E'
+            }
+          },
+          fontFamily: {
+            heading: ['Roboto', '-apple-system', 'sans-serif'],
+            serif: ['Roboto', '-apple-system', 'sans-serif'],
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --color-lime: #686cfc;
+      --color-neon: #686cfc;
+      --color-neon-border: #686cfc;
+    }
+    .osf-nav-link::after {
+      background-color: #686cfc !important;
+    }
+    .osf-nav-link.active::after {
+      background-color: #686cfc !important;
+    }
+    .footer-subscribe-bar {
+      background-color: #686cfc !important;
+      color: #FFFFFF !important;
+    }
+  </style>
+</head>
+<body class="bg-white text-black font-sans selection:bg-[#686cfc] selection:text-white antialiased min-h-screen flex flex-col">
+
+  <!-- Open Society Foundations Solid White Smart Header -->
+  <header class="site-header sticky top-0 z-40 bg-white border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo / Wordmark (Links to Index Page) -->
+      <a href="index.html" class="flex items-center gap-3 shrink-0 group hover:opacity-90 transition-opacity" title="Dalit Welfare Association - Home">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white border border-neutral-300 p-1 flex items-center justify-center shrink-0 shadow-sm">
+          <img src="logo.png" alt="Dalit Welfare Association Official Logo" class="w-full h-full object-contain">
+        </div>
+        <div>
+          <span class="block font-['Roboto'] font-bold text-neutral-900 text-sm xs:text-base sm:text-xl lg:text-2xl tracking-tight leading-none group-hover:text-black transition-colors whitespace-nowrap">
+            Dalit Welfare Association
+          </span>
+          <span class="hidden sm:block font-['Inter'] font-normal text-xs sm:text-sm text-neutral-600 mt-1 whitespace-nowrap">
+            Stronger Together
+          </span>
+        </div>
+      </a>
+
+      <!-- Centered Desktop Navigation (Direct links without sub-pages dropdown) -->
+      <nav class="hidden lg:flex items-center justify-center gap-7 xl:gap-9 flex-1 px-4">
+        <a href="about.html" class="osf-nav-link active">About Us</a>
+        <a href="projects.html" class="osf-nav-link">Programs</a>
+        <a href="accountability.html" class="osf-nav-link">Accountability</a>
+      </nav>
+
+      <!-- Utility Actions (Search, Donate with Red Heart Icon, Mobile Toggle) -->
+      <div class="flex items-center gap-2.5 sm:gap-3 shrink-0">
+        <!-- Search Button (Ctrl+K) -->
+        <button id="search-btn" class="hidden sm:flex p-2.5 text-black hover:bg-neutral-100 rounded-none border border-neutral-300 hover:border-black transition-colors" title="Search site (Ctrl+K)" aria-label="Search site">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </button>
+
+        <!-- Donate CTA with Red Love Icon & Theme Color -->
+        <a href="donate.html" class="inline-flex items-center gap-2 bg-[#686cfc] hover:bg-black text-white hover:text-white font-['Roboto'] font-bold text-xs uppercase tracking-wider px-3.5 sm:px-6 py-2 sm:py-2.5 border-2 border-black rounded-none shadow-none transition-colors">
+          <svg class="w-4 h-4 fill-red-600 text-red-600 shrink-0" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          <span>Donate</span>
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button id="mobile-menu-toggle" class="lg:hidden p-2 text-black border border-neutral-400 hover:border-black transition-colors" aria-label="Open mobile menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-backdrop" class="fixed inset-0 bg-black/60 z-50 hidden backdrop-blur-sm transition-opacity"></div>
+  <aside id="mobile-drawer" class="mobile-drawer fixed top-0 right-0 w-full max-w-sm h-full bg-white z-50 shadow-2xl flex flex-col justify-between border-l-2 border-black">
+    <div class="p-6">
+      <div class="flex items-center justify-between pb-6 border-b border-neutral-200">
+        <a href="index.html" class="flex items-center gap-2.5">
+          <div class="w-10 h-10 bg-white border border-neutral-300 p-1 flex items-center justify-center shrink-0">
+            <img src="logo.png" alt="DWA Official Logo" class="w-full h-full object-contain">
+          </div>
+          <div>
+            <span class="block font-['Roboto'] font-bold text-neutral-900 text-base leading-tight">Dalit Welfare Association</span>
+            <span class="block font-['Inter'] font-normal text-xs text-neutral-500">Stronger Together</span>
+          </div>
+        </a>
+        <button id="mobile-drawer-close" class="p-2 text-neutral-700 hover:text-black border border-black" aria-label="Close menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Search Bar -->
+      <div class="mt-4">
+        <button id="search-btn-mobile" class="w-full flex items-center justify-between px-3 py-2.5 bg-neutral-100 text-neutral-700 text-xs font-mono font-semibold border border-neutral-300 hover:border-black">
+          <span>Quick Search Site...</span>
+          <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation Links (Clean direct links, no sub-pages) -->
+      <nav class="mt-6 flex flex-col gap-2 font-['Roboto'] text-sm uppercase tracking-wider font-bold">
+        <a href="about.html" class="py-3 px-3 border-b border-neutral-100 text-[#686cfc] flex items-center justify-between hover:bg-neutral-50">
+          <span>About Us</span>
+          <span class="font-mono text-xs text-[#686cfc]">&rarr;</span>
+        </a>
+        <a href="projects.html" class="py-3 px-3 border-b border-neutral-100 text-neutral-900 hover:text-black flex items-center justify-between hover:bg-neutral-50">
+          <span>Programs</span>
+          <span class="font-mono text-xs text-neutral-400">&rarr;</span>
+        </a>
+        <a href="accountability.html" class="py-3 px-3 border-b border-neutral-100 text-neutral-900 hover:text-black flex items-center justify-between hover:bg-neutral-50">
+          <span>Accountability</span>
+          <span class="font-mono text-xs text-neutral-400">&rarr;</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="p-6 bg-neutral-50 border-t border-neutral-200">
+      <a href="donate.html" class="w-full inline-flex items-center justify-center gap-2 bg-[#686cfc] hover:bg-black text-white hover:text-white font-['Roboto'] font-bold text-xs uppercase tracking-wider px-6 py-3.5 border-2 border-black rounded-none shadow-none transition-colors">
+        <svg class="w-4 h-4 fill-red-600 text-red-600 shrink-0" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+        <span>Give Today &rarr;</span>
+      </a>
+      <div class="mt-4 text-[11px] font-mono text-neutral-600 font-medium text-center leading-relaxed">
+        FCRA Reg: 010270166 • Benevity Cause Verified
+      </div>
+    </div>
+  </aside>
+
+  <!-- Live Search Modal (Keyboard Shortcut Ctrl+K) -->
+  <div id="search-modal" class="search-modal fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex items-start justify-center pt-16 sm:pt-24 px-4">
+    <div class="w-full max-w-2xl bg-white border border-neutral-300 shadow-2xl overflow-hidden">
+      <div class="p-4 border-b border-neutral-200 flex items-center gap-3 bg-[#F9FAFB]">
+        <input id="site-search-input" type="text" placeholder="Search programs, financial audits, FCRA details, leadership..." class="w-full bg-transparent border-none outline-none text-base font-serif text-black placeholder:text-neutral-400">
+        <button id="search-close" class="text-xs font-mono uppercase tracking-widest text-neutral-500 hover:text-black px-2 py-1 border border-neutral-300 bg-white">ESC</button>
+      </div>
+      <div id="search-results" class="max-h-[60vh] overflow-y-auto p-4 flex flex-col gap-2"></div>
+    </div>
+  </div>
+
+  <main class="flex-grow">
+    
+    <!-- Hero Section: Open Society Foundations 2-Block Full Display Split Screen -->
+    <section class="bg-white w-full">
+      <div class="w-full grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-5rem)]">
+        
+        <!-- Left Block: Full White Screen with Strong Work Description in Big Roboto Font & Underlined Link -->
+        <div class="bg-white flex flex-col justify-center px-8 sm:px-12 md:px-16 lg:px-14 xl:px-20 py-12 sm:py-16 lg:py-16 border-b-2 lg:border-b-0 lg:border-r-2 border-neutral-300">
+          <div class="max-w-2xl w-full">
+            <h1 class="hero-title font-heading font-['Roboto',sans-serif] font-bold uppercase text-xl sm:text-2xl lg:text-[1.85rem] xl:text-[2.05rem] leading-[1.24] tracking-tight text-neutral-950 inline-block">
+              Thirty years of grassroots courage, community dignity, and an enduring commitment to Andhra Pradesh’s rural Dalit families.
+            </h1>
+            
+            <p class="mt-6 text-base sm:text-lg lg:text-xl text-neutral-700 leading-relaxed font-['Inter'] font-light hero-lead">
+              Founded on June 22, 1993 in Parnapalli Village, the Dalit Welfare Association is an independent, non-commercial society dedicated to breaking caste and poverty barriers through sustainable livelihoods, women’s enterprise, and unconditional rural solidarity.
+            </p>
+            
+            <div class="mt-8 sm:mt-10">
+              <a href="#about-tabs-container" class="group inline-flex items-center gap-3 text-base sm:text-lg lg:text-xl font-['Roboto'] font-bold text-black border-b-2 border-black hover:border-[#686cfc] hover:text-[#686cfc] pb-1 transition-all">
+                <span>Explore our 30-year history &amp; impact (1993–Present)</span>
+                <span class="inline-block transition-transform duration-200 group-hover:translate-x-2 font-mono text-xl sm:text-2xl font-black">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Block: Full-Bleed Image Edge-to-Edge like Open Society Foundations -->
+        <div class="relative w-full h-full min-h-[400px] sm:min-h-[500px] lg:min-h-full bg-neutral-900 overflow-hidden">
+          <img src="WEBSITE%20IMAGES/ABOUT%20PAGE/DSC_0831-min.JPG" alt="Dalit Welfare Association Board of Trustees, President S. Samuel, and village leaders in assembly" class="w-full h-full object-cover transition-all duration-700">
+          <div class="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 bg-black/85 backdrop-blur-sm text-white p-3 sm:p-3.5 text-xs font-['Inter'] flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 border-l-4 border-[#686cfc] shadow-xl">
+            <span class="font-medium text-neutral-200 text-xs sm:text-sm">Grassroots Community Heritage • Parnapalli Village, Est. 1993</span>
+            <span class="font-mono text-[11px] text-[#686cfc] font-bold shrink-0 ml-3">DWA FIELD ARCHIVE</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Sticky Uppermost Tabbed Navigation Bar (DWA History, The Problem, Our principles, Mission, People) -->
+    <nav class="sticky top-0 z-50 bg-white border-y-2 border-black py-2.5 px-3 sm:px-6 lg:px-8 shadow-sm transition-all" id="about-tabs-container" role="tablist" aria-label="About Us Navigation Tabs">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex overflow-x-auto sm:grid sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3 scrollbar-none pb-1 -mx-2 px-2 sm:mx-0 sm:px-0">
+          
+          <!-- Tab 1: DWA History -->
+          <button type="button" role="tab" id="tab-btn-dwa-history" aria-controls="tab-dwa-history" aria-selected="true" class="about-tab-btn active group shrink-0 w-auto sm:w-full min-w-[130px] sm:min-w-0" data-tab="tab-dwa-history">
+            <span class="tab-icon-wrap">
+              <!-- Open Chronicle / History Book Icon -->
+              <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+            </span>
+            <span class="tab-title">DWA History</span>
+          </button>
+
+          <!-- Tab 2: The Problem -->
+          <button type="button" role="tab" id="tab-btn-the-problem" aria-controls="tab-the-problem" aria-selected="false" class="about-tab-btn group shrink-0 w-auto sm:w-full min-w-[130px] sm:min-w-0" data-tab="tab-the-problem">
+            <span class="tab-icon-wrap">
+              <!-- Alert Circle Crisis Icon -->
+              <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </span>
+            <span class="tab-title">The Problem</span>
+          </button>
+
+          <!-- Tab 3: Our principles -->
+          <button type="button" role="tab" id="tab-btn-our-principles" aria-controls="tab-our-principles" aria-selected="false" class="about-tab-btn group shrink-0 w-auto sm:w-full min-w-[130px] sm:min-w-0" data-tab="tab-our-principles">
+            <span class="tab-icon-wrap">
+              <!-- Shield of Integrity with Checkmark Icon -->
+              <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </span>
+            <span class="tab-title">Our principles</span>
+          </button>
+
+          <!-- Tab 4: Mission -->
+          <button type="button" role="tab" id="tab-btn-mission" aria-controls="tab-mission" aria-selected="false" class="about-tab-btn group shrink-0 w-auto sm:w-full min-w-[130px] sm:min-w-0" data-tab="tab-mission">
+            <span class="tab-icon-wrap">
+              <!-- Bullseye Target Purpose Icon -->
+              <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" stroke-width="2"/>
+                <circle cx="12" cy="12" r="5" stroke-width="2"/>
+                <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+              </svg>
+            </span>
+            <span class="tab-title">Mission</span>
+          </button>
+
+          <!-- Tab 5: People -->
+          <button type="button" role="tab" id="tab-btn-people" aria-controls="tab-people" aria-selected="false" class="about-tab-btn group shrink-0 w-auto sm:w-full min-w-[130px] sm:min-w-0" data-tab="tab-people">
+            <span class="tab-icon-wrap">
+              <!-- Community Hands/People Icon -->
+              <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+              </svg>
+            </span>
+            <span class="tab-title">People</span>
+          </button>
+
+        </div>
+      </div>
+    </nav>
+
+    <!-- Tab Panels Container -->
+    <div id="about-tabs-content">
+      
+      <!-- ==========================================================================
+           TAB PANEL 1: DWA HISTORY (Active by Default)
+           ========================================================================== -->
+      <section id="tab-dwa-history" class="about-tab-panel active py-16 sm:py-20 bg-white border-b-2 border-neutral-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <!-- Section Heading -->
+          <div class="mb-10 sm:mb-12 max-w-4xl">
+            <h2 class="font-['Roboto',sans-serif] text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-tight text-black inline-block border-b-4 border-[#686cfc] pb-2">
+              DWA History
+            </h2>
+            <p class="mt-4 text-base sm:text-lg text-neutral-700 font-['Inter'] leading-relaxed">
+              Thirty years of grassroots courage, constitutional governance, and enduring solidarity with rural Dalit and agrarian families in Parnapalli Village and across Kurnool District.
+            </p>
+          </div>
+
+          <!-- Vision & Mission Style Horizontal Card from Index Page -->
+          <div class="vision-mission-card group flex flex-col md:flex-row items-stretch mb-12">
+            <!-- Left 1/3rd Part: Image -->
+            <div class="w-full md:w-1/3 shrink-0 relative overflow-hidden min-h-[240px] md:min-h-[280px]">
+              <img src="WEBSITE%20IMAGES/ABOUT%20PAGE/IMG_20191228_222721-min.jpg" alt="Inaugural lamp lighting ceremony of Solid Waste Management campaign by DWA and Ministry of Environment" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+              <div class="absolute top-3.5 left-3.5 px-2.5 py-1 bg-black text-white font-['Roboto',sans-serif] text-[10px] uppercase tracking-widest font-bold border border-black shadow-sm">
+                EST. JUNE 22, 1993
+              </div>
+            </div>
+
+            <!-- Right 2/3rd Part: Heading, Body, Link -->
+            <div class="w-full md:w-2/3 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+              <div>
+                <h3 class="font-['Roboto',sans-serif] text-xl sm:text-2xl lg:text-3xl font-bold uppercase text-black tracking-tight mb-3">
+                  ROOTED IN COMPASSION AND COMMUNITY SERVICE
+                </h3>
+                <p class="font-['Inter'] text-base sm:text-lg text-neutral-800 leading-relaxed font-normal">
+                  The Dalit Welfare Association (DWA) is a non-commercial, non-sectarian charitable society formed on June 22, 1993 (Registration No. 384/1993 under the Societies Registration Act XXI of 1860). Based in Parnapalli Village, Kurnool District, Andhra Pradesh, DWA was created out of a deep desire to support rural families who face systemic poverty, drought, and social marginalization. For over 30 years, our team of local leaders and dedicated volunteers has worked to bring meaningful change. Under our strict governance rules, all income and assets belong entirely to the public charity—no board member receives commercial profit or financial dividends.
+                </p>
+              </div>
+              <div class="mt-6 sm:mt-8 pt-4 border-t border-neutral-100">
+                <button type="button" id="open-history-note-btn" onclick="openPolicyModal('history-note-modal')" class="hero-style-link group/link inline-flex items-center gap-3 text-base sm:text-lg font-['Roboto'] font-bold text-black border-b-2 border-black hover:border-[#686cfc] hover:text-[#686cfc] pb-1 transition-all cursor-pointer bg-transparent text-left" title="Click to view full documentary history note">
+                  <span>Read Full History Pop-Up Note (1993–Present)</span>
+                  <span class="hero-arrow inline-block transition-transform duration-200 group-hover/link:translate-x-2 font-mono text-xl sm:text-2xl font-black">&rarr;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 Chronological Milestone Cards (Using trust-badge-card Style from Index Page) -->
+          <div id="dwa-eras" class="mb-12">
+            <h3 class="font-['Roboto',sans-serif] text-lg sm:text-xl font-bold uppercase tracking-tight text-black mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 bg-black inline-block"></span>
+              Historical Eras of Loving Service (1993–Present)
+            </h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+              
+              <!-- Era 1: 1993-2004 -->
+              <div class="trust-badge-card p-6 sm:p-7 flex flex-col justify-start group bg-white border-2 border-[#D4D4D8] hover:border-black transition-all cursor-default text-black">
+                <div class="mb-3">
+                  <h4 class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold uppercase tracking-tight text-black leading-snug">
+                    FOUNDATIONAL CARE
+                  </h4>
+                  <span class="block text-xs sm:text-sm font-mono font-bold tracking-wider text-black mt-1.5">
+                    1993 – 2004
+                  </span>
+                </div>
+                <p class="font-['Inter'] text-sm sm:text-base text-black leading-relaxed">
+                  Formed and registered under Act XXI of 1860 in Parnapalli Village. Established adult literacy centers, night school coaching for Dalit youth, and village drinking water sanitation drives.
+                </p>
+              </div>
+
+              <!-- Era 2: 2004-2017 -->
+              <div class="trust-badge-card p-6 sm:p-7 flex flex-col justify-start group bg-white border-2 border-[#D4D4D8] hover:border-black transition-all cursor-default text-black">
+                <div class="mb-3">
+                  <h4 class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold uppercase tracking-tight text-black leading-snug">
+                    FIRST GLOBAL GRANTS
+                  </h4>
+                  <span class="block text-xs sm:text-sm font-mono font-bold tracking-wider text-black mt-1.5">
+                    2004 – 2017
+                  </span>
+                </div>
+                <p class="font-['Inter'] text-sm sm:text-base text-black leading-relaxed">
+                  Executed vital Dairy Farming Development Project in Sirivella and Govindapalle villages funded by a ₹4,39,000 FCRA grant from Global Compassion Inc. (USA), boosting household income by 40%.
+                </p>
+              </div>
+
+              <!-- Era 3: 2017-2022 -->
+              <div class="trust-badge-card p-6 sm:p-7 flex flex-col justify-start group bg-white border-2 border-[#D4D4D8] hover:border-black transition-all cursor-default text-black">
+                <div class="mb-3">
+                  <h4 class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold uppercase tracking-tight text-black leading-snug">
+                    SKILLS &amp; RELIEF
+                  </h4>
+                  <span class="block text-xs sm:text-sm font-mono font-bold tracking-wider text-black mt-1.5">
+                    2017 – 2022
+                  </span>
+                </div>
+                <p class="font-['Inter'] text-sm sm:text-base text-black leading-relaxed">
+                  Established tailoring trade schools for women and partnered with Divya Foundation (₹8.32 Lakhs grant) to distribute 30 kg food ration kits and youth packages during COVID-19 lock-downs.
+                </p>
+              </div>
+
+              <!-- Era 4: 2024-Present -->
+              <div class="trust-badge-card p-6 sm:p-7 flex flex-col justify-start group bg-white border-2 border-[#D4D4D8] hover:border-black transition-all cursor-default text-black">
+                <div class="mb-3">
+                  <h4 class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold uppercase tracking-tight text-black leading-snug">
+                    WOMEN'S BUSINESS
+                  </h4>
+                  <span class="block text-xs sm:text-sm font-mono font-bold tracking-wider text-black mt-1.5">
+                    2024 – PRESENT
+                  </span>
+                </div>
+                <p class="font-['Inter'] text-sm sm:text-base text-black leading-relaxed">
+                  Received a ₹33.19 Lakh grant from Grace TPTC Foundation to execute intensive 12-month women's enterprise incubation: sewing machines, sheep pairs, grocery stores, and mobile UPI banking.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 3 Statutory Verification Cards (Registration Number, FCRA Number, Darpan Number) -->
+          <div class="mt-8 pt-8 border-t-2 border-neutral-200">
+            <h3 class="font-['Roboto',sans-serif] text-lg sm:text-xl font-bold uppercase tracking-tight text-black mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 bg-black inline-block"></span>
+              Statutory Registrations &amp; Government Credentials
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+              
+              <!-- Card 1: Registration Number -->
+              <div class="trust-badge-card p-5 sm:p-6 bg-white border-2 border-[#D4D4D8] hover:border-black transition-all flex flex-col justify-center">
+                <span class="block text-xs font-mono uppercase tracking-wider text-neutral-600 font-bold">
+                  Societies Registration Number
+                </span>
+                <span class="font-['Roboto',sans-serif] text-2xl sm:text-3xl font-bold text-black tracking-tight mt-1">
+                  384/1993
+                </span>
+              </div>
+
+              <!-- Card 2: FCRA Number -->
+              <div class="trust-badge-card p-5 sm:p-6 bg-white border-2 border-[#D4D4D8] hover:border-black transition-all flex flex-col justify-center">
+                <span class="block text-xs font-mono uppercase tracking-wider text-neutral-600 font-bold">
+                  FCRA Registration Number
+                </span>
+                <span class="font-['Roboto',sans-serif] text-2xl sm:text-3xl font-bold text-black tracking-tight mt-1">
+                  010270166
+                </span>
+              </div>
+
+              <!-- Card 3: Darpan Number -->
+              <div class="trust-badge-card p-5 sm:p-6 bg-white border-2 border-[#D4D4D8] hover:border-black transition-all flex flex-col justify-center">
+                <span class="block text-xs font-mono uppercase tracking-wider text-neutral-600 font-bold">
+                  NGO Darpan Unique ID
+                </span>
+                <span class="font-['Roboto',sans-serif] text-xl sm:text-2xl lg:text-[1.7rem] font-bold text-black tracking-tight mt-1">
+                  AP/2021/0276162
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           TAB PANEL 2: THE PROBLEM
+           ========================================================================== -->
+      <section id="tab-the-problem" class="about-tab-panel py-16 sm:py-20 bg-white border-b-2 border-neutral-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <!-- Section Heading -->
+          <div class="mb-10 sm:mb-12 max-w-4xl">
+            <h2 class="font-['Roboto',sans-serif] text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-tight text-black inline-block border-b-4 border-[#686cfc] pb-2">
+              The Problem
+            </h2>
+            <p class="mt-4 text-base sm:text-lg text-neutral-700 font-['Inter'] leading-relaxed">
+              Understanding the daily hardships our neighbors face across the semi-arid Rayalaseema drought zone in Kurnool District, Andhra Pradesh.
+            </p>
+          </div>
+
+          <!-- Vision & Mission Style Horizontal Card from Index Page -->
+          <div class="vision-mission-card group flex flex-col md:flex-row items-stretch mb-12">
+            <!-- Left 1/3rd Part: Image -->
+            <div class="w-full md:w-1/3 shrink-0 relative overflow-hidden min-h-[240px] md:min-h-[280px]">
+              <img src="WEBSITE%20IMAGES/ABOUT%20PAGE/IMG-20200119-WA0019.jpg" alt="Rural healthcare and diagnostic camp addressing severe anemia and maternal nutrition in drought-hit hamlets" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+              <div class="absolute top-3.5 left-3.5 px-2.5 py-1 bg-black text-white font-['Roboto',sans-serif] text-[10px] uppercase tracking-widest font-bold border border-black shadow-sm">
+                RAYALASEEMA DROUGHT ZONE
+              </div>
+            </div>
+
+            <!-- Right 2/3rd Part: Heading, Body, Link -->
+            <div class="w-full md:w-2/3 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+              <div>
+                <h3 class="font-['Roboto',sans-serif] text-xl sm:text-2xl lg:text-3xl font-bold uppercase text-black tracking-tight mb-3">
+                  UNDERSTANDING THE HARDSHIPS OUR NEIGHBORS FACE
+                </h3>
+                <p class="font-['Inter'] text-base sm:text-lg text-neutral-800 leading-relaxed font-normal">
+                  Life in the semi-arid Rayalaseema region presents daily challenges for farming families and landless laborers. Kurnool District frequently experiences severe dry spells. When groundnut and cotton crops fail, landless Dalit families relying solely on day labor face sudden loss of income, making it hard to afford basic food and children's school fees. Without institutional credit or collateral, medical emergencies force families into high-interest informal loans, trapping generations in debt.
+                </p>
+              </div>
+              <div class="mt-6 sm:mt-8 pt-4 border-t border-neutral-100">
+                <a href="projects.html" class="hero-style-link group/link inline-flex items-center gap-3 text-base sm:text-lg font-['Roboto'] font-bold text-black border-b-2 border-black hover:border-[#686cfc] hover:text-[#686cfc] pb-1 transition-all">
+                  <span>See how our grassroots initiatives counter these hardships</span>
+                  <span class="hero-arrow inline-block transition-transform duration-200 group-hover/link:translate-x-2 font-mono text-xl sm:text-2xl font-black">&rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 Detailed Hardship Cards (Trust-Badge Style from Index Page) -->
+          <div class="mb-12">
+            <h3 class="font-['Roboto',sans-serif] text-lg sm:text-xl font-bold uppercase tracking-tight text-black mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 bg-black inline-block"></span>
+              Core Grassroots Hardships Across Kurnool District
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+              
+              <!-- Hardship 1 -->
+              <div class="trust-badge-card p-6 sm:p-7 flex flex-col justify-start group bg-white border-2 border-[#D4D4D8] hover:border-black transition-all cursor-default text-black">
+                <div class="mb-3">
+                  <h4 class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold uppercase tracking-tight text-black leading-snug">
+                    AGRARIAN DISTRESS
+                  </h4>
+                  <span class="block text-xs sm:text-sm font-mono font-bold tracking-wider text-black mt-1.5">
+                    FREQUENT DROUGHTS &bull; ~40% MONSOON DEFICIT
+                  </span>
+                </div>
+                <p class="font-['Inter'] text-sm sm:text-base text-black leading-relaxed">
+                  Kurnool District frequently experiences severe dry spells. When crops fail, families relying on daily agricultural labor face sudden loss of income, making it hard to afford basic food and school fees.
+                </p>
+              </div>
+
+              <!-- Hardship 2 -->
+              <div class="trust-badge-card p-6 sm:p-7 flex flex-col justify-start group bg-white border-2 border-[#D4D4D8] hover:border-black transition-all cursor-default text-black">
+                <div class="mb-3">
+                  <h4 class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold uppercase tracking-tight text-black leading-snug">
+                    FINANCIAL EXCLUSION
+                  </h4>
+                  <span class="block text-xs sm:text-sm font-mono font-bold tracking-wider text-black mt-1.5">
+                    INFORMAL DEBT &bull; 36%–60% APR
+                  </span>
+                </div>
+                <p class="font-['Inter'] text-sm sm:text-base text-black leading-relaxed">
+                  Many rural households lack access to formal bank accounts or fair micro-credit. Without savings, emergency health needs or sudden expenses force families into burdensome informal debt.
+                </p>
+              </div>
+
+              <!-- Hardship 3 -->
+              <div class="trust-badge-card p-6 sm:p-7 flex flex-col justify-start group bg-white border-2 border-[#D4D4D8] hover:border-black transition-all cursor-default text-black">
+                <div class="mb-3">
+                  <h4 class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold uppercase tracking-tight text-black leading-snug">
+                    OBSTACLES FOR WOMEN
+                  </h4>
+                  <span class="block text-xs sm:text-sm font-mono font-bold tracking-wider text-black mt-1.5">
+                    MOTHERS &amp; WIDOWS &bull; ZERO CAPITAL ACCESS
+                  </span>
+                </div>
+                <p class="font-['Inter'] text-sm sm:text-base text-black leading-relaxed">
+                  Rural women often possess incredible resilience and work ethic, yet face barriers in securing starting capital, business guidance, or digital payment skills to launch their own shops or livestock trades.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 3 Field Geography Cards -->
+          <div class="mt-8 pt-8 border-t-2 border-neutral-200">
+            <h3 class="font-['Roboto',sans-serif] text-lg sm:text-xl font-bold uppercase tracking-tight text-black mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 bg-black inline-block"></span>
+              Field Mandals Where Our Teams Operate
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+              
+              <!-- Card 1: Central Headquarters -->
+              <div class="trust-badge-card p-5 sm:p-6 bg-white border-2 border-[#D4D4D8] hover:border-black transition-all flex flex-col justify-center">
+                <span class="block text-xs font-mono uppercase tracking-wider text-neutral-600 font-bold">
+                  Central Headquarters
+                </span>
+                <span class="font-['Roboto',sans-serif] text-xl sm:text-2xl font-bold text-black tracking-tight mt-1">
+                  Parnapalli Village
+                </span>
+                <span class="block text-xs font-mono text-neutral-600 mt-1">
+                  Bandi Atmakur Mandal, Kurnool District
+                </span>
+              </div>
+
+              <!-- Card 2: Primary Program Block -->
+              <div class="trust-badge-card p-5 sm:p-6 bg-white border-2 border-[#D4D4D8] hover:border-black transition-all flex flex-col justify-center">
+                <span class="block text-xs font-mono uppercase tracking-wider text-neutral-600 font-bold">
+                  Primary Program Block
+                </span>
+                <span class="font-['Roboto',sans-serif] text-xl sm:text-2xl font-bold text-black tracking-tight mt-1">
+                  Sirivella Block
+                </span>
+                <span class="block text-xs font-mono text-neutral-600 mt-1">
+                  Sirivella &amp; Govindapalle Panchayats
+                </span>
+              </div>
+
+              <!-- Card 3: Outreach Panchayats -->
+              <div class="trust-badge-card p-5 sm:p-6 bg-white border-2 border-[#D4D4D8] hover:border-black transition-all flex flex-col justify-center">
+                <span class="block text-xs font-mono uppercase tracking-wider text-neutral-600 font-bold">
+                  Outreach Panchayats
+                </span>
+                <span class="font-['Roboto',sans-serif] text-xl sm:text-2xl font-bold text-black tracking-tight mt-1">
+                  Bandi Atmakur &amp; Gospadu
+                </span>
+                <span class="block text-xs font-mono text-neutral-600 mt-1">
+                  Livestock, education &amp; relief clusters
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           TAB PANEL 3: OUR PRINCIPLES
+           ========================================================================== -->
+      <section id="tab-our-principles" class="about-tab-panel py-16 sm:py-20 bg-white border-b-2 border-neutral-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <!-- Section Heading -->
+          <div class="mb-10 sm:mb-12 max-w-4xl">
+            <h2 class="font-['Roboto',sans-serif] text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-tight text-black inline-block border-b-4 border-[#686cfc] pb-2">
+              Our principles
+            </h2>
+            <p class="mt-4 text-base sm:text-lg text-neutral-700 font-['Inter'] leading-relaxed">
+              Every decision we make—from program selection to ledger accounting—is anchored by three foundational truths and our strict non-commercial charter.
+            </p>
+          </div>
+
+          <!-- Vision & Mission Style Horizontal Card from Index Page -->
+          <div class="vision-mission-card group flex flex-col md:flex-row items-stretch mb-12">
+            <!-- Left 1/3rd Part: Image -->
+            <div class="w-full md:w-1/3 shrink-0 relative overflow-hidden min-h-[240px] md:min-h-[280px]">
+              <img src="WEBSITE%20IMAGES/ABOUT%20PAGE/IMG_20200511_161741%20(2)%20-%20Copy-min.jpg" alt="Rural Dalit women self-help group convening for village empowerment and rights advocacy" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+              <div class="absolute top-3.5 left-3.5 px-2.5 py-1 bg-black text-white font-['Roboto',sans-serif] text-[10px] uppercase tracking-widest font-bold border border-black shadow-sm">
+                CHARITABLE BYLAWS
+              </div>
+            </div>
+
+            <!-- Right 2/3rd Part: Heading, Body, Link -->
+            <div class="w-full md:w-2/3 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+              <div>
+                <h3 class="font-['Roboto',sans-serif] text-xl sm:text-2xl lg:text-3xl font-bold uppercase text-black tracking-tight mb-3">
+                  100% PUBLIC MANDATE &amp; ZERO COMMERCIAL DIVIDENDS
+                </h3>
+                <p class="font-['Inter'] text-base sm:text-lg text-neutral-800 leading-relaxed font-normal">
+                  Dalit Welfare Association operates with an uncompromising commitment to moral integrity. Under our registered constitution, all income and assets belong entirely to the public charity—no board member, officer, or volunteer receives commercial profits, shares, or private dividends. Every effort is dedicated to serving marginalized people in need with dignity and love.
+                </p>
+              </div>
+              <div class="mt-6 sm:mt-8 pt-4 border-t border-neutral-100">
+                <a href="accountability.html" class="hero-style-link group/link inline-flex items-center gap-3 text-base sm:text-lg font-['Roboto'] font-bold text-black border-b-2 border-black hover:border-[#686cfc] hover:text-[#686cfc] pb-1 transition-all">
+                  <span>View our independent external financial audits</span>
+                  <span class="hero-arrow inline-block transition-transform duration-200 group-hover/link:translate-x-2 font-mono text-xl sm:text-2xl font-black">&rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 Foundational Principle Cards (Trust-Badge Style from Index Page) -->
+          <div class="mb-12">
+            <h3 class="font-['Roboto',sans-serif] text-lg sm:text-xl font-bold uppercase tracking-tight text-black mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 bg-black inline-block"></span>
+              Ethical Pillars &amp; Constitutional Charter
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+              
+              <!-- Principle 1 -->
+              <div class="trust-badge-card p-6 sm:p-7 flex flex-col justify-start group bg-white border-2 border-[#D4D4D8] hover:border-black transition-all cursor-default text-black">
+                <div class="mb-3">
+                  <h4 class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold uppercase tracking-tight text-black leading-snug">
+                    LOVE &amp; RESPECT
+                  </h4>
+                  <span class="block text-xs sm:text-sm font-mono font-bold tracking-wider text-black mt-1.5">
+                    FOR ALL PEOPLE &bull; NON-SECTARIAN &amp; INCLUSIVE
+                  </span>
+                </div>
+                <p class="font-['Inter'] text-sm sm:text-base text-black leading-relaxed">
+                  We serve individuals and families purely based on need, regardless of caste, creed, gender, or religion. Dignity is not conditional; it is every human being's birthright.
+                </p>
+              </div>
+
+              <!-- Principle 2 -->
+              <div class="trust-badge-card p-6 sm:p-7 flex flex-col justify-start group bg-white border-2 border-[#D4D4D8] hover:border-black transition-all cursor-default text-black">
+                <div class="mb-3">
+                  <h4 class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold uppercase tracking-tight text-black leading-snug">
+                    EMPOWERMENT
+                  </h4>
+                  <span class="block text-xs sm:text-sm font-mono font-bold tracking-wider text-black mt-1.5">
+                    THROUGH DIGNITY &bull; SUSTAINABLE TOOLS &amp; NO HANDOUTS
+                  </span>
+                </div>
+                <p class="font-['Inter'] text-sm sm:text-base text-black leading-relaxed">
+                  We do not just offer short-term aid; we provide concrete tools, training, and ongoing mentorship so families can stand proudly on their own feet and break multi-generational poverty.
+                </p>
+              </div>
+
+              <!-- Principle 3 -->
+              <div class="trust-badge-card p-6 sm:p-7 flex flex-col justify-start group bg-white border-2 border-[#D4D4D8] hover:border-black transition-all cursor-default text-black">
+                <div class="mb-3">
+                  <h4 class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold uppercase tracking-tight text-black leading-snug">
+                    OPEN INTEGRITY
+                  </h4>
+                  <span class="block text-xs sm:text-sm font-mono font-bold tracking-wider text-black mt-1.5">
+                    INDEPENDENT AUDITS &bull; 100% PUBLIC LEDGERS &bull; 0% SALARY
+                  </span>
+                </div>
+                <p class="font-['Inter'] text-sm sm:text-base text-black leading-relaxed">
+                  We keep our doors and accounting ledgers open. Annual independent audits and regular government reporting ensure that every gift is managed with utmost care and total accountability.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Accreditation & Trust Badges -->
+          <div class="mt-8 pt-8 border-t-2 border-neutral-200">
+            <h3 class="font-['Roboto',sans-serif] text-lg sm:text-xl font-bold uppercase tracking-tight text-black mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 bg-black inline-block"></span>
+              Verified &amp; Accredited by Global Philanthropy Networks
+            </h3>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+              
+              <!-- Badge 1: Benevity -->
+              <div class="trust-badge-card p-5 sm:p-6 bg-white border-2 border-[#D4D4D8] hover:border-black transition-all flex flex-col justify-center text-center">
+                <span class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold text-black tracking-tight">
+                  BENEVITY
+                </span>
+                <span class="block text-xs font-mono uppercase tracking-wider text-[#009b63] font-bold mt-1">
+                  Causes Verified
+                </span>
+              </div>
+
+              <!-- Badge 2: Give India -->
+              <div class="trust-badge-card p-5 sm:p-6 bg-white border-2 border-[#D4D4D8] hover:border-black transition-all flex flex-col justify-center text-center">
+                <span class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold text-black tracking-tight">
+                  GIVE INDIA
+                </span>
+                <span class="block text-xs font-mono uppercase tracking-wider text-[#009b63] font-bold mt-1">
+                  18G1 Listed
+                </span>
+              </div>
+
+              <!-- Badge 3: GuideStar India -->
+              <div class="trust-badge-card p-5 sm:p-6 bg-white border-2 border-[#D4D4D8] hover:border-black transition-all flex flex-col justify-center text-center">
+                <span class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold text-black tracking-tight">
+                  GUIDESTAR INDIA
+                </span>
+                <span class="block text-xs font-mono uppercase tracking-wider text-[#009b63] font-bold mt-1">
+                  GSN-9683
+                </span>
+              </div>
+
+              <!-- Badge 4: NITI Aayog -->
+              <div class="trust-badge-card p-5 sm:p-6 bg-white border-2 border-[#D4D4D8] hover:border-black transition-all flex flex-col justify-center text-center">
+                <span class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold text-black tracking-tight">
+                  NITI AAYOG
+                </span>
+                <span class="block text-xs font-mono uppercase tracking-wider text-[#009b63] font-bold mt-1">
+                  NGO Darpan AP/2021/0276162
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           TAB PANEL 4: MISSION
+           ========================================================================== -->
+      <section id="tab-mission" class="about-tab-panel py-16 sm:py-20 bg-white border-b-2 border-neutral-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <!-- Section Heading -->
+          <div class="mb-10 sm:mb-12 max-w-4xl">
+            <h2 class="font-['Roboto',sans-serif] text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-tight text-black inline-block border-b-4 border-[#686cfc] pb-2">
+              Mission
+            </h2>
+            <p class="mt-4 text-base sm:text-lg text-neutral-700 font-['Inter'] leading-relaxed">
+              Our north star: walking hand-in-hand with marginalized rural families to build lasting self-reliance, child education, and generational freedom.
+            </p>
+          </div>
+
+          <!-- Vision & Mission Style Horizontal Card from Index Page -->
+          <div class="vision-mission-card group flex flex-col md:flex-row items-stretch mb-12">
+            <!-- Left 1/3rd Part: Image -->
+            <div class="w-full md:w-1/3 shrink-0 relative overflow-hidden min-h-[240px] md:min-h-[280px]">
+              <img src="WEBSITE%20IMAGES/ABOUT%20PAGE/IMG_20200511_160814%20(2)%20-%20Copy-min.jpg" alt="Dairy livestock livelihood grant distribution under DWA strategic economic development initiative" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+              <div class="absolute top-3.5 left-3.5 px-2.5 py-1 bg-black text-white font-['Roboto',sans-serif] text-[10px] uppercase tracking-widest font-bold border border-black shadow-sm">
+                VISION &amp; MISSION
+              </div>
+            </div>
+
+            <!-- Right 2/3rd Part: Heading, Body, Link -->
+            <div class="w-full md:w-2/3 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+              <div>
+                <h3 class="font-['Roboto',sans-serif] text-xl sm:text-2xl lg:text-3xl font-bold uppercase text-black tracking-tight mb-3">
+                  OUR COMPASSIONATE VISION &amp; FIELD MISSION
+                </h3>
+                <p class="font-['Inter'] text-base sm:text-lg text-neutral-800 leading-relaxed font-normal">
+                  We dream of a compassionate society where the rural poor are fully empowered—economically, socially, and emotionally—living with dignity regardless of caste, creed, or background. Dalit Welfare Association walks alongside marginalized rural families, creating sustainable opportunities for livelihood and self-reliance through fair, transparent, and community-centered support across Rayalaseema.
+                </p>
+              </div>
+              <div class="mt-6 sm:mt-8 pt-4 border-t border-neutral-100">
+                <a href="projects.html" class="hero-style-link group/link inline-flex items-center gap-3 text-base sm:text-lg font-['Roboto'] font-bold text-black border-b-2 border-black hover:border-[#686cfc] hover:text-[#686cfc] pb-1 transition-all">
+                  <span>Explore our active field programs</span>
+                  <span class="hero-arrow inline-block transition-transform duration-200 group-hover/link:translate-x-2 font-mono text-xl sm:text-2xl font-black">&rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 Programmatic Pillar Cards (Trust-Badge Style from Index Page) -->
+          <div class="mb-12">
+            <h3 class="font-['Roboto',sans-serif] text-lg sm:text-xl font-bold uppercase tracking-tight text-black mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 bg-black inline-block"></span>
+              Core Programmatic Pillars &amp; Action Areas
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+              
+              <!-- Pillar 1 -->
+              <div class="trust-badge-card p-6 sm:p-7 flex flex-col justify-start group bg-white border-2 border-[#D4D4D8] hover:border-black transition-all cursor-default text-black">
+                <div class="mb-3">
+                  <h4 class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold uppercase tracking-tight text-black leading-snug">
+                    WOMEN'S ENTERPRISE
+                  </h4>
+                  <span class="block text-xs sm:text-sm font-mono font-bold tracking-wider text-black mt-1.5">
+                    50 WOMEN / COHORT &bull; LIVELIHOOD INCUBATION
+                  </span>
+                </div>
+                <p class="font-['Inter'] text-sm sm:text-base text-black leading-relaxed">
+                  Providing 10 sewing machines, 80 sheep for livestock rearing, and 20 micro-grocery setups with 12-month coaching, bank accounts, and mobile UPI payments.
+                </p>
+              </div>
+
+              <!-- Pillar 2 -->
+              <div class="trust-badge-card p-6 sm:p-7 flex flex-col justify-start group bg-white border-2 border-[#D4D4D8] hover:border-black transition-all cursor-default text-black">
+                <div class="mb-3">
+                  <h4 class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold uppercase tracking-tight text-black leading-snug">
+                    CHILD EDUCATION
+                  </h4>
+                  <span class="block text-xs sm:text-sm font-mono font-bold tracking-wider text-black mt-1.5">
+                    10 PRIMARY SCHOOLS &bull; SCHOLARSHIPS &amp; KITS
+                  </span>
+                </div>
+                <p class="font-['Inter'] text-sm sm:text-base text-black leading-relaxed">
+                  Distributing backpacks, uniforms, notebooks, and merit scholarships to underprivileged Dalit students across Sirivella and Bandi Atmakur to stop dropouts.
+                </p>
+              </div>
+
+              <!-- Pillar 3 -->
+              <div class="trust-badge-card p-6 sm:p-7 flex flex-col justify-start group bg-white border-2 border-[#D4D4D8] hover:border-black transition-all cursor-default text-black">
+                <div class="mb-3">
+                  <h4 class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold uppercase tracking-tight text-black leading-snug">
+                    COMMUNITY RELIEF
+                  </h4>
+                  <span class="block text-xs sm:text-sm font-mono font-bold tracking-wider text-black mt-1.5">
+                    EMERGENCY SUPPORT &bull; WINTER &amp; DROUGHT AID
+                  </span>
+                </div>
+                <p class="font-['Inter'] text-sm sm:text-base text-black leading-relaxed">
+                  Delivering emergency rations during drought crop failures, winter supplies for elderly widows, drinking water sanitation, and health camp assistance.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Measurable Impact Targets (Tab 1 lower section style) -->
+          <div class="mt-8 pt-8 border-t-2 border-neutral-200">
+            <h3 class="font-['Roboto',sans-serif] text-lg sm:text-xl font-bold uppercase tracking-tight text-black mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 bg-black inline-block"></span>
+              Grassroots Impact Metrics &amp; Operational Targets
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+              
+              <!-- Target 1: Women-Led Enterprises -->
+              <div class="trust-badge-card p-5 sm:p-6 bg-white border-2 border-[#D4D4D8] hover:border-black transition-all flex flex-col justify-center">
+                <span class="block text-xs font-mono uppercase tracking-wider text-neutral-600 font-bold">
+                  Women-Led Enterprises
+                </span>
+                <span class="font-['Roboto',sans-serif] text-2xl sm:text-3xl font-bold text-black tracking-tight mt-1">
+                  50+ Cohorts
+                </span>
+                <span class="block text-xs font-mono text-neutral-600 mt-1">
+                  10 Machines • 80 Sheep • 20 Shops
+                </span>
+              </div>
+
+              <!-- Target 2: School Children Supported -->
+              <div class="trust-badge-card p-5 sm:p-6 bg-white border-2 border-[#D4D4D8] hover:border-black transition-all flex flex-col justify-center">
+                <span class="block text-xs font-mono uppercase tracking-wider text-neutral-600 font-bold">
+                  Dalit Children Supported
+                </span>
+                <span class="font-['Roboto',sans-serif] text-2xl sm:text-3xl font-bold text-black tracking-tight mt-1">
+                  500+ Students
+                </span>
+                <span class="block text-xs font-mono text-neutral-600 mt-1">
+                  10 Government Primary Schools
+                </span>
+              </div>
+
+              <!-- Target 3: Direct Emergency Aid -->
+              <div class="trust-badge-card p-5 sm:p-6 bg-white border-2 border-[#D4D4D8] hover:border-black transition-all flex flex-col justify-center">
+                <span class="block text-xs font-mono uppercase tracking-wider text-neutral-600 font-bold">
+                  Community Aid &amp; Relief
+                </span>
+                <span class="font-['Roboto',sans-serif] text-2xl sm:text-3xl font-bold text-black tracking-tight mt-1">
+                  100% Voluntary
+                </span>
+                <span class="block text-xs font-mono text-neutral-600 mt-1">
+                  0% Commercial Administrative Profit
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           TAB PANEL 5: PEOPLE
+           ========================================================================== -->
+      <section id="tab-people" class="about-tab-panel py-16 sm:py-20 bg-white border-b-2 border-neutral-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <!-- Section Heading -->
+          <div class="mb-10 sm:mb-12 max-w-4xl">
+            <h2 class="font-['Roboto',sans-serif] text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-tight text-black inline-block border-b-4 border-[#686cfc] pb-2">
+              People
+            </h2>
+            <p class="mt-4 text-base sm:text-lg text-neutral-700 font-['Inter'] leading-relaxed">
+              Meet the dedicated leaders, voluntary trustees, and grassroots field coordinators driving our community missions forward every day.
+            </p>
+          </div>
+
+          <!-- Vision & Mission Style Horizontal Card from Index Page -->
+          <div class="vision-mission-card group flex flex-col md:flex-row items-stretch mb-12">
+            <!-- Left 1/3rd Part: Image -->
+            <div class="w-full md:w-1/3 shrink-0 relative overflow-hidden min-h-[240px] md:min-h-[280px]">
+              <img src="WEBSITE%20IMAGES/ABOUT%20PAGE/DSC_0831-min.JPG" alt="Dalit Welfare Association Governing Body, Founder President S. Samuel, and community trustees" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+              <div class="absolute top-3.5 left-3.5 px-2.5 py-1 bg-black text-white font-['Roboto',sans-serif] text-[10px] uppercase tracking-widest font-bold border border-black shadow-sm">
+                GOVERNANCE COUNCIL
+              </div>
+            </div>
+
+            <!-- Right 2/3rd Part: Heading, Body, Link -->
+            <div class="w-full md:w-2/3 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+              <div>
+                <h3 class="font-['Roboto',sans-serif] text-xl sm:text-2xl lg:text-3xl font-bold uppercase text-black tracking-tight mb-3">
+                  DEDICATED LEADERSHIP DRIVEN BY COMPASSION
+                </h3>
+                <p class="font-['Inter'] text-base sm:text-lg text-neutral-800 leading-relaxed font-normal">
+                  Our executive board brings together decades of community service, grounded in local understanding and non-profit dedication under our association bylaws. Under our strict governance rules, all income and assets belong entirely to the public charity—no board member receives commercial dividends or executive salaries. Every effort is dedicated to serving people in need with dignity and love.
+                </p>
+              </div>
+              <div class="mt-6 sm:mt-8 pt-4 border-t border-neutral-100">
+                <a href="accountability.html" class="hero-style-link group/link inline-flex items-center gap-3 text-base sm:text-lg font-['Roboto'] font-bold text-black border-b-2 border-black hover:border-[#686cfc] hover:text-[#686cfc] pb-1 transition-all">
+                  <span>Review our association bylaws &amp; compliance</span>
+                  <span class="hero-arrow inline-block transition-transform duration-200 group-hover/link:translate-x-2 font-mono text-xl sm:text-2xl font-black">&rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 Executive Board Leadership Cards (Trust-Badge Style from Index Page) -->
+          <div class="mb-12">
+            <h3 class="font-['Roboto',sans-serif] text-lg sm:text-xl font-bold uppercase tracking-tight text-black mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 bg-black inline-block"></span>
+              Voluntary Executive Board &amp; Trustees
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+              
+              <!-- Leader 1: President -->
+              <div class="trust-badge-card p-6 sm:p-7 flex flex-col justify-start group bg-white border-2 border-[#D4D4D8] hover:border-black transition-all cursor-default text-black">
+                <div class="mb-3">
+                  <h4 class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold uppercase tracking-tight text-black leading-snug">
+                    S. SAMUEL
+                  </h4>
+                  <span class="block text-xs sm:text-sm font-mono font-bold tracking-wider text-black mt-1.5">
+                    PRESIDENT &bull; UNBROKEN SINCE 1993
+                  </span>
+                </div>
+                <p class="font-['Inter'] text-sm sm:text-base text-black leading-relaxed">
+                  Leading DWA with over 30 years of selfless devotion to community welfare, legal compliance, and guiding our long-term vision across Andhra Pradesh.
+                </p>
+              </div>
+
+              <!-- Leader 2: Vice President -->
+              <div class="trust-badge-card p-6 sm:p-7 flex flex-col justify-start group bg-white border-2 border-[#D4D4D8] hover:border-black transition-all cursor-default text-black">
+                <div class="mb-3">
+                  <h4 class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold uppercase tracking-tight text-black leading-snug">
+                    JANGAM NIRMALA
+                  </h4>
+                  <span class="block text-xs sm:text-sm font-mono font-bold tracking-wider text-black mt-1.5">
+                    VICE PRESIDENT &bull; WOMEN'S WING LEAD
+                  </span>
+                </div>
+                <p class="font-['Inter'] text-sm sm:text-base text-black leading-relaxed">
+                  Directing grassroots outreach and ensuring that our programs meet the true daily needs of women and families in rural Kurnool through SHG mentorship.
+                </p>
+              </div>
+
+              <!-- Leader 3: General Secretary -->
+              <div class="trust-badge-card p-6 sm:p-7 flex flex-col justify-start group bg-white border-2 border-[#D4D4D8] hover:border-black transition-all cursor-default text-black">
+                <div class="mb-3">
+                  <h4 class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold uppercase tracking-tight text-black leading-snug">
+                    BANDELA LAKSHMAMMA
+                  </h4>
+                  <span class="block text-xs sm:text-sm font-mono font-bold tracking-wider text-black mt-1.5">
+                    GENERAL SECRETARY &bull; COMPLIANCE
+                  </span>
+                </div>
+                <p class="font-['Inter'] text-sm sm:text-base text-black leading-relaxed">
+                  Managing day-to-day operations, community correspondence, regulatory filings, and building warm relationships with supporters and village elders.
+                </p>
+              </div>
+
+              <!-- Leader 4: Treasurer -->
+              <div class="trust-badge-card p-6 sm:p-7 flex flex-col justify-start group bg-white border-2 border-[#D4D4D8] hover:border-black transition-all cursor-default text-black">
+                <div class="mb-3">
+                  <h4 class="font-['Roboto',sans-serif] text-base sm:text-lg font-bold uppercase tracking-tight text-black leading-snug">
+                    P. SAROJAMMA
+                  </h4>
+                  <span class="block text-xs sm:text-sm font-mono font-bold tracking-wider text-black mt-1.5">
+                    TREASURER &bull; FINANCIAL CUSTODY
+                  </span>
+                </div>
+                <p class="font-['Inter'] text-sm sm:text-base text-black leading-relaxed">
+                  Safeguarding financial records with total care, ensuring every rupee is used honestly for charitable community programs with CA audit compliance.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Featured Field Coordination & Leadership Contacts -->
+          <div class="mt-8 pt-8 border-t-2 border-neutral-200">
+            <h3 class="font-['Roboto',sans-serif] text-lg sm:text-xl font-bold uppercase tracking-tight text-black mb-6 flex items-center gap-2">
+              <span class="w-2 h-2 bg-black inline-block"></span>
+              Field Operations &amp; Direct Leadership Contacts
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+              
+              <!-- Card 1: Field Leadership -->
+              <div class="trust-badge-card p-5 sm:p-6 bg-white border-2 border-[#D4D4D8] hover:border-black transition-all flex flex-col justify-center">
+                <span class="block text-xs font-mono uppercase tracking-wider text-neutral-600 font-bold">
+                  Project Officer &amp; Field Coordinator
+                </span>
+                <span class="font-['Roboto',sans-serif] text-xl sm:text-2xl font-bold text-black tracking-tight mt-1">
+                  S. Moses
+                </span>
+                <span class="block text-xs font-mono text-neutral-600 mt-1">
+                  20+ Years Direct Village Immersion
+                </span>
+              </div>
+
+              <!-- Card 2: Operational Base -->
+              <div class="trust-badge-card p-5 sm:p-6 bg-white border-2 border-[#D4D4D8] hover:border-black transition-all flex flex-col justify-center">
+                <span class="block text-xs font-mono uppercase tracking-wider text-neutral-600 font-bold">
+                  Operational Headquarters
+                </span>
+                <span class="font-['Roboto',sans-serif] text-xl sm:text-2xl font-bold text-black tracking-tight mt-1">
+                  Parnapalli HQ
+                </span>
+                <span class="block text-xs font-mono text-neutral-600 mt-1">
+                  Sirivella, Bandi Atmakur &amp; Gospadu
+                </span>
+              </div>
+
+              <!-- Card 3: Direct Hotline -->
+              <div class="trust-badge-card p-5 sm:p-6 bg-white border-2 border-[#D4D4D8] hover:border-black transition-all flex flex-col justify-center">
+                <span class="block text-xs font-mono uppercase tracking-wider text-neutral-600 font-bold">
+                  Direct Field Hotline
+                </span>
+                <span class="font-['Roboto',sans-serif] text-xl sm:text-2xl font-bold text-black tracking-tight mt-1">
+                  +91 83097 44864
+                </span>
+                <span class="block text-xs font-mono text-neutral-600 mt-1">
+                  Direct Inquiries &amp; Field Verification
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Clean Field Image Carousel (Above Newsletter Subscription) -->
+    <section id="about-field-slider" class="py-8 sm:py-12 bg-[#F9FAFB] border-t-2 border-black" aria-label="Image Carousel">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Controls Bar: Minimal & Clean (No headings or descriptions) -->
+        <div class="flex items-center justify-between mb-4 sm:mb-6">
+          <div id="about-slider-counter" class="font-mono text-sm sm:text-base font-black text-black px-3.5 py-1.5 bg-white border-2 border-black select-none tracking-wider">
+            01 / 10
+          </div>
+          
+          <div class="flex items-center gap-2">
+            <button id="about-slider-prev" type="button" aria-label="Previous image" class="w-10 h-10 sm:w-11 sm:h-11 bg-white hover:bg-black text-black hover:text-white border-2 border-black flex items-center justify-center transition-colors cursor-pointer group shadow-none">
+              <svg class="w-5 h-5 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <button id="about-slider-next" type="button" aria-label="Next image" class="w-10 h-10 sm:w-11 sm:h-11 bg-white hover:bg-black text-black hover:text-white border-2 border-black flex items-center justify-center transition-colors cursor-pointer group shadow-none">
+              <svg class="w-5 h-5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slider Track Container -->
+        <div class="relative">
+          <div id="about-slider-track" class="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth scrollbar-none pb-2 cursor-grab active:cursor-grabbing select-none" style="scrollbar-width: none; -ms-overflow-style: none;">
+            <!-- Image Card 1 -->
+            <div class="about-slide-card flex-none w-[260px] sm:w-[350px] md:w-[400px] h-[195px] sm:h-[250px] md:h-[280px] bg-neutral-100 border-2 border-[#D4D4D8] hover:border-black overflow-hidden relative cursor-pointer group transition-all" data-full-img="WEBSITE%20IMAGES/GALLERY/img_20200430_101121.jpg" data-slide-index="0" role="button" tabindex="0" aria-label="View photo 1 in popup">
+              <img src="WEBSITE%20IMAGES/GALLERY/img_20200430_101121.jpg" alt="Rural Dalit students writing on slates during village coaching class" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" />
+              <div class="absolute bottom-3 right-3 w-8 h-8 bg-black/80 group-hover:bg-black text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Image Card 2 -->
+            <div class="about-slide-card flex-none w-[260px] sm:w-[350px] md:w-[400px] h-[195px] sm:h-[250px] md:h-[280px] bg-neutral-100 border-2 border-[#D4D4D8] hover:border-black overflow-hidden relative cursor-pointer group transition-all" data-full-img="WEBSITE%20IMAGES/GALLERY/IMG_20191227_151859.jpg" data-slide-index="1" role="button" tabindex="0" aria-label="View photo 2 in popup">
+              <img src="WEBSITE%20IMAGES/GALLERY/IMG_20191227_151859.jpg" alt="Global Compassion Inc. collaborative grant distribution to rural women self-help beneficiaries" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" />
+              <div class="absolute bottom-3 right-3 w-8 h-8 bg-black/80 group-hover:bg-black text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Image Card 3 -->
+            <div class="about-slide-card flex-none w-[260px] sm:w-[350px] md:w-[400px] h-[195px] sm:h-[250px] md:h-[280px] bg-neutral-100 border-2 border-[#D4D4D8] hover:border-black overflow-hidden relative cursor-pointer group transition-all" data-full-img="WEBSITE%20IMAGES/GALLERY/dsc_0816.jpg" data-slide-index="2" role="button" tabindex="0" aria-label="View photo 3 in popup">
+              <img src="WEBSITE%20IMAGES/GALLERY/dsc_0816.jpg" alt="Village community training workshop on herbal medicinal plants and sustainable health" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" />
+              <div class="absolute bottom-3 right-3 w-8 h-8 bg-black/80 group-hover:bg-black text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Image Card 4 -->
+            <div class="about-slide-card flex-none w-[260px] sm:w-[350px] md:w-[400px] h-[195px] sm:h-[250px] md:h-[280px] bg-neutral-100 border-2 border-[#D4D4D8] hover:border-black overflow-hidden relative cursor-pointer group transition-all" data-full-img="WEBSITE%20IMAGES/GALLERY/25.jpg" data-slide-index="3" role="button" tabindex="0" aria-label="View photo 4 in popup">
+              <img src="WEBSITE%20IMAGES/GALLERY/25.jpg" alt="Rural community assembly gathering with Dalit Welfare Association field workers" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" />
+              <div class="absolute bottom-3 right-3 w-8 h-8 bg-black/80 group-hover:bg-black text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Image Card 5 -->
+            <div class="about-slide-card flex-none w-[260px] sm:w-[350px] md:w-[400px] h-[195px] sm:h-[250px] md:h-[280px] bg-neutral-100 border-2 border-[#D4D4D8] hover:border-black overflow-hidden relative cursor-pointer group transition-all" data-full-img="WEBSITE%20IMAGES/GALLERY/img_20191227_150854.jpg" data-slide-index="4" role="button" tabindex="0" aria-label="View photo 5 in popup">
+              <img src="WEBSITE%20IMAGES/GALLERY/img_20191227_150854.jpg" alt="Dalit Welfare Association grassroots community awareness meeting in Kurnool district" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" />
+              <div class="absolute bottom-3 right-3 w-8 h-8 bg-black/80 group-hover:bg-black text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Image Card 6 -->
+            <div class="about-slide-card flex-none w-[260px] sm:w-[350px] md:w-[400px] h-[195px] sm:h-[250px] md:h-[280px] bg-neutral-100 border-2 border-[#D4D4D8] hover:border-black overflow-hidden relative cursor-pointer group transition-all" data-full-img="WEBSITE%20IMAGES/GALLERY/img_20200430_101145.jpg" data-slide-index="5" role="button" tabindex="0" aria-label="View photo 6 in popup">
+              <img src="WEBSITE%20IMAGES/GALLERY/img_20200430_101145.jpg" alt="Primary education and tutoring session conducted in rural village community" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" />
+              <div class="absolute bottom-3 right-3 w-8 h-8 bg-black/80 group-hover:bg-black text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Image Card 7 -->
+            <div class="about-slide-card flex-none w-[260px] sm:w-[350px] md:w-[400px] h-[195px] sm:h-[250px] md:h-[280px] bg-neutral-100 border-2 border-[#D4D4D8] hover:border-black overflow-hidden relative cursor-pointer group transition-all" data-full-img="WEBSITE%20IMAGES/GALLERY/img_20200828_wa0060.jpg" data-slide-index="6" role="button" tabindex="0" aria-label="View photo 7 in popup">
+              <img src="WEBSITE%20IMAGES/GALLERY/img_20200828_wa0060.jpg" alt="Emergency dry ration kit distribution by DWA field volunteers" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" />
+              <div class="absolute bottom-3 right-3 w-8 h-8 bg-black/80 group-hover:bg-black text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Image Card 8 -->
+            <div class="about-slide-card flex-none w-[260px] sm:w-[350px] md:w-[400px] h-[195px] sm:h-[250px] md:h-[280px] bg-neutral-100 border-2 border-[#D4D4D8] hover:border-black overflow-hidden relative cursor-pointer group transition-all" data-full-img="WEBSITE%20IMAGES/GALLERY/img_20200813_wa0004.jpg" data-slide-index="7" role="button" tabindex="0" aria-label="View photo 8 in popup">
+              <img src="WEBSITE%20IMAGES/GALLERY/img_20200813_wa0004.jpg" alt="Field humanitarian assistance and welfare provisions delivered to vulnerable families" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" />
+              <div class="absolute bottom-3 right-3 w-8 h-8 bg-black/80 group-hover:bg-black text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Image Card 9 -->
+            <div class="about-slide-card flex-none w-[260px] sm:w-[350px] md:w-[400px] h-[195px] sm:h-[250px] md:h-[280px] bg-neutral-100 border-2 border-[#D4D4D8] hover:border-black overflow-hidden relative cursor-pointer group transition-all" data-full-img="WEBSITE%20IMAGES/GALLERY/img_20200527_125607.jpg" data-slide-index="8" role="button" tabindex="0" aria-label="View photo 9 in popup">
+              <img src="WEBSITE%20IMAGES/GALLERY/img_20200527_125607.jpg" alt="Dairy livestock and sustainable farming initiative field verification" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" />
+              <div class="absolute bottom-3 right-3 w-8 h-8 bg-black/80 group-hover:bg-black text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Image Card 10 -->
+            <div class="about-slide-card flex-none w-[260px] sm:w-[350px] md:w-[400px] h-[195px] sm:h-[250px] md:h-[280px] bg-neutral-100 border-2 border-[#D4D4D8] hover:border-black overflow-hidden relative cursor-pointer group transition-all" data-full-img="WEBSITE%20IMAGES/GALLERY/img_20200317_wa0005.jpg" data-slide-index="9" role="button" tabindex="0" aria-label="View photo 10 in popup">
+              <img src="WEBSITE%20IMAGES/GALLERY/img_20200317_wa0005.jpg" alt="Community healthcare and wellness outreach in rural Andhra Pradesh" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 pointer-events-none" loading="lazy" />
+              <div class="absolute bottom-3 right-3 w-8 h-8 bg-black/80 group-hover:bg-black text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                </svg>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 10 Indicator Dots -->
+        <div id="about-slider-dots" class="flex items-center justify-center gap-2 mt-6">
+          <button type="button" aria-label="Go to image 1" class="about-slider-dot w-8 h-2.5 bg-black border border-black transition-all cursor-pointer" aria-current="true"></button>
+          <button type="button" aria-label="Go to image 2" class="about-slider-dot w-2.5 h-2.5 bg-neutral-300 border border-neutral-400 hover:bg-neutral-500 transition-all cursor-pointer"></button>
+          <button type="button" aria-label="Go to image 3" class="about-slider-dot w-2.5 h-2.5 bg-neutral-300 border border-neutral-400 hover:bg-neutral-500 transition-all cursor-pointer"></button>
+          <button type="button" aria-label="Go to image 4" class="about-slider-dot w-2.5 h-2.5 bg-neutral-300 border border-neutral-400 hover:bg-neutral-500 transition-all cursor-pointer"></button>
+          <button type="button" aria-label="Go to image 5" class="about-slider-dot w-2.5 h-2.5 bg-neutral-300 border border-neutral-400 hover:bg-neutral-500 transition-all cursor-pointer"></button>
+          <button type="button" aria-label="Go to image 6" class="about-slider-dot w-2.5 h-2.5 bg-neutral-300 border border-neutral-400 hover:bg-neutral-500 transition-all cursor-pointer"></button>
+          <button type="button" aria-label="Go to image 7" class="about-slider-dot w-2.5 h-2.5 bg-neutral-300 border border-neutral-400 hover:bg-neutral-500 transition-all cursor-pointer"></button>
+          <button type="button" aria-label="Go to image 8" class="about-slider-dot w-2.5 h-2.5 bg-neutral-300 border border-neutral-400 hover:bg-neutral-500 transition-all cursor-pointer"></button>
+          <button type="button" aria-label="Go to image 9" class="about-slider-dot w-2.5 h-2.5 bg-neutral-300 border border-neutral-400 hover:bg-neutral-500 transition-all cursor-pointer"></button>
+          <button type="button" aria-label="Go to image 10" class="about-slider-dot w-2.5 h-2.5 bg-neutral-300 border border-neutral-400 hover:bg-neutral-500 transition-all cursor-pointer"></button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+    <!-- Complete OSF Footer -->
+  <footer class="site-footer bg-black text-white">
+    
+    <!-- Theme Colour Footer Subscription Module (OSF Style) -->
+    <div class="footer-subscribe-bar bg-[#686cfc] text-white py-10 sm:py-12 px-4 sm:px-6 lg:px-8 border-y-2 border-black">
+      <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+        <div class="max-w-2xl text-left">
+          <h4 class="newsletter-kicker font-['Roboto',sans-serif] font-black text-xs sm:text-sm uppercase tracking-widest text-white mb-1.5 flex items-center gap-2">
+            <span class="w-2 h-2 bg-white inline-block"></span>
+            Newsletter Subscription
+          </h4>
+          <h3 class="font-['Roboto',sans-serif] font-bold text-base sm:text-lg lg:text-xl text-white leading-snug tracking-tight mb-2">
+            Subscribe to updates about Dalit Welfare Association’s work around the world
+          </h3>
+          <p class="font-['Inter'] text-sm sm:text-base text-blue-100 leading-relaxed font-medium">
+            By entering your email address and clicking “Submit,” you agree to receive updates from the Dalit Welfare Association about our work. To learn more about how we use and protect your personal data, please view our <button type="button" onclick="openPolicyModal('privacy-modal')" class="policy-link text-white font-bold underline underline-offset-4 hover:opacity-75 transition-opacity cursor-pointer">privacy policy</button>.
+          </p>
+        </div>
+        <div class="w-full lg:w-auto lg:min-w-[440px]">
+          <form onsubmit="event.preventDefault(); alert('Thank you for subscribing to Dalit Welfare Association updates.');" class="flex flex-col sm:flex-row gap-0 rounded-none shadow-none">
+            <input type="email" required placeholder="Enter your email address" class="px-5 py-4 text-sm sm:text-base text-black placeholder:text-neutral-500 w-full focus:outline-none font-['Inter'] font-medium bg-white border-2 border-black sm:border-r-0 rounded-none shadow-none">
+            <button type="submit" class="bg-black hover:bg-neutral-800 text-white px-8 py-4 text-sm sm:text-base font-['Roboto'] uppercase tracking-wider font-bold transition-colors shrink-0 rounded-none shadow-none border-0 outline-none">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Footer Body: Pure Black Background in Left to Right Format -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        <!-- Left Block: Square Logo + Title + Description Block + 3-4 Line Credibility Note + Social Icons -->
+        <div class="lg:col-span-5 flex flex-col justify-between">
+          <div>
+            <!-- Logo, Title & Description Block -->
+            <div class="flex items-center gap-3.5 mb-5">
+              <div class="w-12 h-12 bg-white border border-neutral-700 p-1 flex items-center justify-center shrink-0">
+                <img src="logo.png" alt="Dalit Welfare Association Logo" class="w-full h-full object-contain">
+              </div>
+              <div>
+                <span class="block font-['Roboto'] font-bold text-2xl text-[#686cfc] tracking-tight leading-none footer-brand-title">
+                  Dalit Welfare Association
+                </span>
+                <span class="block font-['Inter'] font-normal text-sm text-white mt-1">
+                  Stronger Together
+                </span>
+              </div>
+            </div>
+
+            <!-- 3-4 Line Credibility Description -->
+            <p class="font-['Inter'] text-sm text-white leading-relaxed font-normal mb-6 footer-org-desc">
+              Dalit Welfare Association (DWA) is a credible grassroots non-profit established in 1993, dedicated to rural dignity, education, and women’s economic independence in Andhra Pradesh. We operate with strict statutory compliance, holding permanent FCRA certification (MHA Reg No. 010270166), 12A and 80G tax exemptions, and are officially verified on the global Benevity platform for transparent corporate matching and international donor integrity.
+            </p>
+
+            <!-- Registered Office Address -->
+            <div class="mb-6 pt-4 border-t border-neutral-800">
+              <span class="block font-['Roboto'] font-bold text-sm uppercase tracking-wider text-[#686cfc] mb-1.5 flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-[#686cfc] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span>Registered Central Office:</span>
+              </span>
+              <p class="font-['Inter'] text-sm text-white leading-relaxed font-normal">
+                H.No. 4-84, S.C. Colony, Parnapalli Village &amp; Post, Bandi Atmakur Mandal, Kurnool District, Andhra Pradesh 518523, India.
+              </p>
+            </div>
+          </div>
+
+          <!-- Social Media Handles Icons (LinkedIn, Email, Instagram, Phone) -->
+          <div class="pt-2">
+            <span class="block font-['Roboto'] font-bold text-sm uppercase tracking-wider text-[#686cfc] mb-3">Connect With Us:</span>
+            <div class="flex items-center gap-3 flex-wrap">
+              <!-- LinkedIn -->
+              <a href="https://id.linkedin.com/company/dalitwelfareassociation" target="_blank" rel="noopener noreferrer" class="footer-social-link flex items-center gap-2 px-3.5 py-2 bg-neutral-900 hover:bg-[#686cfc] text-white hover:text-black border border-neutral-700 hover:border-[#686cfc] text-sm font-['Roboto'] font-bold transition-all" title="LinkedIn">
+                <svg class="w-4 h-4 shrink-0 fill-current" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.53 1.53 0 1 0-.01-3.05 1.53 1.53 0 0 0 .01 3.05m1.39 9.74v-8.37H5.07v8.37h2.78z"/>
+                </svg>
+                <span>LinkedIn</span>
+              </a>
+              
+              <!-- Email -->
+              <a href="mailto:dalitwelfareassociation1@gmail.com" class="footer-social-link flex items-center gap-2 px-3.5 py-2 bg-neutral-900 hover:bg-[#686cfc] text-white hover:text-black border border-neutral-700 hover:border-[#686cfc] text-sm font-['Roboto'] font-bold transition-all" title="Email DWA">
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                <span>Email</span>
+              </a>
+
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/dwaindia" target="_blank" rel="noopener noreferrer" class="footer-social-link flex items-center gap-2 px-3.5 py-2 bg-neutral-900 hover:bg-[#686cfc] text-white hover:text-black border border-neutral-700 hover:border-[#686cfc] text-sm font-['Roboto'] font-bold transition-all" title="Instagram">
+                <svg class="w-4 h-4 shrink-0 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                </svg>
+                <span>Instagram</span>
+              </a>
+
+              <!-- Phone -->
+              <a href="tel:+918309744864" class="footer-social-link flex items-center gap-2 px-3.5 py-2 bg-neutral-900 hover:bg-[#686cfc] text-white hover:text-black border border-neutral-700 hover:border-[#686cfc] text-sm font-['Roboto'] font-bold transition-all" title="Call DWA Office">
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+                <span>+91 8309744864</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Middle Column: Navigation Menu -->
+        <div class="lg:col-span-3">
+          <h4 class="font-['Roboto'] font-bold text-sm text-[#686cfc] mb-6 pb-2 border-b border-neutral-800 uppercase tracking-wider">
+            Navigation
+          </h4>
+          <ul class="space-y-3 font-['Inter'] text-sm">
+            <li>
+              <a href="about.html" class="text-white hover:text-[#686cfc] transition-colors font-medium flex items-center justify-between group">
+                <span>About Us</span>
+                <span class="text-neutral-500 group-hover:text-[#686cfc] text-sm font-mono">&rarr;</span>
+              </a>
+            </li>
+            <li>
+              <a href="projects.html" class="text-white hover:text-[#686cfc] transition-colors font-medium flex items-center justify-between group">
+                <span>Programs</span>
+                <span class="text-neutral-500 group-hover:text-[#686cfc] text-sm font-mono">&rarr;</span>
+              </a>
+            </li>
+            <li>
+              <a href="accountability.html" class="text-white hover:text-[#686cfc] transition-colors font-medium flex items-center justify-between group">
+                <span>Accountability</span>
+                <span class="text-neutral-500 group-hover:text-[#686cfc] text-sm font-mono">&rarr;</span>
+              </a>
+            </li>
+            <li>
+              <a href="donate.html" class="text-white hover:text-[#686cfc] transition-colors font-medium flex items-center justify-between group">
+                <span>Donate</span>
+                <span class="text-neutral-500 group-hover:text-[#686cfc] text-sm font-mono">&rarr;</span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Verified Credibility & NGO Portals (Below Navigation) -->
+          <div class="mt-8 pt-5 border-t border-neutral-800">
+            <span class="block font-['Roboto'] font-bold text-sm uppercase tracking-wider text-[#686cfc] mb-3">
+              Verified Credibility Portals:
+            </span>
+            <ul class="space-y-2.5 font-['Inter'] text-sm">
+              <li>
+                <a href="https://give.do/discover/18G1/dalit-welfare-association/" target="_blank" rel="noopener noreferrer" class="text-neutral-300 hover:text-[#686cfc] transition-colors flex items-center justify-between group" title="GiveIndia Official Profile">
+                  <span class="flex items-center gap-1.5 font-medium">
+                    <span class="text-[#686cfc] font-bold">✓</span> GiveIndia / Give.do
+                  </span>
+                  <span class="text-neutral-500 group-hover:text-[#686cfc] text-sm font-mono">&nearr;</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://guidestarindia.org/GSN-9683/DWA" target="_blank" rel="noopener noreferrer" class="text-neutral-300 hover:text-[#686cfc] transition-colors flex items-center justify-between group" title="GuideStar India Official Certification">
+                  <span class="flex items-center gap-1.5 font-medium">
+                    <span class="text-[#686cfc] font-bold">✓</span> GuideStar India (GSN-9683)
+                  </span>
+                  <span class="text-neutral-500 group-hover:text-[#686cfc] text-sm font-mono">&nearr;</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://mygoodness.benevity.org/community/cause/356-5640831431326_7b83" target="_blank" rel="noopener noreferrer" class="text-neutral-300 hover:text-[#686cfc] transition-colors flex items-center justify-between group" title="Benevity Official Causes Profile">
+                  <span class="flex items-center gap-1.5 font-medium">
+                    <span class="text-[#686cfc] font-bold">✓</span> Benevity Causes Platform
+                  </span>
+                  <span class="text-neutral-500 group-hover:text-[#686cfc] text-sm font-mono">&nearr;</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.goodstack.io/" target="_blank" rel="noopener noreferrer" class="text-neutral-300 hover:text-[#686cfc] transition-colors flex items-center justify-between group" title="Goodstack Partner Verification">
+                  <span class="flex items-center gap-1.5 font-medium">
+                    <span class="text-[#686cfc] font-bold">✓</span> Goodstack / Goodera
+                  </span>
+                  <span class="text-neutral-500 group-hover:text-[#686cfc] text-sm font-mono">&nearr;</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right Column: Appealing Donation Button + Benevity Features for Foreigners -->
+        <div class="lg:col-span-4">
+          <h4 class="font-['Roboto'] font-bold text-sm text-[#686cfc] mb-6 pb-2 border-b border-neutral-800 uppercase tracking-wider">
+            Global Support &amp; Giving
+          </h4>
+          
+          <!-- Appealing Donation Button with Red Love Icon -->
+          <div class="mb-6">
+            <a href="donate.html" class="w-full inline-flex items-center justify-center gap-3 bg-[#686cfc] hover:bg-black text-white hover:text-white font-['Roboto'] font-bold text-sm uppercase tracking-wider py-4 px-8 border-2 border-black rounded-none shadow-none transition-colors text-center text-white">
+              <svg class="w-5 h-5 fill-red-600 text-red-600 shrink-0" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+              <span>Donate Securely Now</span>
+              <span class="font-black">&rarr;</span>
+            </a>
+          </div>
+
+          <!-- Short Details about Benevity and its Features for Foreigners -->
+          <div class="bg-neutral-950 border-2 border-neutral-800 p-5">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm font-['Roboto'] font-bold uppercase tracking-wider text-[#686cfc]">Benevity International Giving</span>
+              <span class="text-sm font-mono bg-[#686cfc]/20 text-[#686cfc] px-1.5 py-0.5 border border-[#686cfc]/40">VERIFIED CAUSE</span>
+            </div>
+            <p class="font-['Inter'] text-sm text-neutral-300 leading-relaxed font-normal mb-3">
+              Foreign contributors and global corporate employees (Google, Apple, Microsoft, SAP, Nike, Intel) can give directly via <strong class="text-white">Benevity</strong> (Cause ID: <code class="text-[#686cfc] bg-black px-1 py-0.5 font-mono text-sm">356-5640831431326_7b83</code>).
+            </p>
+            <ul class="text-sm font-['Inter'] text-neutral-300 space-y-1.5 mb-4">
+              <li class="flex items-start gap-1.5">
+                <span class="text-[#686cfc] font-bold">✓</span>
+                <span>Tax-deductible receipts in local foreign currencies (USD, EUR, GBP, CAD).</span>
+              </li>
+              <li class="flex items-start gap-1.5">
+                <span class="text-[#686cfc] font-bold">✓</span>
+                <span>Automatic 1:1 or 2:1 corporate donation matching.</span>
+              </li>
+              <li class="flex items-start gap-1.5">
+                <span class="text-[#686cfc] font-bold">✓</span>
+                <span>Direct FCRA wire conduit via State Bank of India Main Branch, New Delhi.</span>
+              </li>
+            </ul>
+            <a href="https://mygoodness.benevity.org/community/cause/356-5640831431326_7b83" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-['Roboto'] font-bold text-white bg-[#686cfc] hover:bg-black text-white hover:text-white px-4 py-2 transition-colors border-2 border-black rounded-none">
+              <span>Donate via Benevity Platform</span>
+              <span>&nearr;</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Compliance & Copyright: Centered Blocks (Privacy, Refund, Policies & Copyright) -->
+      <div class="mt-16 pt-8 border-t border-neutral-800 flex flex-col items-center justify-center text-center gap-3.5 text-sm font-['Inter'] text-neutral-400">
+        <!-- Block 1 (Above): Centered Group of Policy Elements -->
+        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-medium text-sm text-center">
+          <button onclick="openPolicyModal('privacy-modal')" class="hover:text-[#686cfc] transition-colors cursor-pointer text-sm">Privacy Policy</button>
+          <span class="text-neutral-600">•</span>
+          <button onclick="openPolicyModal('refund-modal')" class="hover:text-[#686cfc] transition-colors cursor-pointer text-sm">Refund Policy</button>
+          <span class="text-neutral-600">•</span>
+          <a href="donate.html#tax-exemption" class="hover:text-[#686cfc] transition-colors text-sm">80G Tax Policy</a>
+          <span class="text-neutral-600">•</span>
+          <a href="donate.html#fcra-repository" class="hover:text-[#686cfc] transition-colors text-sm">FCRA Banking</a>
+        </div>
+
+        <!-- Block 2 (Below): Centered Copyright Note -->
+        <div class="text-sm text-neutral-400 text-center">
+          &copy; 1993–2026 Dalit Welfare Association (DWA). All rights reserved. Registered Society No. 384/1993.
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Privacy Policy Modal Dialog -->
+  <div id="privacy-modal" class="policy-modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title">
+    <div class="bg-white text-black max-w-2xl w-full max-h-[85vh] overflow-y-auto border-2 border-black p-6 sm:p-8 shadow-2xl relative">
+      <div class="flex items-center justify-between pb-4 border-b-2 border-black mb-4">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 bg-[#686cfc] inline-block border border-black"></span>
+          <h3 id="privacy-modal-title" class="font-['Roboto'] font-bold text-xl text-black">DWA Privacy & Data Policy</h3>
+        </div>
+        <button onclick="closePolicyModal('privacy-modal')" class="p-1.5 text-neutral-600 hover:text-black hover:bg-neutral-100 border border-neutral-300 transition-colors" aria-label="Close dialog">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="font-['Inter'] text-sm text-neutral-800 space-y-4 leading-relaxed">
+        <p><strong>1. Our Commitment to Donor Privacy:</strong> Dalit Welfare Association (DWA) is committed to protecting your privacy. We collect personal donor information (such as name, address, email, phone number, and PAN or passport details) strictly for statutory FCRA and Section 80G compliance as required by the Ministry of Home Affairs and Income Tax Department, Government of India.</p>
+        <p><strong>2. No Commercial Sharing or Sale:</strong> We never sell, rent, trade, or share your personal data with third-party marketers or commercial organizations. Information is used exclusively to generate official 80G tax exemption receipts (Form 10BE), send quarterly field bulletins (if opted in), and satisfy statutory CA audit mandates.</p>
+        <p><strong>3. Data Security:</strong> Donor transaction data transmitted over digital gateways (such as Benevity or banking conduits) is processed via secure 256-bit SSL encryption. Statutory accounting records are securely stored and retained in compliance with Indian non-profit governance regulations.</p>
+        <p><strong>4. Contact & Inquiries:</strong> If you wish to update your donor record, request deletion of subscription details, or have questions regarding your data, please contact our administrative office at <a href="mailto:dalitwelfareassociation1@gmail.com" class="text-black font-semibold underline decoration-[#686cfc]">dalitwelfareassociation1@gmail.com</a>.</p>
+      </div>
+      <div class="mt-6 pt-4 border-t border-neutral-200 flex justify-end">
+        <button onclick="closePolicyModal('privacy-modal')" class="bg-black text-white hover:bg-[#686cfc] hover:text-white font-['Roboto'] font-bold text-xs uppercase tracking-wider px-6 py-3 transition-colors border-2 border-black rounded-none shadow-none">Close Policy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Refund & Cancellation Policy Modal Dialog -->
+  <div id="refund-modal" class="policy-modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="refund-modal-title">
+    <div class="bg-white text-black max-w-2xl w-full max-h-[85vh] overflow-y-auto border-2 border-black p-6 sm:p-8 shadow-2xl relative">
+      <div class="flex items-center justify-between pb-4 border-b-2 border-black mb-4">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 bg-[#686cfc] inline-block border border-black"></span>
+          <h3 id="refund-modal-title" class="font-['Roboto'] font-bold text-xl text-black">DWA Donation Refund Policy</h3>
+        </div>
+        <button onclick="closePolicyModal('refund-modal')" class="p-1.5 text-neutral-600 hover:text-black hover:bg-neutral-100 border border-neutral-300 transition-colors" aria-label="Close dialog">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="font-['Inter'] text-sm text-neutral-800 space-y-4 leading-relaxed">
+        <p><strong>1. Nature of Charitable Contributions:</strong> Dalit Welfare Association (DWA) is a registered charitable non-profit society (Reg No. 384/1993). As all donations are voluntary contributions towards social welfare, livelihood empowerment, and educational programs, donations are generally considered non-refundable once deployed into community field initiatives.</p>
+        <p><strong>2. Erroneous or Duplicate Deductions:</strong> If an unintended duplicate transaction occurs or an error was made in the donation amount due to a technical glitch, please notify us within <strong>7 calendar days</strong> of the transaction date with full transaction proof, transaction reference number, and payment receipt.</p>
+        <p><strong>3. Review & Processing:</strong> Genuine grievance claims for erroneous or unauthorized transactions will be verified against our banking records with State Bank of India. Once verified, refunds will be processed via original payment channel within 10 to 14 business days. Please note that if an official 80G tax receipt has already been filed with the Income Tax Department, statutory adjustments may apply.</p>
+        <p><strong>4. Inquiries & Requests:</strong> To request a donation verification or refund inquiry, write to <a href="mailto:dalitwelfareassociation1@gmail.com" class="text-black font-semibold underline decoration-[#686cfc]">dalitwelfareassociation1@gmail.com</a> or call our registered office at <a href="tel:+918309744864" class="text-black font-semibold underline decoration-[#686cfc]">+91 8309744864</a>.</p>
+      </div>
+      <div class="mt-6 pt-4 border-t border-neutral-200 flex justify-end">
+        <button onclick="closePolicyModal('refund-modal')" class="bg-black text-white hover:bg-[#686cfc] hover:text-white font-['Roboto'] font-bold text-xs uppercase tracking-wider px-6 py-3 transition-colors border-2 border-black rounded-none shadow-none">Close Policy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DWA History Pop-Up Note Modal Dialog -->
+  <div id="history-note-modal" class="policy-modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="history-modal-title">
+    <div class="bg-white text-black max-w-3xl w-full max-h-[88vh] overflow-y-auto border-2 border-black p-6 sm:p-8 shadow-2xl relative">
+      <div class="flex items-center justify-between pb-4 border-b-2 border-black mb-5">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-white border border-neutral-300 p-1 flex items-center justify-center shrink-0">
+            <img src="logo.png" alt="DWA Official Logo" class="w-full h-full object-contain">
+          </div>
+          <div>
+            <h3 id="history-modal-title" class="font-['Roboto',sans-serif] font-bold text-lg sm:text-xl text-black uppercase tracking-tight">
+              Dalit Welfare Association (DWA) • History Note
+            </h3>
+            <span class="block text-xs font-mono text-neutral-500 uppercase tracking-wider font-semibold">
+              30-Year Grassroots Heritage (1993–Present)
+            </span>
+          </div>
+        </div>
+        <button type="button" id="history-modal-close" onclick="closePolicyModal('history-note-modal')" class="p-1.5 text-neutral-600 hover:text-black hover:bg-neutral-100 border border-neutral-300 transition-colors" aria-label="Close dialog">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="font-['Inter'] text-sm sm:text-base text-neutral-800 space-y-4 leading-relaxed">
+        <p>The Dalit Welfare Association (DWA) was established as a service-oriented, non-profit organization on June 22, 1993, in Parnapalli Village, Kurnool District, Andhra Pradesh. Formally registered under the Societies Registration Act XXI of 1860 (Registration No. 384/1993), DWA was founded to uplift marginalized rural communities. Under the leadership of President S. Samuel, the association was created with a non-commercial mandate where office bearers receive no salary or commercial profits. In its initial foundational phase, the organization focused on establishing community trust, promoting adult literacy, and improving rural health and hygiene conditions.</p>
+
+        <p>Between 2004 and 2012, DWA expanded its field execution to cover adult education, solid waste management, environmental awareness, and local income-generation projects. Following a scheduled inactive period from 2012 to 2017, the organization reorganized its administrative framework to handle larger development grants. In the financial year 2016–2017, DWA received an overseas grant of ₹4,39,000 from Global Compassion Inc. USA for a dairy development project in Sirvel and Govindapalle villages. This major milestone established DWA's institutional capability to manage international funds aimed at rural poverty alleviation.</p>
+
+        <p>From 2017 through 2020, DWA broadened its community initiatives to include tailoring trade programs, disabled welfare support, and primary education campaigns across 10 government schools. During the COVID-19 pandemic between 2020 and 2022, the organization actively deployed emergency relief for vulnerable Dalit families and street children. Backed by a grant of ₹8,32,500 from the Divya Foundation in FY 2020–21, DWA distributed 30 kg dry ration packages and educational supply kits. During this era, DWA also reinforced its legal standing by registering on NITI Aayog's NGO Darpan portal and renewing its FCRA credentials.</p>
+
+        <p>In recent years, DWA formalized its statutory compliance profile by obtaining provisional 12A and 80G tax approvals alongside an FCRA renewal valid through September 2028. International contributions were officially routed through a dedicated State Bank of India account at the Main Branch in New Delhi. In FY 2024–25, DWA received ₹33.19 Lakhs from the Grace TPTC Foundation to execute a 12-month Women’s Banking and Entrepreneurship Development Program in Sirivella Block. Today, the association continues to advance female micro-enterprise ownership, child education, and socio-economic inclusion across Rayalaseema.</p>
+      </div>
+
+      <div class="mt-6 pt-4 border-t-2 border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <span class="text-xs font-mono text-neutral-500 font-medium">
+          Permanent Reg No. 384/1993 • FCRA: 010270166
+        </span>
+        <button type="button" id="history-modal-close-footer" onclick="closePolicyModal('history-note-modal')" class="w-full sm:w-auto bg-black text-white hover:bg-[#686cfc] hover:text-white font-['Roboto'] font-bold text-xs uppercase tracking-wider px-6 py-3 transition-colors border-2 border-black rounded-none shadow-none">Close Note</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal Popup for Clean Images -->
+  <div id="image-lightbox-modal" class="fixed inset-0 z-[9999] hidden items-center justify-center p-3 sm:p-6" role="dialog" aria-modal="true" aria-label="Image Preview">
+    <!-- Backdrop -->
+    <div id="lightbox-backdrop" class="absolute inset-0 bg-black/90 backdrop-blur-md cursor-pointer"></div>
+
+    <!-- Top Bar: Counter & Close Button -->
+    <div class="absolute top-4 left-4 right-4 sm:top-6 sm:left-6 sm:right-6 flex items-center justify-between z-20 pointer-events-none">
+      <span id="lightbox-counter" class="font-mono text-xs sm:text-sm font-black text-white px-3 py-1.5 bg-black/80 border-2 border-white/30 backdrop-blur-sm pointer-events-auto select-none tracking-widest">
+        01 / 10
+      </span>
+      <button id="lightbox-close" type="button" aria-label="Close image preview" class="w-10 h-10 sm:w-12 sm:h-12 bg-black/80 hover:bg-white text-white hover:text-black border-2 border-white/40 hover:border-white flex items-center justify-center transition-all cursor-pointer pointer-events-auto shadow-2xl">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button id="lightbox-prev" type="button" aria-label="Previous Image" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-14 sm:h-14 bg-black/80 hover:bg-white text-white hover:text-black border-2 border-white/40 hover:border-white flex items-center justify-center transition-all cursor-pointer z-20 shadow-2xl group">
+      <svg class="w-6 h-6 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+      </svg>
+    </button>
+    
+    <button id="lightbox-next" type="button" aria-label="Next Image" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-14 sm:h-14 bg-black/80 hover:bg-white text-white hover:text-black border-2 border-white/40 hover:border-white flex items-center justify-center transition-all cursor-pointer z-20 shadow-2xl group">
+      <svg class="w-6 h-6 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+
+    <!-- Modal Content: Enlarged Image -->
+    <div class="relative z-10 max-w-5xl max-h-[85vh] flex items-center justify-center p-2">
+      <img id="lightbox-img" src="" alt="Enlarged view" class="max-h-[80vh] sm:max-h-[84vh] max-w-[92vw] sm:max-w-[85vw] object-contain border-2 border-white/30 shadow-2xl transition-opacity duration-200" />
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
