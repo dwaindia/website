@@ -1,0 +1,16 @@
+# Source files and editorial records are internal, not public website or repository content.
+/documents/
+/editorial/
+
+# Legacy internal content file contains unverified sensitive details.
+/content
+
+# Project operational instructions - internal
+AGENTS.md
+
+# Build artifacts & dependencies
+.next/
+node_modules/
+.DS_Store
+*.pyc
+__pycache__/
