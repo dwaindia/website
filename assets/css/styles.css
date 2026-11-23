@@ -1852,21 +1852,44 @@ ul, ol {
   color: #000000;
 }
 
-.editorial-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
+.editorial-link,
+.link-editorial,
+.split-right-matter a.link-editorial,
+.split-right-matter a.btn-outline,
+.split-right-matter a.btn-primary {
+  display: inline-block;
+  font-family: var(--font-sans);
   color: var(--text-primary);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 1px;
-  transition: color 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+  text-decoration-thickness: 1.5px !important;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
-.editorial-link:hover {
-  color: var(--accent-red);
+.editorial-link:hover,
+.link-editorial:hover,
+.split-right-matter a.link-editorial:hover,
+.split-right-matter a.btn-outline:hover,
+.split-right-matter a.btn-primary:hover {
+  color: var(--color-red) !important;
+  text-decoration-color: var(--color-red) !important;
+}
+
+.split-right-matter .matter-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-color);
 }
 
 .doc-photo-holder {
