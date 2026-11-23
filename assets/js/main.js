@@ -826,6 +826,12 @@ function initTabularNavigation() {
         history.replaceState(null, '', '#' + matchedPanel.id);
       }
 
+      // Reset scroll position of the right matter to top when switching chapters
+      if (matchedPanel) {
+        const matter = matchedPanel.querySelector('.split-right-matter');
+        if (matter) matter.scrollTop = 0;
+      }
+
       if (matchedBtn) {
         matchedBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       }

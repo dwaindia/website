@@ -63,8 +63,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-size: 0.84375rem; /* 13.5px on mobile view */
-  line-height: 1.55;
+  font-size: 1rem;
+  line-height: 1.65;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   overflow-x: hidden;
@@ -72,8 +72,19 @@ body {
 
 @media (min-width: 768px) {
   body {
-    font-size: 1.0625rem; /* 17px on desktop */
+    font-size: 1.0625rem;
     line-height: 1.65;
+  }
+}
+
+/* Page Intro Breadcrumb / Top Navigation Text above Title */
+.page-intro-breadcrumb {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .page-intro-breadcrumb {
+    display: none !important;
   }
 }
 
@@ -703,10 +714,10 @@ ul, ol {
 
 .hero-headline {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 5.5vw + 0.25rem, 2.35rem);
+  font-size: 2.25rem;
   font-weight: 400;
   color: var(--text-primary);
-  line-height: 1.16;
+  line-height: 1.15;
   letter-spacing: -0.02em;
   margin-bottom: 1.25rem;
 }
@@ -733,17 +744,17 @@ ul, ol {
 }
 
 .hero-lead {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 400;
   color: var(--text-secondary);
-  line-height: 1.625;
+  line-height: 1.7;
   max-width: 38rem;
   margin-bottom: 1.75rem;
 }
 
 @media (min-width: 768px) {
   .hero-lead {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     line-height: 1.7;
     margin-bottom: 2.25rem;
   }
@@ -2614,10 +2625,10 @@ ul, ol {
 
 @media (max-width: 767px) {
   .tabular-menu-btn {
-    padding: 0.75rem 0.95rem;
-    font-size: 0.6875rem;
-    gap: 0.4rem;
-    min-height: 44px;
+    padding: 0.85rem 1.15rem;
+    font-size: 0.78rem;
+    gap: 0.45rem;
+    min-height: 48px;
     letter-spacing: 0.04em;
   }
 }
@@ -2675,7 +2686,8 @@ ul, ol {
 @media (min-width: 1024px) {
   .fullscreen-split-layout {
     grid-template-columns: 1fr 1fr;
-    min-height: calc(100vh - 122px);
+    min-height: 580px;
+    height: calc(100vh - var(--header-actual-height, 84px) - 52px);
     align-items: stretch;
   }
 }
@@ -2701,9 +2713,11 @@ ul, ol {
 @media (min-width: 1024px) {
   .split-left-photo {
     height: 100%;
-    min-height: calc(100vh - 122px);
+    min-height: 100%;
     border-bottom: none;
     border-right: 1px solid var(--border-color);
+    position: relative;
+    top: 0;
   }
 }
 
@@ -2717,17 +2731,17 @@ ul, ol {
 
 .split-photo-tag {
   position: absolute;
-  bottom: 0.875rem;
-  left: 0.875rem;
+  bottom: 1rem;
+  left: 1rem;
   background-color: rgba(0, 0, 0, 0.90);
   color: #ffffff;
-  padding: 0.35rem 0.65rem;
-  font-size: 0.6875rem;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   border-left: 3px solid var(--color-red);
-  max-width: calc(100% - 1.75rem);
+  max-width: calc(100% - 2rem);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
@@ -2747,35 +2761,55 @@ ul, ol {
   padding: 2.25rem 1.25rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: #ffffff;
 }
 
 @media (min-width: 768px) {
   .split-right-matter {
     padding: 3rem 2.5rem;
+    justify-content: flex-start;
   }
 }
 
 @media (min-width: 1024px) {
   .split-right-matter {
-    padding: 4rem 4.5rem;
-    max-height: calc(100vh - 122px);
+    padding: 3.25rem 3.75rem 6.5rem 3.75rem;
+    height: 100%;
+    max-height: 100%;
     overflow-y: auto;
-    justify-content: center;
+    overflow-x: hidden;
+    justify-content: flex-start !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #8E8E93 #F5F5F7;
   }
 }
 
 @media (min-width: 1280px) {
   .split-right-matter {
-    padding: 4.5rem 5.5rem;
+    padding: 3.5rem 4.5rem 7.5rem 4.5rem;
   }
 }
 
 @media (min-width: 1536px) {
   .split-right-matter {
-    padding: 5rem 6.5rem;
+    padding: 4rem 5.5rem 8.5rem 5.5rem;
   }
+}
+
+.split-right-matter::-webkit-scrollbar {
+  width: 8px;
+}
+.split-right-matter::-webkit-scrollbar-track {
+  background: #F5F5F7;
+}
+.split-right-matter::-webkit-scrollbar-thumb {
+  background: #8E8E93;
+}
+.split-right-matter::-webkit-scrollbar-thumb:hover {
+  background: #171717;
 }
 
 .split-right-matter.bg-tint {
@@ -2785,13 +2819,13 @@ ul, ol {
 .split-matter-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 0.6875rem;
+  gap: 0.5rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--text-secondary);
-  margin-bottom: 0.625rem;
+  margin-bottom: 0.75rem;
 }
 
 @media (min-width: 768px) {
@@ -2805,11 +2839,11 @@ ul, ol {
 
 .split-matter-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.65rem, 5vw, 2.125rem);
+  font-size: 2rem;
   line-height: 1.2;
   font-weight: 400;
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   letter-spacing: -0.015em;
 }
 
@@ -2829,10 +2863,10 @@ ul, ol {
 }
 
 .split-matter-lead {
-  font-size: 0.9375rem;
-  line-height: 1.625;
+  font-size: 1.0625rem;
+  line-height: 1.65;
   color: var(--text-secondary);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 @media (min-width: 768px) {
@@ -3054,47 +3088,23 @@ ul, ol {
 }
 
 /* ==========================================================================
-   5. PREMIUM EDITORIAL ALIGNMENT, WHITESPACE & MOBILE HARMONY (Version 2.3)
-   - Refined mobile text scale: compact, proportional, and highly legible
-   - Equal alignment across all sections, headers, cards, and containers
-   - Generous desktop reading surfaces with museum-grade breathing space
+   5. PREMIUM EDITORIAL ALIGNMENT, WHITESPACE & MOBILE HARMONY (Version 2.2)
+   - Ample whitespace, generous margins & padding for desktop reading surfaces
+   - Elegant fluid typography scale for headlines, eyebrows, and matter
+   - Balanced, touch-friendly proportions on mobile viewports
    ========================================================================== */
 
-/* Fluid Heading Scale for Desktop (>= 768px) */
-@media (min-width: 768px) {
-  h1.font-serif {
-    font-size: clamp(2.25rem, 4.5vw, 3rem);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    text-wrap: balance;
-  }
-
-  h2.font-serif {
-    font-size: clamp(1.85rem, 3.5vw, 2.35rem);
-    line-height: 1.2;
-    letter-spacing: -0.015em;
-    text-wrap: balance;
-  }
-
-  h3.font-serif {
-    font-size: clamp(1.25rem, 2.5vw, 1.65rem);
-    line-height: 1.28;
-    letter-spacing: -0.01em;
-    text-wrap: balance;
-  }
+/* Fluid Heading Scale */
+h1.font-serif {
+  font-size: clamp(2rem, 5.5vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 @media (min-width: 1024px) {
   h1.font-serif {
     font-size: 3rem;
-  }
-
-  h2.font-serif {
-    font-size: 2.5rem;
-  }
-
-  h3.font-serif {
-    font-size: 1.75rem;
   }
 }
 
@@ -3102,264 +3112,71 @@ ul, ol {
   h1.font-serif {
     font-size: 3.35rem;
   }
+}
 
+h2.font-serif {
+  font-size: clamp(1.65rem, 4.5vw, 2.35rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+@media (min-width: 1024px) {
+  h2.font-serif {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
   h2.font-serif {
     font-size: 2.85rem;
   }
 }
 
-/* ==========================================================================
-   MOBILE TYPOGRAPHY REDUCTION & EQUAL ALIGNMENT (< 768px)
-   ========================================================================== */
+h3.font-serif {
+  font-size: clamp(1.25rem, 3.2vw, 1.65rem);
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+@media (min-width: 1024px) {
+  h3.font-serif {
+    font-size: 1.75rem;
+  }
+}
+
+/* Section Spacing Adaptation on Mobile (< 768px) */
 @media (max-width: 767px) {
-  /* 1. Base Typography & Body Scale */
-  body {
-    font-size: 0.84375rem !important; /* 13.5px */
-    line-height: 1.55 !important;
-  }
-
-  p {
-    font-size: 0.84375rem !important;
-    line-height: 1.55 !important;
-  }
-
-  /* 2. Scaled Down Mobile Headings */
-  h1,
-  h1.font-serif,
-  .hero-headline,
-  #about-hero-heading,
-  #programs-hero-heading,
-  #accountability-hero-heading,
-  #donate-hero-heading {
-    font-size: clamp(1.35rem, 4.4vw, 1.6rem) !important;
-    line-height: 1.2 !important;
-    letter-spacing: -0.02em !important;
-    margin-bottom: 0.75rem !important;
-  }
-
-  h2,
-  h2.font-serif,
-  .split-matter-title,
-  #vision-mission-heading,
-  #programs-heading,
-  #credentials-heading {
-    font-size: clamp(1.15rem, 3.6vw, 1.3rem) !important;
-    line-height: 1.25 !important;
-    letter-spacing: -0.015em !important;
-    margin-bottom: 0.75rem !important;
-  }
-
-  h3,
-  h3.font-serif,
-  .benevity-title {
-    font-size: clamp(0.95rem, 2.5vw, 1.05rem) !important;
-    line-height: 1.3 !important;
-    letter-spacing: -0.01em !important;
-    margin-bottom: 0.5rem !important;
-  }
-
-  h4 {
-    font-size: 0.875rem !important;
-    line-height: 1.35 !important;
-    margin-bottom: 0.35rem !important;
-  }
-
-  /* 3. Eyebrows, Badges & Micro-Copy */
-  .split-matter-eyebrow,
-  .eyebrow,
-  .section-eyebrow,
-  .benevity-badge,
-  .split-photo-tag,
-  .program-card-tag,
-  .carousel-caption-tag {
-    font-size: 0.625rem !important; /* 10px */
-    letter-spacing: 0.08em !important;
-    margin-bottom: 0.5rem !important;
-  }
-
-  /* 4. Editorial Leads */
-  .hero-lead,
-  .split-matter-lead,
-  .section-lead,
-  .lead {
-    font-size: 0.875rem !important; /* 14px */
-    line-height: 1.55 !important;
-    margin-bottom: 1.15rem !important;
-  }
-
-  /* 5. Scaled Down Tailwind Utilities on Mobile */
-  .text-5xl { font-size: 1.65rem !important; line-height: 1.2 !important; }
-  .text-4xl { font-size: 1.45rem !important; line-height: 1.22 !important; }
-  .text-3xl { font-size: 1.25rem !important; line-height: 1.25 !important; }
-  .text-2xl { font-size: 1.05rem !important; line-height: 1.3 !important; }
-  .text-xl  { font-size: 0.95rem !important; line-height: 1.35 !important; }
-  .text-lg  { font-size: 0.875rem !important; line-height: 1.5 !important; }
-  .text-base{ font-size: 0.84375rem !important; line-height: 1.55 !important; }
-  .text-sm  { font-size: 0.78125rem !important; line-height: 1.5 !important; }
-  .text-xs  { font-size: 0.6875rem !important; line-height: 1.45 !important; }
-
-  /* 6. Impact Meter Numbers on Mobile */
-  .meter-card span.font-serif.text-4xl,
-  .meter-card span.font-serif.text-5xl,
-  .meter-card span.font-serif {
-    font-size: 1.85rem !important;
-    line-height: 1.1 !important;
-    margin-bottom: 0.25rem !important;
-  }
-
-  /* 7. Action Buttons & Touch Targets */
-  .btn-primary,
-  .btn-secondary,
-  .btn-monochrome,
-  .btn-accent,
-  .btn-outline {
-    font-size: 0.72rem !important;
-    padding: 0.65rem 1rem !important;
-    letter-spacing: 0.04em !important;
-    min-height: 42px !important;
-  }
-
-  /* 8. Tabular Menu on Mobile */
-  .tabular-menu-btn {
-    font-size: 0.65rem !important;
-    padding: 0.55rem 0.75rem !important;
-    min-height: 40px !important;
-    gap: 0.35rem !important;
-    letter-spacing: 0.04em !important;
-  }
-
-  .tabular-menu-btn .tab-num {
-    font-size: 0.6875rem !important;
-  }
-
-  /* 9. EQUAL HORIZONTAL ALIGNMENT & GUTTERS ACROSS WHOLE SITE */
-  .dwa-container {
-    padding-left: 1.25rem !important;
-    padding-right: 1.25rem !important;
-  }
-
-  .hero-split-left {
-    padding: 2.25rem 1.25rem 2rem !important;
-  }
-
-  .split-right-matter {
-    padding: 2rem 1.25rem !important;
-  }
-
-  /* Meter Card Flush Alignment: Remove inner horizontal padding so text aligns flush with 1.25rem page grid line */
-  .meter-card {
-    padding: 1.25rem 0 !important;
-    border-right: none !important;
-    border-bottom: 1px solid var(--border-color) !important;
-  }
-
-  .meter-card:last-child {
-    border-bottom: none !important;
-  }
-
-  /* 10. Strict Left Alignment Across All Content Blocks */
-  .split-right-matter,
-  .hero-split-left,
-  .meter-card,
-  .program-card-info,
-  .intro-banner {
-    text-align: left !important;
-  }
-
-  .footer-col-benevity .btn-accent,
-  .footer-col-benevity span.text-center {
-    text-align: left !important;
-    justify-content: flex-start !important;
-  }
-
-  /* 11. Equal Section Vertical Spacing Rhythm */
   .py-20,
   .py-24,
   .py-28 {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  .py-16 {
     padding-top: 3rem !important;
     padding-bottom: 3rem !important;
   }
 
-  .py-16 {
-    padding-top: 2.75rem !important;
-    padding-bottom: 2.75rem !important;
-  }
-
-  /* Equalized section header bottom margins */
-  .mb-12,
-  .mb-14,
-  .mb-16 {
-    margin-bottom: 1.75rem !important;
-  }
-
-  /* Equalized grid gaps */
   .gap-12,
   .gap-16,
   .gap-20 {
-    gap: 2rem !important;
+    gap: 2.25rem !important;
   }
 
-  /* 12. Full-Width Action Buttons on Mobile for Equal Grid Alignment */
-  .hero-actions,
-  .split-right-matter .flex.flex-wrap.gap-4 {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    gap: 0.75rem !important;
-  }
-
-  .hero-actions a.btn-accent,
-  .hero-actions a.btn-monochrome,
-  .split-right-matter .flex.flex-wrap.gap-4 a.btn-primary,
-  .split-right-matter .flex.flex-wrap.gap-4 a.btn-outline,
-  .split-right-matter .flex.flex-wrap.gap-4 a.btn-accent {
-    width: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-  }
-
-  /* 13. Newsletter Form on Mobile */
-  .newsletter-title {
-    font-size: 1.35rem !important;
-    margin-bottom: 0.35rem !important;
-  }
-
-  .newsletter-desc {
-    font-size: 0.8125rem !important;
-    line-height: 1.5 !important;
-  }
-
-  .newsletter-submit-btn {
-    width: 100% !important;
-    min-height: 44px !important;
-    font-size: 0.75rem !important;
-  }
-
-  .newsletter-privacy-text {
-    font-size: 0.72rem !important;
-  }
-
-  /* 14. Credential Buttons on Mobile */
-  .credential-btn {
-    padding: 0.875rem 1rem !important;
-    min-height: 66px !important;
-  }
-
-  .credential-btn-title {
-    font-size: 0.9rem !important;
-  }
-
-  .credential-btn-sub {
-    font-size: 0.65rem !important;
-  }
-
-  /* 15. Compact Table Cells on Mobile */
+  /* Clear, readable table styling for mobile */
   table th,
   table td {
-    padding: 0.5rem 0.6rem !important;
-    font-size: 0.7rem !important;
+    padding: 0.65rem 0.75rem !important;
+    font-size: 0.8125rem !important;
+  }
+
+  /* Form submit full width */
+  .newsletter-submit-btn {
+    width: 100% !important;
+    min-height: 46px !important;
   }
 }
 
@@ -3375,8 +3192,8 @@ ul, ol {
 /* Page Top Intro Banner Proportions */
 .intro-banner,
 section.py-8.md\:py-10 {
-  padding-top: 2rem !important;
-  padding-bottom: 2rem !important;
+  padding-top: 2.25rem !important;
+  padding-bottom: 2.25rem !important;
 }
 
 @media (min-width: 768px) {
