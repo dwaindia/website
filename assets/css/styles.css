@@ -63,11 +63,18 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  font-size: 0.9375rem;
+  line-height: 1.625;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
 }
 
 img, svg {
@@ -80,13 +87,34 @@ a {
   text-decoration: none;
 }
 
-button, input {
+button, input, textarea, select {
   font: inherit;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select {
+  font-size: 1rem; /* 16px prevents iOS Safari auto-zoom on mobile focus */
+}
+
+@media (min-width: 640px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  textarea,
+  select {
+    font-size: 0.875rem;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   letter-spacing: -0.015em;
+  text-wrap: balance;
 }
 
 ul, ol {
@@ -649,66 +677,93 @@ ul, ol {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 3.5rem 1.25rem 3.5rem;
+  padding: 3rem 1.25rem 2.5rem;
   background-color: #FFFFFF;
 }
 
 @media (min-width: 640px) {
   .hero-split-left {
-    padding: 4.5rem 2.5rem 4.5rem;
+    padding: 4rem 2.5rem 4rem;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-split-left {
-    padding: 3rem 4rem 3rem max(2rem, calc((100vw - 1320px) / 2 + 1.5rem));
+    padding: 4rem 4.5rem 4rem max(2rem, calc((100vw - 1320px) / 2 + 1.5rem));
     height: 100%;
     overflow-y: auto;
   }
 }
 
+@media (min-width: 1440px) {
+  .hero-split-left {
+    padding: 5rem 5.5rem 5rem max(2.5rem, calc((100vw - 1320px) / 2 + 2rem));
+  }
+}
+
 .hero-headline {
   font-family: var(--font-serif);
-  font-size: 2.25rem;
+  font-size: clamp(2rem, 5.5vw + 0.25rem, 2.35rem);
   font-weight: 400;
   color: var(--text-primary);
-  line-height: 1.15;
+  line-height: 1.16;
   letter-spacing: -0.02em;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 @media (min-width: 640px) {
   .hero-headline {
     font-size: 2.75rem;
+    margin-bottom: 1.5rem;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .hero-headline {
-    font-size: 3.5rem;
+    font-size: clamp(2.75rem, 3.5vw + 0.5rem, 3.65rem);
+    line-height: 1.12;
+    margin-bottom: 1.75rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-headline {
+    font-size: 3.85rem;
   }
 }
 
 .hero-lead {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.625;
   max-width: 38rem;
-  margin-bottom: 2.25rem;
+  margin-bottom: 1.75rem;
 }
 
 @media (min-width: 768px) {
   .hero-lead {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 2.25rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-lead {
+    font-size: 1.25rem;
+    line-height: 1.75;
+    max-width: 42rem;
+    margin-bottom: 2.5rem;
   }
 }
 
 .hero-split-right {
   position: relative;
   width: 100%;
-  height: 48vh;
-  min-height: 300px;
+  height: 42vh;
+  min-height: 250px;
+  max-height: 380px;
   background-color: var(--bg-secondary);
   overflow: hidden;
   border-top: 1px solid var(--border-color);
@@ -718,6 +773,7 @@ ul, ol {
   .hero-split-right {
     height: 100%;
     min-height: 100%;
+    max-height: none;
     border-top: none;
     border-left: 1px solid var(--border-color);
   }
@@ -751,33 +807,44 @@ ul, ol {
 .credentials-btn-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.25rem;
+  gap: 0.875rem;
   margin-bottom: 2.5rem;
 }
 
 @media (min-width: 640px) {
   .credentials-btn-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
 }
 
 @media (min-width: 1024px) {
   .credentials-btn-grid {
     grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
   }
 }
 
 .credential-btn {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1.25rem 1.25rem;
+  gap: 0.875rem;
+  padding: 1rem 1.15rem;
   background-color: #FFFFFF;
   border: 1px solid var(--border-color);
   color: var(--text-primary);
   text-decoration: none;
   transition: all 0.25s ease;
   position: relative;
+  min-height: 72px;
+}
+
+@media (min-width: 768px) {
+  .credential-btn {
+    gap: 1rem;
+    padding: 1.35rem 1.25rem;
+    min-height: 88px;
+  }
 }
 
 .credential-btn:hover {
@@ -1865,20 +1932,22 @@ ul, ol {
 }
 
 .meter-card {
-  padding: 2rem 1.5rem;
+  padding: 2.75rem 2rem;
   border-right: 1px solid var(--border-color);
   background-color: #FFFFFF;
 }
 
-.meter-card:last-child {
-  border-right: none;
+@media (min-width: 1280px) {
+  .meter-card {
+    padding: 3.25rem 2.5rem;
+  }
 }
 
 @media (max-width: 768px) {
   .meter-card {
     border-right: none;
     border-bottom: 1px solid var(--border-color);
-    padding: 1.5rem 0;
+    padding: 1.5rem 0.75rem;
   }
   .meter-card:last-child {
     border-bottom: none;
@@ -2522,7 +2591,7 @@ ul, ol {
   display: inline-flex;
   align-items: center;
   gap: 0.625rem;
-  padding: 1rem 1.35rem;
+  padding: 1.05rem 1.65rem;
   font-family: inherit;
   font-size: 0.8125rem;
   font-weight: 600;
@@ -2540,14 +2609,16 @@ ul, ol {
   margin-bottom: -2px;
   flex-shrink: 0;
   scroll-snap-align: start;
-  min-height: 48px;
+  min-height: 52px;
 }
 
 @media (max-width: 767px) {
   .tabular-menu-btn {
-    padding: 0.8rem 1.05rem;
-    font-size: 0.72rem;
-    gap: 0.45rem;
+    padding: 0.75rem 0.95rem;
+    font-size: 0.6875rem;
+    gap: 0.4rem;
+    min-height: 44px;
+    letter-spacing: 0.04em;
   }
 }
 
@@ -2613,8 +2684,8 @@ ul, ol {
 .split-left-photo {
   position: relative;
   width: 100%;
-  height: 280px;
-  min-height: 240px;
+  height: 250px;
+  min-height: 200px;
   background-color: #1a1a1a;
   overflow: hidden;
   border-bottom: 1px solid var(--border-color);
@@ -2622,8 +2693,8 @@ ul, ol {
 
 @media (min-width: 640px) {
   .split-left-photo {
-    height: 380px;
-    min-height: 320px;
+    height: 340px;
+    min-height: 280px;
   }
 }
 
@@ -2646,24 +2717,34 @@ ul, ol {
 
 .split-photo-tag {
   position: absolute;
-  bottom: 1.5rem;
-  left: 1.5rem;
-  background-color: rgba(0, 0, 0, 0.88);
+  bottom: 0.875rem;
+  left: 0.875rem;
+  background-color: rgba(0, 0, 0, 0.90);
   color: #ffffff;
-  padding: 0.5rem 0.875rem;
-  font-size: 0.75rem;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   border-left: 3px solid var(--color-red);
-  max-width: calc(100% - 3rem);
+  max-width: calc(100% - 1.75rem);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
 
+@media (min-width: 768px) {
+  .split-photo-tag {
+    bottom: 1.5rem;
+    left: 1.5rem;
+    padding: 0.5rem 0.875rem;
+    font-size: 0.75rem;
+    max-width: calc(100% - 3rem);
+  }
+}
+
 /* Right Column: The Matter or Context */
 .split-right-matter {
-  padding: 2.5rem 1.5rem;
+  padding: 2.25rem 1.25rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2672,15 +2753,28 @@ ul, ol {
 
 @media (min-width: 768px) {
   .split-right-matter {
-    padding: 3.5rem 3rem;
+    padding: 3rem 2.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .split-right-matter {
-    padding: 3.5rem 4rem;
+    padding: 4rem 4.5rem;
     max-height: calc(100vh - 122px);
     overflow-y: auto;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1280px) {
+  .split-right-matter {
+    padding: 4.5rem 5.5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .split-right-matter {
+    padding: 5rem 6.5rem;
   }
 }
 
@@ -2691,41 +2785,70 @@ ul, ol {
 .split-matter-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.75rem;
+  gap: 0.4rem;
+  font-size: 0.6875rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: var(--text-secondary);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.625rem;
+}
+
+@media (min-width: 768px) {
+  .split-matter-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
 }
 
 .split-matter-title {
   font-family: var(--font-serif);
-  font-size: 2rem;
+  font-size: clamp(1.65rem, 5vw, 2.125rem);
   line-height: 1.2;
   font-weight: 400;
   color: var(--text-primary);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.015em;
 }
 
 @media (min-width: 768px) {
   .split-matter-title {
     font-size: 2.375rem;
+    margin-bottom: 1.25rem;
   }
 }
 
 @media (min-width: 1280px) {
   .split-matter-title {
-    font-size: 2.75rem;
+    font-size: 2.85rem;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
   }
 }
 
 .split-matter-lead {
-  font-size: 1.0625rem;
+  font-size: 0.9375rem;
   line-height: 1.625;
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .split-matter-lead {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .split-matter-lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 1.75rem;
+  }
 }
 
 
@@ -2928,4 +3051,129 @@ ul, ol {
   font-family: ui-monospace, monospace;
   color: #ffffff;
   font-weight: 600;
+}
+
+/* ==========================================================================
+   5. PREMIUM EDITORIAL ALIGNMENT, WHITESPACE & MOBILE HARMONY (Version 2.2)
+   - Ample whitespace, generous margins & padding for desktop reading surfaces
+   - Elegant fluid typography scale for headlines, eyebrows, and matter
+   - Balanced, touch-friendly proportions on mobile viewports
+   ========================================================================== */
+
+/* Fluid Heading Scale */
+h1.font-serif {
+  font-size: clamp(1.85rem, 5.5vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+@media (min-width: 1024px) {
+  h1.font-serif {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  h1.font-serif {
+    font-size: 3.35rem;
+  }
+}
+
+h2.font-serif {
+  font-size: clamp(1.5rem, 4.2vw, 2.35rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+@media (min-width: 1024px) {
+  h2.font-serif {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  h2.font-serif {
+    font-size: 2.85rem;
+  }
+}
+
+h3.font-serif {
+  font-size: clamp(1.2rem, 3vw, 1.65rem);
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+@media (min-width: 1024px) {
+  h3.font-serif {
+    font-size: 1.75rem;
+  }
+}
+
+/* Section Spacing Adaptation on Mobile (< 768px) */
+@media (max-width: 767px) {
+  .py-20,
+  .py-24,
+  .py-28 {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  .py-16 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .gap-12,
+  .gap-16,
+  .gap-20 {
+    gap: 2.25rem !important;
+  }
+
+  /* Compact table styling for mobile */
+  table th,
+  table td {
+    padding: 0.55rem 0.65rem !important;
+    font-size: 0.72rem !important;
+  }
+
+  /* Form submit full width */
+  .newsletter-submit-btn {
+    width: 100% !important;
+    min-height: 46px !important;
+  }
+}
+
+/* Generous Desktop Container Gutters (1440px+) */
+@media (min-width: 1440px) {
+  .dwa-container {
+    max-width: 1400px;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+}
+
+/* Page Top Intro Banner Proportions */
+.intro-banner,
+section.py-8.md\:py-10 {
+  padding-top: 2.25rem !important;
+  padding-bottom: 2.25rem !important;
+}
+
+@media (min-width: 768px) {
+  .intro-banner,
+  section.py-8.md\:py-10 {
+    padding-top: 2.75rem !important;
+    padding-bottom: 2.75rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .intro-banner,
+  section.py-8.md\:py-10 {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
 }
