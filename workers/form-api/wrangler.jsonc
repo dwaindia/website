@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "dwa-form-api",
+  "main": "index.js",
+  "compatibility_date": "2026-11-25",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1
+    },
+    "traces": {
+      "enabled": true,
+      "head_sampling_rate": 0.05
+    }
+  },
+  "vars": {
+    "ALLOWED_ORIGINS": "https://dalitwelfareassociation.org,https://www.dalitwelfareassociation.org,http://localhost:8080"
+  }
+  // Configure sensitive destinations via Wrangler secrets (never commit secrets):
+  //   wrangler secret put CRM_WEBHOOK_URL
+  //   wrangler secret put CRM_AUTH_TOKEN
+  //   wrangler secret put TURNSTILE_SECRET_KEY
+}

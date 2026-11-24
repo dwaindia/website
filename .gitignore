@@ -8,8 +8,12 @@
 # Project operational instructions - internal
 AGENTS.md
 
-# Build artifacts & dependencies
+# Build artifacts, local secrets & dependencies
 .next/
+.wrangler/
+.env
+.env.*
+.dev.vars
 node_modules/
 .DS_Store
 *.pyc

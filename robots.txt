@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dalitwelfare.org/sitemap.xml
+Sitemap: https://dalitwelfareassociation.org/sitemap.xml

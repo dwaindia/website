@@ -1049,3 +1049,408 @@ Darpan: https://ngodarpan.gov.in/#/search-ngo
 Instagram: https://www.instagram.com/dwaindia
 Linkedin: https://id.linkedin.com/company/dalitwelfareassociation?trk=public_profile_volunteering-position_profile-section-card_full-click
 
+
+# 16. About page (subsections)
+### **ABOUT US**
+
+#### **Empowering Communities, Restoring Dignity, Transforming Lives**
+
+---
+
+### **1. Regional & Historical Context: Challenges Faced by Dalit Communities in Rayalaseema**
+
+#### **Historical Context**
+
+For generations, rural Dalit and marginalized communities across Andhra Pradesh have endured systemic caste-based social exclusion, landlessness, and chronic economic disenfranchisement. Denied equal access to quality schooling, vocational capacity building, and formal financial institutions, families were historically pushed into low-wage, unorganized agricultural labor. Women in these marginalized households experienced compound structural inequities: lacking independent asset ownership, business management capabilities, or formal banking representation. Without formal institutional safety nets, unexpected emergencies or climate shocks routinely forced households into cycles of predatory debt and multi-generational poverty.
+
+#### **Regional Context**
+
+Geographically, DWA operates in the drought-prone Rayalaseema basin within Kurnool and Nandyal districts of Andhra Pradesh. Characterized by a semi-arid climate, recurrent monsoon deficits, and acute El Niño weather anomalies, the region suffers from severe groundwater depletion and crop failures. Because village economies depend almost exclusively on rain-fed subsistence farming and day-wage labor, climate distress directly eliminates rural employment. Faced with seasonal unemployment and agrarian distress, landless Dalit households, single mothers, and widowed heads of households are frequently forced into distress migration to urban centers. This disruption forces children out of local government primary schools, compounding the risk of permanent school dropouts and child labor.
+
+#### **Highlights of Major Problems**
+
+- **Acute Climate Shocks & El Niño Droughts:** Recurrent droughts dry up agricultural labor days, causing severe household income shocks.
+- **Distress Seasonal Migration:** Lack of off-farm economic alternatives compels landless families to migrate temporarily to distant commercial hubs, destabilizing home and family structures.
+- **Female Enterprise Stagnation:** Micro-enterprises operated by rural women remain trapped at subsistence levels due to an absence of working capital, business training, and collateral.
+- **School Retention Barriers:** Children from migrating or impoverished households face continuous interruptions in their primary schooling, driving high dropout rates.
+- **Financial & Digital Exclusion:** Deep reliance on informal cash transactions and predatory moneylenders due to limited access to digital banking and institutional credit.
+
+---
+
+### **2. Organization History & Backstory: Institutional Evolution**
+
+#### **The Grassroots Spark & Founding Purpose**
+
+The **Dalit Welfare Association (DWA)** was established on **June 22, 1993**, in Parnapalli Village, Kurnool District, Andhra Pradesh, through the collective action of local community leaders determined to create a grassroots platform for self-reliance. Registered under the **Societies Registration Act XXI of 1860 (Registration No. 384/1993)** by the District Registrar of Assurances, Kurnool, the society was chartered under three non-negotiable ethical commitments:
+
+1. **Zero Commercial Profit Motive:** Operating purely as a non-profit voluntary entity where all funds are dedicated exclusively to charitable community welfare.
+2. **Non-Agitational, Constructive Policy:** Abstained from trade unionism, strikes, or political agitation, focusing entirely on peaceful, constructive socioeconomic development, education, and livelihood generation.
+3. **Honorary Governance:** Board members and office bearers serve in an honorary capacity, receiving no personal salaries, profit dividends, or material benefits from the organization's funds.
+
+#### **Chronological Milestones & Institutional Growth**
+
+- **1993 – 2012 (Foundational Literacy & Community Health):** Conducted adult functional literacy drives, solid waste management campaigns, safe drinking water initiatives, and environmental health awareness programs across rural panchayats.
+- **2016 – 2017 (First Major Overseas Grant & Dairy Development):** Partnered with **Global Compassion Inc. (USA)** under a grant of ₹4,39,000 to execute a cows dairy development project in Sirvel and Govindapalle villages, creating sustainable daily income for smallholder families.
+- **2017 – 2020 (Livelihood Trades & Primary School Education):** Rolled out community vocational training in tailoring, soft toy making, and brick production, alongside sustained academic support, learning kits, and merit scholarships across 10 rural Government Primary Schools.
+- **2020 – 2022 (COVID-19 Pandemic Emergency Relief):** Deployed emergency food security operations funded by the **Divya Foundation** (₹8.32 Lakhs grant) and partner organizations, delivering 30 kg dry ration survival packages, clothing, and happiness kits to vulnerable families, widows, and street children.
+- **2023 – 2026+ (Scaled Female Entrepreneurship & Climate Resilience):** Renewed federal FCRA registration through September 2028 and secured ₹33.19 Lakhs from the **Grace TPTC Foundation** to launch the flagship 12-month Women’s Banking and Entrepreneurship Program in Sirivella Block and climate-resilient sheep-rearing enterprises in Rudravaram.
+
+---
+
+### **3. Vision, Mission & Foundational Objectives**
+
+#### **Our Motto**
+
+> **"Stronger Together"**
+
+#### **Strategic Vision**
+
+> _"DWA aspires to be a sustainable organization empowering the rural poor, economically and socially, irrespective of caste and creed."_
+
+#### **Operational Mission**
+
+> _"To enable the rural poor to attain sustainable growth by creating livelihood opportunities through microfinance and income generation programs by a fair and transparent system."_
+
+#### **Core Foundational Objectives (Under Society Bylaws)**
+
+- **Socioeconomic Upliftment:** Promote the educational, social, and economic advancement of marginalized Dalit and Below Poverty Line (BPL) populations.
+- **Women & Child Welfare:** Establish nutrition, health, and welfare support structures for mothers, infants, and vulnerable rural women.
+- **Universal Primary Education:** Support village primary schools and provide educational supplies and scholarships to prevent dropouts.
+- **Vocational Skill Academies:** Operate training centers for tailoring, rural crafts, and trade capacity building to enable micro-enterprise creation.
+- **Smallholder Agriculture & Water Security:** Support marginal farmers with sustainable dryland agricultural techniques and community irrigation well initiatives.
+- **Self-Help Group (SHG) Mobilization:** Build community-managed thrift and mutual-credit societies to eliminate reliance on exploitative informal debt.
+- **Emergency Relief & Housing:** Provide shelter assistance for homeless families and deliver rapid emergency relief during famines, droughts, or natural disasters.
+- **Environmental Health:** Conduct community campaigns on hygiene, rural sanitation, potable water access, and the cultivation of medicinal herbs.
+
+---
+
+### **4. Board Members & Governance Body**
+
+DWA’s executive leadership comprises dedicated grassroots advocates and community organizers:
+
+|#|Name|Executive Designation|Key Governance & Operational Responsibilities|
+|:-:|:--|:--|:--|
+|**1**|**Sannala Samuel**|**President**|Presides over Executive and General Body meetings; directs strategic planning, regulatory compliance, and co-signs institutional banking operations.|
+|**2**|**Jangam Nirmala**|**Vice President**|Oversees grassroots community mobilization, Self-Help Group (SHG) outreach, and assumes executive duties in the President's absence.|
+|**3**|**Bandela Lakshmamma**|**Secretary**|Chief Executive Officer and custodian of institutional records; leads legal filings, partner correspondence, and co-manages bank accounts.|
+|**4**|**Sannala Sarojamma**|**Treasurer**|Oversees financial ledgers, annual balance sheets, statutory accounting, and independent Chartered Accountant audits.|
+|**5**|**Bandela Chinna Subbarayudu**|**Director**|Advises on village-level program delivery, beneficiary identification, and community stakeholder engagement.|
+|**6**|**Ponnapati Thulasamma**|**Director**|Guides female stakeholder engagement, gender advocacy, and women’s micro-enterprise mentoring.|
+|**7**|**Paarshapu Laxmi Devi**|**Director**|Coordinates social welfare initiatives, community outreach drives, and executive committee governance.|
+
+---
+
+### **5. Technology & Platform Partners**
+
+The Dalit Welfare Association leverages enterprise cloud software and digital tools to maintain transparency, streamline operations, and secure donor data:
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                          DWA OFFICIAL TECHNOLOGY PLATFORMS                             │
+└───────────────────────────────────────────┬────────────────────────────────────────────┘
+                                            │
+        ┌───────────────┬───────────────────┼───────────────────┬───────────────┐
+        ▼               ▼                   ▼                   ▼               ▼
+┌───────────────┐ ┌───────────────┐ ┌───────────────┐ ┌───────────────┐ ┌───────────────┐
+│    GOOGLE     │ │   MICROSOFT   │ │    GITHUB     │ │  SALESFORCE   │ │   LINKTREE    │
+│  for Nonprofits  Tech for Social│ │Social Impact &│ │  for Nonprofits  Unified Digital│
+│Workspace/Cloud│ │     Impact    │ │ Open Source   │ │      CRM      │  Giving Links │
+└───────────────┘ └───────────────┘ └───────────────┘ └───────────────┘ └───────────────┘
+```
+
+- **Google for Nonprofits:** Powers organizational email, cloud data storage, administrative collaboration, and digital communications.
+- **Microsoft (Tech for Social Impact):** Provides document processing, data security protocols, and internal team management.
+- **GitHub:** Hosts program documentation, open-source technical collaboration, and website code repositories.
+- **Monday.com for Nonprofits:** Facilitates project milestone tracking, field workflow automation, and cross-team task coordination.
+- **Salesforce for Nonprofits:** Manages donor relationship tracking (CRM), grant transparency, and beneficiary registry data.
+- **Linktree:** Consolidates campaign links, holiday appeals, and official social media platforms into a verified directory.
+
+---
+
+### **6. Statutory Transparency & Verified Credentials**
+
+DWA maintains a fully verified compliance profile across Indian regulatory and tax authorities:
+
+- **Societies Registration Act XXI of 1860:** Society Registration No. `384/1993` (District Registrar of Assurances, Kurnool).
+- **Ministry of Home Affairs (MHA) FCRA:** Registration No. `010270166` (Valid through September 30, 2028).
+- **Income Tax Department Section 12A:** Form 10AC URN: `AAKFD2353BE20214`.
+- **Income Tax Department Section 80G:** Form 10AC URN: `AAKFD2353BF20216` _(50% tax exemption for Indian taxpayers)_.
+- **NITI Aayog NGO DARPAN:** Unique Portal ID: `AP/2021/0276162`.
+- **Permanent Account Number (PAN):** `AAKFD2353B`.
+- **Designated Statutory SBI FCRA Bank Channel:** State Bank of India, Main Branch, 11 Sansad Marg, New Delhi – 110001 (A/C No: `40108791616` | IFSC: `SBIN0000691` | SWIFT: `SBININBB104`).
+
+
+
+
+# 17. OUR PROGRAMS
+
+### **Community-Led, Dignity-Based Solutions for Sustainable Rural Transformation**
+
+---
+
+### **1. Women’s Economic Empowerment & Micro-Enterprise**
+
+#### **Core Idea & Philosophy**
+
+Women in rural Dalit and female-headed households (widows, single mothers, and deserted women) bear a disproportionate burden of poverty and climate distress. When rural employment collapses, they lack independent land ownership, collateral, and business skills. The program transforms vulnerable women from subsistence daily-wage laborers into **financially self-reliant micro-entrepreneurs** by placing productive assets directly into their hands, backed by digital financial literacy and peer accountability.
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        6-STAGE WOMEN'S ENTERPRISE WORKFLOW                             │
+└───────────────────────────────────────────┬────────────────────────────────────────────┘
+                                            │
+        ┌───────────────┬───────────────────┼───────────────────┬───────────────┐
+        ▼               ▼                   ▼                   ▼               ▼
+┌───────────────┐ ┌───────────────┐ ┌───────────────┐ ┌───────────────┐ ┌───────────────┐
+│ 1. SCOPING    │ │ 2. SCREENING  │ │ 3. CURRICULUM │ │ 4. 3-PHASE    │ │ 5. M&E & EXIT │
+│ Value chain   │ │ Target BPL,   │ │ Local dialect │ │ Financial,    │ │ Baseline to   │
+│ & demand maps │ │ single/widows │ │ workbooks     │ │ Trade & Digi  │ │ SHG autonomy  │
+└───────────────┘ └───────────────┘ └───────────────┘ └───────────────┘ └───────────────┘
+```
+
+#### **How We Design & Implement It**
+
+- **Livelihood & Value-Chain Scoping:** Before deployment, field teams analyze local rural markets, trade viability, raw material supply lines, and seasonal demand patterns.
+- **Transparent Beneficiary Mobilization:** Women are mobilized through local community meetings and Self-Help Groups (SHGs). Selection prioritizes Below Poverty Line (BPL), single, and widowed women aged 25–50 with active family responsibilities.
+- **Integrated 3-Phase Capacity Building:**
+    - _Phase 1 (Financial & Digital Literacy):_ Household budgeting, formal banking, debit card operations, and adoption of UPI/mobile payments.
+    - _Phase 2 (Business Management):_ Pricing strategies, inventory control, product branding, packaging, and business registration.
+    - _Phase 3 (Technical Trade Mentorship):_ Hands-on coaching in selected trades (commercial tailoring, livestock husbandry, and micro-retail).
+- **Climate-Resilient Asset Deployment:** Direct transfer of productive physical assets—such as drought-hardy Nellore/Deccani sheep flocks with veterinary insurance, commercial sewing machinery with starter fabric toolkits, or initial stock inventory for village grocery shops.
+- **Peer Governance & Revolving Capital:** Women organize into self-governing SHGs with monthly group savings, creating internal revolving credit to fund ongoing veterinary, feed, or business expansion needs without relying on predatory lenders.
+
+---
+
+### **2. Child Education, Retention & Merit Advancement**
+
+#### **Core Idea & Philosophy**
+
+In drought-hit agricultural regions, economic distress drives seasonal migration, causing children to be pulled out of classrooms and thrust into child labor risks. Education is the foundational tool to break intergenerational poverty. DWA’s educational model removes direct financial access barriers and incentivizes continuous enrollment in rural government primary schools.
+
+#### **How We Design & Implement It**
+
+- **Primary School Systemic Outreach:** DWA works directly across rural government primary schools, conducting community awareness drives that emphasize the long-term value of schooling.
+- **Academic Kit Support:** Distribution of comprehensive learning packs (durable school bags, long ruled notebooks, writing instruments, and geometry/drawing sets) alongside new uniforms and school dresses.
+- **Direct Merit Stipends:** Independent financial tracking identifies high-performing, underprivileged students transitioning from primary to secondary education, awarding annual merit scholarships to cover educational costs and prevent dropouts.
+- **Incentive & Co-Curricular Competitions:** Organization of inter-school essay competitions, literacy quizzes, and creative events within village schools to foster academic self-confidence and competitive spirit.
+- **Migration-Linked Enrollment Audits:** Community monitors conduct monthly attendance tracking with school teachers to verify that children from vulnerable households remain enrolled throughout the agricultural dry season.
+
+---
+
+### **3. Water Conservation, Drought Resilience & Village Sanitation**
+
+#### **Core Idea & Philosophy**
+
+Operating in the semi-arid Rayalaseema basin, communities face chronic monsoon deficits, recurrent El Niño heatwaves, and critical groundwater depletion. Access to clean water is both a life necessity and a prerequisite for rural health and agricultural survival. DWA’s water initiatives focus on groundwater replenishment, community irrigation access, and basic village hygiene.
+
+#### **How We Design & Implement It**
+
+- **Community Borewells & Irrigation Wells:** Identifying high-need Dalit farming colonies and community clusters to facilitate community irrigation wells and borewells, securing shared water access for smallholder farmers and domestic household needs.
+- **Rainwater Harvesting & Recharge Pits:** Constructing percolation pits, recharge trenches, and soak pits near community water points and village common lands to capture seasonal monsoon run-off and replenish local aquifers.
+- **Village Solid Waste & Sanitation Drives:** Deploying community-wide campaigns on solid waste segregation, pit composting, and wastewater drainage management to prevent water contamination and infectious disease outbreaks.
+- **Potable Water Literacy:** Conducting grassroots awareness campaigns—such as _"Water: Elixir of Life"_—educating rural families on boiling, safe storage, and community water preservation techniques.
+
+---
+
+### **4. Community Development, Preventive Health & Farmer Support**
+
+#### **Core Idea & Philosophy**
+
+True community resilience requires addressing the wider social determinants of health, agrarian stability, and environmental ecology. DWA bridges knowledge and infrastructure gaps by empowering smallholder marginal farmers and organizing grassroots public health camps.
+
+#### **How We Design & Implement It**
+
+- **Support to Marginal & Small Farmers:** Organizing agricultural orientation meetings, introducing dryland farming techniques, promoting climate-resilient cropping (millets and pulses), and establishing community fodder banks to protect livestock during feed shortages.
+- **Preventive Health & Hygiene Camps:** Conducting rural health clinics and preventive awareness workshops addressing seasonal fevers, maternal-child nutrition, sanitation, and contagious diseases.
+- **Herbal & Traditional Medicinal Plant Literacy:** Hosting dedicated village workshops teaching women and youth the identification, cultivation, and medicinal usage of indigenous herbal plants for low-cost household wellness.
+- **Emergency & Calamity Relief Networks:** Maintaining an on-ground logistics network capable of rapidly distributing emergency food rations, clothing, blankets, and essential household survival provisions during droughts, pandemics, or natural disasters [7, 15, 20, 68–75, 88].
+
+---
+
+### **5. Child Protection & Hostel Support for Vulnerable Communities**
+
+#### **Core Idea & Philosophy**
+
+The most severe vulnerabilities fall on children from historically marginalized, nomadic, or unorganized labor communities—such as the **Budagajangala community**, whose families predominantly survive on ragpicking and scrap collection. Without stable housing and educational support, these children face extreme risks of malnutrition, child labor, and social exclusion.
+
+#### **How We Design & Implement It**
+
+- **Targeted Community Identification:** Identifying children from ragpicking and migratory daily-wage families living in informal makeshift settlements and vulnerable bastis.
+- **Safe Hostel & Residential Maintenance:** In collaboration with the grassroots network run by **Star Society in Nandyal**, DWA supports residential hostel care for these children, ensuring a safe, stable, and hygienic living environment away from hazardous work.
+- **Nutritional Security & Health Monitoring:** Providing daily balanced meals, clothing, hygiene necessities, and routine medical screenings to ensure proper growth and health.
+- **Formal School Enrolment & Retention:** Ensuring every child residing in the hostel is enrolled in recognized local schools, providing uniforms, books, school bags, and daily academic tutoring to help them bridge learning gaps.
+- **Parental Counseling & Social Dignity:** Working directly with ragpicker parents to build trust, emphasize the transformative power of schooling, and discourage children from accompanying adults to scrap yards or work sites.
+
+---
+
+### **6. Project Archives & Institutional Timeline**
+
+A chronological track record illustrating DWA’s evolution from local literacy drives to comprehensive community programs:
+
+```
+========================================================================================================================
+                                      CHRONOLOGICAL ARCHIVE OF DWA INITIATIVES
+========================================================================================================================
+ 1993 – 2000    ● [FOUNDATION & CONSTITUTION]
+                  Formal society registration under Act XXI of 1860; baseline community trust-building.
+
+ 2001 – 2005    ● [WATER & ENVIRONMENTAL HEALTH CAMPAIGNS]
+                  - National Environment Awareness Campaigns (NEAC) on clean drinking water and green environment.
+                  - "Water – Elixir of Life" rural educational awareness programs.
+                  - Village-level Solid Waste Management and compost pit demonstrations.
+
+ 2004 – 2012    ● [ADULT LITERACY & RURAL LIVELIHOODS]
+                  - Functional adult literacy and non-formal educational centers.
+                  - Alternative off-farm micro-trades: Rural brick-making and soft toy craftsmanship programs.
+
+ 2014 – 2017    ● [HERBAL HEALTH & DAIRY LIVESTOCK PILOTS]
+                  - Indigenous herbal medicinal plant training at rural school centers.
+                  - High-yield dairy cattle development initiative for rural smallholder families.
+
+ 2017 – 2020    ● [PRIMARY SCHOOL SUPPORT & VOCATIONAL CENTERS]
+                  - Inter-school essay competitions, literacy drives, and merit student financial assistance.
+                  - Setup of village tailoring units and vocational training centers.
+
+ 2020 – 2022    ● [COVID-19 EMERGENCY RELIEF INITIATIVE]
+                  - Large-scale distribution of 30 kg dry ration kits to hundreds of vulnerable Dalit households.
+                  - School happiness kits, clothes, and blankets for street children and destitute families.
+                  - Saree and dignity kit distributions to poor single and widowed women.
+
+ 2023 – 2024    ● [HEALTH LITERACY & DISABILITY ADVOCACY]
+                  - Rural health awareness workshops across villages and schools.
+                  - Advocacy workshops on rights and inclusion for children with special needs and their parents.
+
+ 2024 – 2026+   ● [CLIMATE RESILIENCE & SCALED ENTREPRENEURSHIP]
+                  - Flagship Women's Banking & Entrepreneurship Development cohorts across Sirivella and Rudravaram.
+                  - Climate-hardy sheep-rearing micro-enterprises, veterinary insurance, and revolving SHG credit.
+========================================================================================================================
+```
+
+---
+
+Would you like me to adapt this programmatic architecture into an interactive web visualizer or build a tailored downloadable donor booklet based on these six pillars?
+
+# 18. **ACCOUNTABILITY & GOVERNANCE**
+
+### **Uncompromising Transparency, Ethical Stewardship, and Statutory Compliance**
+
+---
+
+### **1. Transparency, Financial Stewardship & Audited Disclosures**
+
+#### **Our Commitment to Open Books**
+
+The **Dalit Welfare Association (DWA)** operates with an open-ledger policy to ensure every rupee and dollar received is accounted for and deployed directly toward grassroots empowerment. Because our office bearers serve in an honorary capacity without salaries or profit dividends, organizational expenditures are directed strictly toward program delivery, beneficiary asset provisioning, and statutory compliance.
+
+---
+
+#### **Five-Year Financial Track Record & Spending Breakdown**
+
+DWA’s accounts are independently examined and certified annually by **Sivapuram Subramanyam & Co., Chartered Accountants** (CA Membership No. 029910, Nandyal).
+
+```
+┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                             5-YEAR AUDITED FINANCIAL LEDGER SUMMARY                              │
+├─────────────┬──────────────────┬──────────────────────┬──────────────────────────────────────────┤
+│ Fiscal Year │ Receipts / Grant │ Program Expenditure  │ Audit Classification & Core Deployment   │
+├─────────────┼──────────────────┼──────────────────────┼──────────────────────────────────────────┤
+│ FY 2020–21  │ ₹9,84,992.31     │ ₹9,82,257.00         │ COVID-19 Relief, Rations, Child Welfare  │
+│ FY 2021–22  │ ₹64,675.00       │ ₹61,940.00           │ Rural Health, Student Merit Stipends     │
+│ FY 2022–23  │ ₹78,369.00       │ ₹74,234.00           │ School Support, Community Meetings       │
+│ FY 2023–24  │ ₹89,515.00       │ ₹87,060.00           │ Merit Scholarships, Women's Outreach     │
+│ FY 2024–25  │ ₹33,34,097.17    │ ₹6,48,591.06*        │ FCRA Women’s Banking & Enterprise Grants │
+└─────────────┴──────────────────┴──────────────────────┴──────────────────────────────────────────┘
+(*Balance carried forward under FCRA guidelines for multi-stage program disbursement)
+```
+
+---
+
+#### **Public Disclosures & Downloadable Reports**
+
+All statutory filings, independent auditor statements, and legal charters are maintained for public scrutiny and donor verification:
+
+- 📄 **Annual Audit Report FY 2024–25 (FCRA Account)** — _Audited statement of foreign contributions, Grace TPTC Foundation grant deployment, and balance sheet certified by CA Sivapuram Subramanyam._ `[Download PDF]`
+- 📄 **Annual Audit Report FY 2023–24** — _Audited receipts, payments, income & expenditure ledger, and balance sheet._ `[Download PDF]`
+- 📄 **Annual Audit Report FY 2022–23** — _Audited annual return and statement of affairs._ `[Download PDF]`
+- 📄 **Annual Audit Report FY 2021–22** — _Audited balance sheet and educational expenditure ledger._ `[Download PDF]`
+- 📄 **Annual Audit Report FY 2020–21** — _Audited pandemic relief expenditure statement (Divya Foundation grant)._ `[Download PDF]`
+- 📜 **Registered Society Constitution & Bylaws (Act XXI of 1860)** — _Full memorandum of association, aims, and operating rules._ `[Download PDF]`
+- 📜 **MHA FCRA Registration Renewal Certificate** — _Ministry of Home Affairs 5-year renewal order valid through Sept 30, 2028._ `[Download PDF]`
+- 📜 **Income Tax Section 12A & 80G Orders** — _Provisional tax exemption and 50% donor deduction approvals._ `[Download PDF]`
+
+---
+
+#### **Banking Transparency & Ring-Fenced Channels**
+
+To eliminate commingling of funds, DWA enforces structural separation between domestic and international contributions:
+
+- **Domestic Operations Account:** Handles local contributions, membership fees, and domestic program disbursements under dual-signatory oversight.
+- **Statutory SBI FCRA Account (MHA Monitored):** In accordance with federal law, 100% of overseas grants and foreign donations are received solely through the designated **State Bank of India, Main Branch, New Delhi** (A/C No: `40108791616`, IFSC: `SBIN0000691`, SWIFT: `SBININBB104`).
+
+---
+
+### **2. Governance Structure & Ethical Framework**
+
+#### **Institutional Architecture**
+
+DWA’s governance is anchored in democratic accountability, separation of powers, and strict community representation as mandated by the **Societies Registration Act XXI of 1860 (Reg No. 384/1993)**.
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                              DWA GOVERNANCE ARCHITECTURE                               │
+└───────────────────────────────────────────┬────────────────────────────────────────────┘
+                                            │
+                                            ▼
+                    ┌───────────────────────────────────────────────┐
+                    │                 GENERAL BODY                  │
+                    │   Universal adult membership (age 18+)        │
+                    │   Supreme decision-making and policy body     │
+                    └───────────────────────┬───────────────────────┘
+                                            │ (Elects every 3 years)
+                                            ▼
+                    ┌───────────────────────────────────────────────┐
+                    │         EXECUTIVE MANAGING COMMITTEE          │
+                    │      7 Elected Members (Quarterly Quorum)     │
+                    │   President | Secretary | Treasurer | Members │
+                    └───────────────────────┬───────────────────────┘
+                                            │
+                    ┌───────────────────────┴───────────────────────┐
+                    ▼                                               ▼
+┌───────────────────────────────────────┐       ┌───────────────────────────────────────┐
+│     INDEPENDENT STATUTORY AUDIT       │       │       PROGRAM EXECUTION CADRE         │
+│  External Chartered Accountants       │       │  Project Officer & Field Trainers     │
+│  Direct reporting to tax authorities  │       │  Grassroots community delivery        │
+└───────────────────────────────────────┘       └───────────────────────────────────────┘
+```
+
+---
+
+#### **Governance Protocols & Bylaw Mandates**
+
+##### **1. General Body Supremacy & 3-Year Electoral Cycles**
+
+- The **General Body** consists of all registered members admitted irrespective of caste, creed, or religion.
+- The General Body convenes at least once annually to review program performance, approve audited balance sheets, and sanction major policy expansions.
+- Every **three years**, the General Body elects a 7-member Executive Committee through democratic consensus or vote.
+
+##### **2. Executive Committee Operations & Quorum Controls**
+
+- The Executive Committee manages day-to-day administration and policy execution.
+- The committee is legally required to meet at least once every three months.
+- To prevent unilateral decision-making, official proceedings require a strict **minimum quorum of five members**.
+
+##### **3. Dual-Signatory Financial Protocol**
+
+- No single individual has autonomous control over organizational funds.
+- All bank withdrawals, cheques, and financial instruments require **mandatory joint signatures** of the President and either the Treasurer or Secretary.
+- All financial transactions must be recorded in formal cash books, ledgers, and voucher files subject to annual external CA examination.
+
+##### **4. Non-Commercial Charter & Conflict-of-Interest Safeguards**
+
+- **Honorary Governance:** Board members and office bearers are barred from receiving salaries, personal dividends, or profit shares from society funds.
+- **Non-Political & Non-Agitational Commitment:** The association strictly prohibits partisan political alignment and trade union agitations, directing all resources exclusively to constructive community development.
+- **Asset Inalienability & Dissolution Protocol:** Under registered bylaws, if the society ever winds up, no assets, land, or funds may be divided among members. All remaining assets must be transferred to another registered charitable non-profit entity sharing similar non-commercial aims.
+
+---
+
+💡 Would you like me to generate a matching downloadable PDF document of this Accountability & Governance page, or draft the next page (such as the Contact/Field Office page)?

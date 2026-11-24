@@ -13,30 +13,24 @@ Official institutional website for **Dalit Welfare Association (DWA)**, Andhra P
 
 ```text
 WEBSITE/
-├── index.html                # Editorial Homepage with Hero, Meter, Featured Programs, & Gallery
-├── about.html                # About Page: Full-Screen 2-Col Split Layout with Tabular Sub-Navigation
-├── programs.html             # Core Programs Page: 4 Priority Focus Sectors & Impact Reporting
-├── accountability.html       # Public Accountability & Audits: Statutory Identifiers & Governance
-├── donate.html               # Donate & Support Page: Tax Deductions (80G/12A), FCRA Bank Wire & Sponsoring
+├── index.html                # Editorial Homepage with Hero, Meter, Featured Programs, Credentials & Benevity
+├── about.html                # About Page: Context, 1993–2026 History, Bylaws, Honorary Board & Credentials
+├── programs.html             # Core Programs Page: 4 Priority Focus Sectors, 6-Stage Delivery & Archives
+├── accountability.html       # Public Accountability: Statutory IDs, 5-Year Financials, Governance & Projects
+├── donate.html               # Donate & Support Page: Amount Selector, Domestic/FCRA Giving, Grants & Contact
 ├── assets/
 │   ├── css/
-│   │   └── styles.css        # Monochrome design tokens, fluid typography, full utility suite (zero CDN)
+│   │   └── styles.css        # Monochrome design tokens, fluid typography, inner-page & form utilities (zero CDN)
 │   ├── js/
-│   │   └── main.js           # Tab switching, scroll-aware sub-menu, accessible modals, lightbox viewer
-│   └── images/
-│       ├── dwa-logo-square.webp # Full square WebP institutional emblem
-│       ├── dwa-logo-sm.webp     # Header & footer WebP square emblem
-│       ├── hero-community.webp  # Homepage hero authentic documentary photo
-│       ├── womens-livelihoods.webp # Priority 1: Livelihoods & Vocational Tailoring
-│       ├── child-education.webp # Priority 2: Primary Scholastic Retention Kits
-│       ├── water-conservation.webp # Priority 3: Borewell Filtration & Aquifer Recharge
-│       ├── community-action.webp # Priority 4: SHG Mobilization & Preventative Health
-│       ├── accountability-audit.webp # Public accountability & transparent assembly
-│       ├── donate-impact.webp   # Philanthropic contribution & grassroots support
-│       └── gallery/             # Curated authentic field documentary photography gallery
-├── content.md                # Consolidated master source of verified organizational content
-├── implementation_plan.md    # Master Project Specification & Phased Roadmap
-├── rough.md                  # Programmatic field records, project breakdowns & budgets
+│   │   └── main.js           # Menu overlay, focus traps, scroll-spy tabs, donation selector, Worker form client
+│   ├── documents/            # Public approved statutory certificates & audited PDF library (pending upload)
+│   └── images/               # Square DWA logo variants (WebP/PNG) exported from logo.jpg
+├── workers/
+│   ├── form-api/             # Phase 3 Cloudflare Worker (POST /api/newsletter, POST /api/contact) & wrangler.jsonc
+│   └── README.md             # Worker secrets, D1 schema & deployment guide
+├── _headers                  # Cloudflare Pages security headers (CSP, X-Frame-Options, cache policies)
+├── _redirects                # Clean canonical extensionless route redirects
+├── LAUNCH_CHECKLIST.md       # Phases 4–6 media, analytics, DNS & production launch checklist
 ├── robots.txt                # Search engine crawler directives
 ├── sitemap.xml               # Approved 5-page canonical sitemap
 └── README.md                 # Project architecture, design decisions & preview guide
@@ -68,11 +62,11 @@ The homepage consists of exactly eight focused sections in the following order:
    - Left Column: Eyebrow ("Working in Andhra Pradesh Since 1993"), grand headline ("Building Dignity. Creating Opportunity. Strengthening Communities."), introductory narrative, and dual CTA buttons ("Explore Our Work" in accent red, "Support Our Mission" in monochrome).
    - Right Column: Large rectangular authentic documentary photograph placeholder with square corners.
 2. **Impact Number Meter:**
-   - Clean horizontal layout with thin dividers displaying verified operational milestones:
+   - Clean horizontal layout with thin dividers displaying verified institutional milestones:
      - `30+` Years of Community Service
-     - `300+` Women Supported
-     - `500+` Children Reached
-     - `1,000+` Community Members
+     - `10` Government Primary Schools
+     - `50` Women per Programme Cycle
+     - `2028` FCRA Active Through Sept.
 3. **Vision and Mission:**
    - Minimal two-column editorial layout on `#F5F5F3` with generous whitespace, large serif typography, and zero decorative cards or icons.
 4. **Featured Programmes:**
@@ -82,13 +76,13 @@ The homepage consists of exactly eight focused sections in the following order:
      3. Water Conservation and Climate Adaptation (`programs.html#water-conservation`)
      4. Community Development and Welfare (`programs.html#community-development`)
 5. **Institutional Credentials:**
-   - Compact credibility section presenting verified statutory numbers: Society Reg. 384/1993, FCRA Reg. 010270166, NGO Darpan AP/2021/0276162, PAN AAKFD2353B, Sections 12A & 80G.
+   - Compact credibility section presenting verified statutory numbers: Society Reg. 384/1993, FCRA Reg. 010270166, NGO Darpan AP/2021/0276162, PAN AAKFD2353B.
 6. **International Visitors – Benevity:**
    - Visually distinctive block for international corporate workplace giving via Benevity with FCRA compliance disclosures and configuration placeholders.
 7. **Newsletter Subscription:**
    - Minimalist form with honeypot spam protection, email validation, Privacy Policy modal trigger, and honest staging notification.
 8. **Institutional Footer & Policy Modals:**
-   - Square emblem, 4 primary destinations (About, Programs, Accountability, Donate), registered office address, official email (`dalitwelfareassociation@gmail.com`), monochrome social media icons with subtle red hover, and accessible pop-up modals for Privacy Policy and Refund & Cancellation Policy.
+   - Square emblem, 4 primary destinations (About, Programs, Accountability, Donate), registered office address, official email (`dalitwelfareassociation1@gmail.com`), monochrome social media icons with subtle red hover, and accessible pop-up modals for Privacy Policy and Refund & Cancellation Policy.
 
 ---
 
