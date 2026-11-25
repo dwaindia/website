@@ -1,0 +1,11 @@
+name = "website"
+compatibility_date = "2026-11-25"
+pages_build_output_dir = "."
+
+# For local testing with `npx wrangler pages dev .`:
+# Copy `.dev.vars.example` to `.dev.vars` and fill in:
+#   MONDAY_API_TOKEN="your_monday_api_v2_token_here"
+#   MONDAY_BOARD_ID="1234567890"
+#
+# Never store secrets in `wrangler.toml`. Configure them in the Cloudflare Pages
+# Dashboard under: Workers & Pages -> <project> -> Settings -> Variables and Secrets.

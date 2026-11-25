@@ -3,6 +3,10 @@
 .gitignore
 .assetsignore
 wrangler.jsonc
+wrangler.toml
+.dev.vars
+.dev.vars.example
+functions
 workers
 content.md
 rough.md

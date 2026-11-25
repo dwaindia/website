@@ -1,0 +1,5 @@
+# Copy this file to `.dev.vars` for local testing with `npx wrangler pages dev .`
+# Never commit `.dev.vars` to version control (already listed in `.gitignore`).
+
+MONDAY_API_TOKEN="your_monday_api_v2_token_here"
+MONDAY_BOARD_ID="1234567890"

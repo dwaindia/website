@@ -782,13 +782,63 @@ input {
 }
 
 /* Explicit ratios prevent Cumulative Layout Shift (CLS) */
+.photo-frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-dark);
+}
+
+.band-alt .photo-frame,
+.meter-section .photo-frame,
+.programs-section .photo-frame,
+.international-section .photo-frame,
+.page-hero .photo-frame {
+  background-color: var(--bg-primary);
+}
+
+.photo-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+.photo-caption-plate {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-right: 0.45rem;
+}
+
+.photo-figure--wide {
+  width: 100%;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.media-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .ratio-hero {
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 4 / 3;
+}
+
+.ratio-portrait {
+  aspect-ratio: 3 / 4;
 }
 
 @media (min-width: 1024px) {
-  .ratio-hero {
-    aspect-ratio: 4 / 5;
+  .ratio-portrait {
     max-height: calc(100vh - var(--header-height) - 5rem);
   }
 }
@@ -3166,6 +3216,15 @@ input {
 .kit-card:hover {
   transform: translateY(-3px);
   border-top-color: var(--accent-red);
+}
+
+.kit-card-media {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  margin-bottom: 1rem;
 }
 
 .kit-card-top {

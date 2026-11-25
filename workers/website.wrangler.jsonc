@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "main": "workers/form-api/index.js",
+  "main": "form-api/index.js",
   "compatibility_date": "2026-11-25",
   "compatibility_flags": ["nodejs_compat"],
   "observability": {
@@ -21,7 +21,7 @@
     "SENDER_NAME": "Dalit Welfare Association Website"
   },
   "assets": {
-    "directory": ".",
+    "directory": "..",
     "binding": "ASSETS",
     "run_worker_first": ["/api/*"]
   },

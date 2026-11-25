@@ -452,7 +452,7 @@
   });
 
   /* ------------------------------------------------------------------------
-     7. FORM VALIDATION & WORKER API SUBMISSION (NEWSLETTER & CONTACT)
+     7. FORM VALIDATION & AJAX SUBMISSION (/api/submit -> monday.com CRM)
      ------------------------------------------------------------------------ */
   function showStatus(box, message, isError) {
     if (!box) return;
@@ -461,21 +461,21 @@
     box.removeAttribute('hidden');
   }
 
-  function getApiEndpoint(routePath) {
+  function resolveSubmitEndpoint(form) {
     if (window.location.protocol === 'file:') return '';
+    const action = form.getAttribute('action') || '/api/submit';
     const meta = document.querySelector('meta[name="dwa-api-base"]');
     const base = meta ? meta.getAttribute('content').trim() : '';
-    if (!base) return '';
-    if (base === 'same-origin' || base === '/') {
-      return routePath;
+    if (!base || base === 'same-origin' || base === '/') {
+      return action;
     }
-    return base.replace(/\/+$/, '') + routePath;
+    return base.replace(/\/+$/, '') + action;
   }
 
-  async function submitJsonForm(form, routePath, payload, statusBox, unconfiguredMessage) {
-    const endpoint = getApiEndpoint(routePath);
+  async function submitFormAjax(form, statusBox, localStaticMessage) {
+    const endpoint = resolveSubmitEndpoint(form);
     if (!endpoint) {
-      showStatus(statusBox, unconfiguredMessage, false);
+      showStatus(statusBox, localStaticMessage, false);
       return;
     }
 
@@ -483,28 +483,29 @@
     const originalLabel = submitBtn ? submitBtn.textContent : '';
     if (submitBtn) {
       submitBtn.disabled = true;
+      submitBtn.setAttribute('aria-busy', 'true');
       submitBtn.textContent = 'Submitting...';
     }
 
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 10000);
+    const timer = setTimeout(() => controller.abort(), 12000);
 
     try {
+      const formData = new FormData(form);
       const response = await fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: formData,
         signal: controller.signal
       });
       const data = await response.json().catch(() => ({}));
       const isLocalStatic =
         window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
-      if (response.ok && data.ok === true) {
+      if (response.ok && (data.success === true || data.ok === true)) {
         showStatus(statusBox, data.message || 'Submitted successfully.', false);
         form.reset();
-      } else if ((response.status === 404 || response.status === 501) && isLocalStatic) {
-        showStatus(statusBox, unconfiguredMessage, false);
+      } else if ((response.status === 404 || response.status === 405 || response.status === 501) && isLocalStatic) {
+        showStatus(statusBox, localStaticMessage, false);
       } else {
         showStatus(
           statusBox,
@@ -522,6 +523,7 @@
       clearTimeout(timer);
       if (submitBtn) {
         submitBtn.disabled = false;
+        submitBtn.removeAttribute('aria-busy');
         submitBtn.textContent = originalLabel;
       }
     }
@@ -531,16 +533,25 @@
 
   const newsletterForm = document.getElementById('dwa-newsletter-form');
   if (newsletterForm) {
+    const nameInput = document.getElementById('newsletter-name');
     const emailInput = document.getElementById('newsletter-email');
     const consentInput = document.getElementById('newsletter-consent');
-    const honeypotInput = document.getElementById('newsletter-company');
+    const honeypotInput = document.getElementById('newsletter-bot-field');
     const statusBox = document.getElementById('newsletter-status');
 
     newsletterForm.addEventListener('submit', (event) => {
       event.preventDefault();
       if (honeypotInput && honeypotInput.value.trim() !== '') return;
 
+      const fullName = nameInput ? nameInput.value.trim() : '';
       const email = emailInput ? emailInput.value.trim() : '';
+
+      if (fullName.length < 2) {
+        showStatus(statusBox, 'Please enter your full name before subscribing.', true);
+        if (nameInput) nameInput.focus();
+        return;
+      }
+
       if (!EMAIL_REGEX.test(email)) {
         showStatus(statusBox, 'Please enter a valid email address before submitting.', true);
         if (emailInput) emailInput.focus();
@@ -553,14 +564,14 @@
         return;
       }
 
-      submitJsonForm(
+      submitFormAjax(
         newsletterForm,
-        '/api/newsletter',
-        { email, consent: true, company_website: '' },
         statusBox,
-        'Email format and consent verified for ' +
+        'Details validated for ' +
+          fullName +
+          ' (' +
           email +
-          '. Configure <meta name="dwa-api-base"> with your deployed Cloudflare Worker URL (workers/form-api) to store live subscriptions. For immediate updates, write to dalitwelfareassociation1@gmail.com.'
+          '). Run "npx wrangler pages dev ." locally or deploy to Cloudflare Pages to test live /api/submit submissions. Meanwhile, write to dalitwelfareassociation1@gmail.com.'
       );
     });
   }
@@ -569,12 +580,10 @@
   if (contactForm) {
     const nameInput = document.getElementById('contact-name');
     const emailInput = document.getElementById('contact-email');
-    const phoneInput = document.getElementById('contact-phone');
-    const orgInput = document.getElementById('contact-org');
     const typeSelect = document.getElementById('contact-type');
     const messageInput = document.getElementById('contact-message');
     const consentInput = document.getElementById('contact-consent');
-    const honeypotInput = document.getElementById('contact-website');
+    const honeypotInput = document.getElementById('contact-bot-field');
     const statusBox = document.getElementById('contact-status');
 
     contactForm.addEventListener('submit', (event) => {
@@ -583,8 +592,6 @@
 
       const fullName = nameInput ? nameInput.value.trim() : '';
       const email = emailInput ? emailInput.value.trim() : '';
-      const phone = phoneInput ? phoneInput.value.trim() : '';
-      const organization = orgInput ? orgInput.value.trim() : '';
       const enquiryType = typeSelect ? typeSelect.value : 'General';
       const message = messageInput ? messageInput.value.trim() : '';
 
@@ -612,26 +619,46 @@
         return;
       }
 
-      submitJsonForm(
+      submitFormAjax(
         contactForm,
-        '/api/contact',
-        {
-          full_name: fullName,
-          email,
-          phone,
-          organization,
-          enquiry_type: enquiryType,
-          message,
-          consent: true,
-          website: ''
-        },
         statusBox,
         'Enquiry fields validated (' +
           enquiryType +
-          '). Configure <meta name="dwa-api-base"> with your deployed Cloudflare Worker URL (workers/form-api) to submit directly; meanwhile, please email dalitwelfareassociation1@gmail.com or call +91 8309744864.'
+          '). Run "npx wrangler pages dev ." locally or deploy to Cloudflare Pages to submit live to /api/submit. Meanwhile, email dalitwelfareassociation1@gmail.com or call +91 8309744864.'
       );
     });
   }
+
+  document.querySelectorAll('form[action="/api/submit"]:not(#dwa-newsletter-form):not(#dwa-contact-form)').forEach((form) => {
+    const statusBox = form.querySelector('.form-status');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const botInput = form.querySelector('input[name="bot_field"]');
+      if (botInput && botInput.value.trim() !== '') return;
+
+      const nameField = form.querySelector('input[name="name"]');
+      const emailField = form.querySelector('input[name="email"]');
+      const fullName = nameField ? nameField.value.trim() : '';
+      const email = emailField ? emailField.value.trim() : '';
+
+      if (fullName.length < 2) {
+        showStatus(statusBox, 'Please enter your full name.', true);
+        if (nameField) nameField.focus();
+        return;
+      }
+      if (!EMAIL_REGEX.test(email)) {
+        showStatus(statusBox, 'Please enter a valid email address.', true);
+        if (emailField) emailField.focus();
+        return;
+      }
+
+      submitFormAjax(
+        form,
+        statusBox,
+        'Form validated locally. Run "npx wrangler pages dev ." or deploy to Cloudflare Pages to enable /api/submit.'
+      );
+    });
+  });
 
   /* ------------------------------------------------------------------------
      8. WHOLE-SITE SMOOTH SECTION, BOX & IMAGE SLIDE-UP SCROLL REVEAL

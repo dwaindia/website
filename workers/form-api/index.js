@@ -406,10 +406,117 @@ export default {
       if (request.method === 'GET' && url.pathname === '/api/health') {
         const hasD1 = Boolean(env.SUBMISSIONS_DB);
         const hasEmail = Boolean(env.EMAIL);
+        const hasMonday = Boolean(env.MONDAY_API_TOKEN && env.MONDAY_BOARD_ID);
         const hasCrm = Boolean(typeof env.CRM_WEBHOOK_URL === 'string' && env.CRM_WEBHOOK_URL.trim());
-        const configured = hasD1 || hasEmail || hasCrm;
+        const configured = hasMonday || hasD1 || hasEmail || hasCrm;
         return jsonResponse(
-          { ok: true, service: 'dwa-form-api', configured, d1: hasD1, email: hasEmail },
+          { ok: true, service: 'dwa-form-api', configured, monday: hasMonday, d1: hasD1, email: hasEmail },
+          200,
+          allowedOrigin
+        );
+      }
+
+      if (request.method === 'POST' && url.pathname === '/api/submit') {
+        if (request.headers.get('Origin') && !allowedOrigin) {
+          return jsonResponse({ success: false, ok: false, message: 'Origin not allowed.' }, 403, null);
+        }
+
+        let formData;
+        try {
+          formData = await request.formData();
+        } catch {
+          return jsonResponse({ success: false, ok: false, message: 'Invalid form submission payload.' }, 400, allowedOrigin);
+        }
+
+        const botField = cleanText(formData.get('bot_field'), 120);
+        if (botField) {
+          return jsonResponse({ success: true, ok: true, requestId, message: 'Thank you. Your submission has been received.' }, 200, allowedOrigin);
+        }
+
+        const fullName = cleanText(formData.get('name'), 120);
+        const email = cleanText(formData.get('email'), 254).toLowerCase();
+        const phone = cleanText(formData.get('phone'), 40);
+        const formType = cleanText(formData.get('form_type'), 40) || 'contact';
+        const rawEnquiryType = cleanText(formData.get('enquiry_type'), 64);
+        const enquiryType = VALID_ENQUIRY_TYPES.has(rawEnquiryType) ? rawEnquiryType : 'General';
+        const organization = cleanText(formData.get('organization'), 160);
+        const rawMessage = cleanText(formData.get('message'), 3500);
+
+        if (fullName.length < 2) {
+          return jsonResponse({ success: false, ok: false, message: 'Please enter your full name (at least 2 characters).' }, 400, allowedOrigin);
+        }
+        if (!EMAIL_PATTERN.test(email)) {
+          return jsonResponse({ success: false, ok: false, message: 'Please provide a valid email address.' }, 400, allowedOrigin);
+        }
+
+        const mondayToken = typeof env.MONDAY_API_TOKEN === 'string' ? env.MONDAY_API_TOKEN.trim() : '';
+        const mondayBoardId = env.MONDAY_BOARD_ID != null ? String(env.MONDAY_BOARD_ID).trim() : '';
+        let mondayId = null;
+
+        if (mondayToken && mondayBoardId) {
+          const messageSections = [];
+          if (rawEnquiryType) messageSections.push(`Enquiry Type: ${rawEnquiryType}`);
+          if (organization) messageSections.push(`Organization: ${organization}`);
+          if (rawMessage) messageSections.push(rawMessage);
+          const columnValues = {
+            email: { email, text: email },
+            text: formType,
+            long_text: { text: messageSections.length > 0 ? messageSections.join('\n') : `Submitted via website ${formType} form.` }
+          };
+          if (phone) columnValues.phone = { phone, countryShortName: 'IN' };
+
+          const mondayResp = await fetch('https://api.monday.com/v2', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: mondayToken,
+              'API-Version': '2024-10'
+            },
+            body: JSON.stringify({
+              query: 'mutation ($boardId: ID!, $itemName: String!, $columnValues: JSON!) { create_item(board_id: $boardId, item_name: $itemName, column_values: $columnValues) { id } }',
+              variables: { boardId: mondayBoardId, itemName: fullName, columnValues: JSON.stringify(columnValues) }
+            })
+          });
+          const mondayJson = await mondayResp.json().catch(() => null);
+          mondayId = mondayJson?.data?.create_item?.id || null;
+          if (!mondayResp.ok || (Array.isArray(mondayJson?.errors) && mondayJson.errors.length > 0) || !mondayId) {
+            return jsonResponse(
+              { success: false, ok: false, message: 'Unable to record submission right now. Please email dalitwelfareassociation1@gmail.com.' },
+              500,
+              allowedOrigin
+            );
+          }
+        }
+
+        const submittedAt = new Date().toISOString();
+        const isSignup = formType === 'signup';
+        const hasFallbackBackend = Boolean(env.SUBMISSIONS_DB || env.EMAIL || env.CRM_WEBHOOK_URL);
+        if (hasFallbackBackend) {
+          await persistSubmission(
+            isSignup ? 'newsletter' : 'contact',
+            isSignup
+              ? { email, consent: true, submittedAt }
+              : { fullName, email, phone, organization, enquiryType, message: rawMessage || `Website ${formType} submission`, consent: true, submittedAt },
+            requestId,
+            env
+          );
+        } else if (!mondayId) {
+          return jsonResponse(
+            { success: false, ok: false, message: 'Form backend is not configured yet. Please email dalitwelfareassociation1@gmail.com.' },
+            500,
+            allowedOrigin
+          );
+        }
+
+        return jsonResponse(
+          {
+            success: true,
+            ok: true,
+            id: mondayId || requestId,
+            message: isSignup
+              ? 'Thank you for signing up. Your details have been recorded by Dalit Welfare Association.'
+              : 'Thank you. Your enquiry has been received by Dalit Welfare Association.'
+          },
           200,
           allowedOrigin
         );
