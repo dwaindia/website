@@ -11,12 +11,13 @@
 - [ ] **Verify informed consent & child protection clearance** before publishing any identifiable beneficiary or government school photograph (`Plate 05`, `Plate P3`, `Plate G2`, `Plate W0`).
 - [ ] **Optimize approved photos** into responsive WebP + JPEG/PNG fallbacks matching each plate's target ratio (`4:5`, `4:3`, `16:9`), preserving originals safely outside the public site root.
 
-## Step 2: Live Cloudflare Worker Form & Newsletter API
-- [ ] Install Node/Wrangler locally and run `npx wrangler login` inside `workers/form-api/`.
-- [ ] Configure Wrangler secrets (`CRM_WEBHOOK_URL`, `CRM_AUTH_TOKEN`, optional `TURNSTILE_SECRET_KEY`).
-- [ ] Deploy the Worker (`npx wrangler deploy`) and verify `GET /api/health` returns `{"ok":true,"configured":true}`.
-- [ ] Set `<meta name="dwa-api-base" content="https://...">` in `index.html` and `donate.html` (or configure Cloudflare Pages route `/api/*`).
-- [ ] Test `#dwa-newsletter-form` and `#dwa-contact-form` end-to-end and verify submissions arrive in CRM.
+## Step 2: Live Cloudflare Worker Form & Newsletter API (D1 + Email Sending)
+- [x] Provisioned Cloudflare D1 database **`dwa-submissions`** (`65a2e47f-e25f-4904-922e-a08f207a0a60` in `APAC`) with `newsletter_subscribers` and `contact_enquiries` tables.
+- [x] Enabled Cloudflare Email Sending subdomain **`notify.dwaindiaa.org`** (`status: ready`) delivering form alerts to verified `dalitwelfareassociation1@gmail.com` without touching root Microsoft 365 MX records.
+- [x] Unified root `wrangler.jsonc` (`website` Worker + `ASSETS` with `run_worker_first: ["/api/*"]`, `SUBMISSIONS_DB`, `EMAIL`) and set `<meta name="dwa-api-base" content="same-origin">` in `index.html` and `donate.html`.
+- [ ] Run `git pull && npx wrangler deploy` from `/home/moses/WEBSITE` (or connect **Workers & Pages** > **website** > **Settings** > **Build** to `dwaindia/website`) to publish `/api/newsletter`, `/api/contact`, and `/api/health` on `https://dwaindiaa.org`.
+- [ ] Verify `GET https://dwaindiaa.org/api/health` returns `{"ok":true,"configured":true,"d1":true,"email":true}`, then test `#dwa-newsletter-form` and `#dwa-contact-form` end-to-end and inspect records in Cloudflare Dashboard **Storage & Databases** > **D1** > `dwa-submissions`.
+- [ ] *(Optional)* Configure Wrangler secrets (`CRM_WEBHOOK_URL`, `CRM_AUTH_TOKEN`, `TURNSTILE_SECRET_KEY`) only if forwarding to an external CRM or adding Turnstile.
 
 ## Step 3: SEO Indexing, Privacy-Safe Analytics & Link Checks
 - [ ] Connect `https://dwaindiaa.org/` in **Google Search Console** & **Bing Webmaster Tools** and submit `https://dwaindiaa.org/sitemap.xml`.

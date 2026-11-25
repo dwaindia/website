@@ -16,10 +16,22 @@
     }
   },
   "vars": {
-    "ALLOWED_ORIGINS": "https://dwaindiaa.org,https://www.dwaindiaa.org,https://dwa-website.pages.dev,http://localhost:8080"
-  }
-  // Configure sensitive destinations via Wrangler secrets (never commit secrets):
-  //   wrangler secret put CRM_WEBHOOK_URL
-  //   wrangler secret put CRM_AUTH_TOKEN
-  //   wrangler secret put TURNSTILE_SECRET_KEY
+    "ALLOWED_ORIGINS": "https://dwaindiaa.org,https://www.dwaindiaa.org,http://localhost:8787,http://localhost:8080,http://127.0.0.1:8787",
+    "NOTIFICATION_EMAIL": "dalitwelfareassociation1@gmail.com",
+    "SENDER_EMAIL": "forms@notify.dwaindiaa.org",
+    "SENDER_NAME": "Dalit Welfare Association Website"
+  },
+  "d1_databases": [
+    {
+      "binding": "SUBMISSIONS_DB",
+      "database_name": "dwa-submissions",
+      "database_id": "65a2e47f-e25f-4904-922e-a08f207a0a60"
+    }
+  ],
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "destination_address": "dalitwelfareassociation1@gmail.com"
+    }
+  ]
 }

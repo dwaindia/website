@@ -1,39 +1,34 @@
-# DWA Phase 3 — Cloudflare Worker Form & Newsletter API
+# DWA Form & Newsletter Worker (`POST /api/newsletter`, `POST /api/contact`)
 
-This Worker handles `POST /api/newsletter` and `POST /api/contact` securely without exposing CRM credentials or API tokens in browser JavaScript.
+This Worker handles `POST /api/newsletter`, `POST /api/contact`, and `GET /api/health` cleanly inside Cloudflare, storing records in Cloudflare D1 (`dwa-submissions`) and dispatching email alerts via Cloudflare Email Sending (`notify.dwaindiaa.org` → `dalitwelfareassociation1@gmail.com`).
 
-## Security & Data Rules
+## Cloudflare Architecture (Zero Third-Party Dependencies)
 
-1. **Zero secrets in Git:** Configure CRM and Turnstile keys exclusively via Wrangler secrets (`wrangler secret put`). Never commit `.dev.vars` or `.env`.
-2. **No false confirmations:** The Worker returns `503 BACKEND_NOT_CONFIGURED` unless `CRM_WEBHOOK_URL` or a D1 `SUBMISSIONS_DB` binding confirms receipt.
-3. **Minimal PII logging:** Observability logs emit `requestId` (`crypto.randomUUID()`), endpoint path, and HTTP status only—never email addresses, phone numbers, or message text.
-4. **Payload bounds & CORS:** Rejects payloads over 16 KB (`413`) and enforces `ALLOWED_ORIGINS`.
+1. **Unified Root Deployment (`../wrangler.jsonc`):** Deploys static site assets + `/api/*` Worker routes together under the live `website` Worker (`assets.run_worker_first: ["/api/*"]`), allowing same-origin `POST /api/newsletter` and `POST /api/contact` on `https://dwaindiaa.org` and `https://www.dwaindiaa.org`.
+2. **Database (`SUBMISSIONS_DB`):** Cloudflare D1 database **`dwa-submissions`** (`65a2e47f-e25f-4904-922e-a08f207a0a60`, APAC).
+3. **Email Notifications (`EMAIL`):** Cloudflare Email Sending subdomain **`notify.dwaindiaa.org`** (`forms@notify.dwaindiaa.org` → `dalitwelfareassociation1@gmail.com` with `replyTo` set to the submitter). Root Microsoft 365 Outlook MX/SPF/DKIM records on `dwaindiaa.org` remain untouched.
+4. **Minimal PII Logging:** Observability logs emit `requestId` (`crypto.randomUUID()`), endpoint path, and HTTP status only—never email addresses, phone numbers, or message text.
+5. **Security Guards:** Enforces origin checks, 16 KB payload cap (`413`), honeypot filtering, and optional Turnstile verification.
 
-## Setup & Deployment Commands
+## Deploy & Verify Commands
 
-1. Authenticate with Cloudflare:
-   ```bash
-   npx wrangler login
-   ```
-2. Configure required secrets:
-   ```bash
-   cd workers/form-api
-   npx wrangler secret put CRM_WEBHOOK_URL
-   npx wrangler secret put CRM_AUTH_TOKEN
-   # Optional spam protection:
-   npx wrangler secret put TURNSTILE_SECRET_KEY
-   ```
-3. Run locally:
-   ```bash
-   npx wrangler dev
-   ```
-4. Deploy to Cloudflare Workers:
-   ```bash
-   npx wrangler deploy
-   ```
-5. Connect the static site (`index.html` and `donate.html`) to the deployed Worker by setting `<meta name="dwa-api-base" content="https://dwa-form-api.<subdomain>.workers.dev">` (or adding a Cloudflare route on `/api/*` on the production domain).
+From the repository root (`/home/moses/WEBSITE`):
 
-## Optional D1 Schema (If Used Alongside Salesforce / CRM)
+```bash
+git pull
+npx wrangler deploy
+curl https://dwaindiaa.org/api/health
+```
+
+Optional external CRM / Turnstile secrets (never commit secrets in code):
+
+```bash
+npx wrangler secret put CRM_WEBHOOK_URL
+npx wrangler secret put CRM_AUTH_TOKEN
+npx wrangler secret put TURNSTILE_SECRET_KEY
+```
+
+## D1 Tables (`dwa-submissions`)
 
 ```sql
 CREATE TABLE IF NOT EXISTS newsletter_subscribers (

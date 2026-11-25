@@ -462,10 +462,14 @@
   }
 
   function getApiEndpoint(routePath) {
+    if (window.location.protocol === 'file:') return '';
     const meta = document.querySelector('meta[name="dwa-api-base"]');
-    const base = meta ? meta.getAttribute('content').trim().replace(/\/+$/, '') : '';
+    const base = meta ? meta.getAttribute('content').trim() : '';
     if (!base) return '';
-    return base + routePath;
+    if (base === 'same-origin' || base === '/') {
+      return routePath;
+    }
+    return base.replace(/\/+$/, '') + routePath;
   }
 
   async function submitJsonForm(form, routePath, payload, statusBox, unconfiguredMessage) {
@@ -493,10 +497,14 @@
         signal: controller.signal
       });
       const data = await response.json().catch(() => ({}));
+      const isLocalStatic =
+        window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
       if (response.ok && data.ok === true) {
         showStatus(statusBox, data.message || 'Submitted successfully.', false);
         form.reset();
+      } else if ((response.status === 404 || response.status === 501) && isLocalStatic) {
+        showStatus(statusBox, unconfiguredMessage, false);
       } else {
         showStatus(
           statusBox,

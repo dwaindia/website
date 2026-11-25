@@ -1,10 +1,11 @@
 /**
- * Dalit Welfare Association (DWA) — Phase 3 Form & Newsletter API Worker
+ * Dalit Welfare Association (DWA) — Form, Newsletter & Static Assets Worker
  *
  * Security & Reliability Rules:
  * - Never embeds secrets or CRM tokens in code.
- * - Enforces explicit origin allowlist, payload byte limit (16 KB), and server-side validation.
- * - Never claims success unless a configured receiving backend (CRM_WEBHOOK_URL or SUBMISSIONS_DB) confirms persistence.
+ * - Enforces explicit same-origin / allowlist CORS checks, 16 KB payload limit, and validation.
+ * - Persists verified submissions to Cloudflare D1 (`SUBMISSIONS_DB`) and dispatches
+ *   transactional notifications via Cloudflare Email Service (`EMAIL`), plus optional CRM webhook.
  * - Avoids logging raw PII (emails, phone numbers, messages) in observability logs.
  */
 
@@ -20,14 +21,16 @@ const VALID_ENQUIRY_TYPES = new Set([
 ]);
 
 /**
- * Resolve allowed CORS origin from env.ALLOWED_ORIGINS.
+ * Resolve allowed CORS origin from request origin matching same-origin or env.ALLOWED_ORIGINS.
  * @param {Request} request
+ * @param {URL} url
  * @param {Record<string, unknown>} env
  * @returns {string | null}
  */
-function resolveAllowedOrigin(request, env) {
+function resolveAllowedOrigin(request, url, env) {
   const origin = request.headers.get('Origin');
   if (!origin) return null;
+  if (origin === url.origin) return origin;
   const raw = typeof env.ALLOWED_ORIGINS === 'string' ? env.ALLOWED_ORIGINS : '';
   const allowlist = raw
     .split(',')
@@ -129,6 +132,20 @@ function cleanText(value, maxLen) {
 }
 
 /**
+ * Escape HTML special characters before interpolating user values into email HTML.
+ * @param {string} value
+ * @returns {string}
+ */
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+/**
  * Optional Cloudflare Turnstile verification when TURNSTILE_SECRET_KEY secret is bound.
  * @param {string} token
  * @param {string | null} remoteIp
@@ -157,19 +174,116 @@ async function verifyTurnstileIfConfigured(token, remoteIp, env) {
 }
 
 /**
- * Forward validated record to configured CRM webhook or D1 binding.
- * Never returns success unless at least one persistent destination confirms receipt.
+ * Send transactional notification email using Cloudflare Email Sending (`env.EMAIL`).
+ * Includes both HTML and plain text parts; avoids throwing when D1 already saved submission.
  * @param {'newsletter' | 'contact'} kind
  * @param {Record<string, unknown>} record
  * @param {string} requestId
  * @param {Record<string, unknown>} env
- * @returns {Promise<{ persisted: boolean, status: number, code?: string, message: string }>}
+ * @returns {Promise<{ sent: boolean, messageId?: string, errorCode?: string }>}
+ */
+async function sendNotificationEmail(kind, record, requestId, env) {
+  if (!env.EMAIL || typeof env.EMAIL.send !== 'function') {
+    return { sent: false, errorCode: 'EMAIL_BINDING_MISSING' };
+  }
+
+  const toEmail =
+    typeof env.NOTIFICATION_EMAIL === 'string' && env.NOTIFICATION_EMAIL.trim()
+      ? env.NOTIFICATION_EMAIL.trim()
+      : 'dalitwelfareassociation1@gmail.com';
+  const fromEmail =
+    typeof env.SENDER_EMAIL === 'string' && env.SENDER_EMAIL.trim()
+      ? env.SENDER_EMAIL.trim()
+      : 'forms@notify.dwaindiaa.org';
+  const fromName =
+    typeof env.SENDER_NAME === 'string' && env.SENDER_NAME.trim()
+      ? env.SENDER_NAME.trim()
+      : 'Dalit Welfare Association Website';
+
+  const isNewsletter = kind === 'newsletter';
+  const subject = isNewsletter
+    ? `[DWA Website] New Newsletter Subscription`
+    : `[DWA Website] New ${String(record.enquiryType || 'General')} Enquiry`;
+
+  const textBody = isNewsletter
+    ? [
+        'Dalit Welfare Association — New Newsletter Subscription',
+        `Reference ID: ${requestId}`,
+        `Email: ${record.email}`,
+        `Privacy Consent: Confirmed`,
+        `Submitted At (UTC): ${record.submittedAt}`
+      ].join('\n')
+    : [
+        'Dalit Welfare Association — New Contact / Partnership Enquiry',
+        `Reference ID: ${requestId}`,
+        `Enquiry Type: ${record.enquiryType}`,
+        `Full Name: ${record.fullName}`,
+        `Email: ${record.email}`,
+        `Phone: ${record.phone || 'Not provided'}`,
+        `Organization: ${record.organization || 'Not provided'}`,
+        `Submitted At (UTC): ${record.submittedAt}`,
+        '',
+        'Message:',
+        String(record.message || '')
+      ].join('\n');
+
+  const htmlBody = isNewsletter
+    ? `<div style="font-family:sans-serif;max-width:600px;border:1px solid #e2c7c7;padding:20px;">
+        <h2 style="margin:0 0 12px;color:#171717;">New Newsletter Subscription</h2>
+        <p style="margin:4px 0;"><strong>Reference ID:</strong> ${escapeHtml(requestId)}</p>
+        <p style="margin:4px 0;"><strong>Subscriber Email:</strong> ${escapeHtml(record.email)}</p>
+        <p style="margin:4px 0;"><strong>Privacy Consent:</strong> Confirmed</p>
+        <p style="margin:4px 0;"><strong>Submitted (UTC):</strong> ${escapeHtml(record.submittedAt)}</p>
+      </div>`
+    : `<div style="font-family:sans-serif;max-width:600px;border:1px solid #e2c7c7;padding:20px;">
+        <h2 style="margin:0 0 12px;color:#171717;">New Website Enquiry (${escapeHtml(record.enquiryType)})</h2>
+        <p style="margin:4px 0;"><strong>Reference ID:</strong> ${escapeHtml(requestId)}</p>
+        <p style="margin:4px 0;"><strong>Full Name:</strong> ${escapeHtml(record.fullName)}</p>
+        <p style="margin:4px 0;"><strong>Email:</strong> ${escapeHtml(record.email)}</p>
+        <p style="margin:4px 0;"><strong>Phone:</strong> ${escapeHtml(record.phone || 'Not provided')}</p>
+        <p style="margin:4px 0;"><strong>Organization:</strong> ${escapeHtml(record.organization || 'Not provided')}</p>
+        <p style="margin:4px 0;"><strong>Submitted (UTC):</strong> ${escapeHtml(record.submittedAt)}</p>
+        <hr style="border:none;border-top:1px solid #e2c7c7;margin:14px 0;">
+        <p style="margin:0 0 6px;"><strong>Message:</strong></p>
+        <p style="margin:0;white-space:pre-line;color:#171717;">${escapeHtml(record.message)}</p>
+      </div>`;
+
+  const replyTo = isNewsletter
+    ? String(record.email)
+    : { email: String(record.email), name: String(record.fullName || record.email) };
+
+  try {
+    const result = await env.EMAIL.send({
+      to: toEmail,
+      from: { email: fromEmail, name: fromName },
+      replyTo,
+      subject,
+      text: textBody,
+      html: htmlBody
+    });
+    return { sent: true, messageId: result?.messageId };
+  } catch (err) {
+    const code = err && typeof err === 'object' && 'code' in err ? String(err.code) : 'EMAIL_SEND_FAILED';
+    console.error(JSON.stringify({ message: 'email notification failed', requestId, code }));
+    return { sent: false, errorCode: code };
+  }
+}
+
+/**
+ * Persist validated submission to D1 (`SUBMISSIONS_DB`), notify via Cloudflare Email (`EMAIL`),
+ * and forward to optional `CRM_WEBHOOK_URL`.
+ * @param {'newsletter' | 'contact'} kind
+ * @param {Record<string, unknown>} record
+ * @param {string} requestId
+ * @param {Record<string, unknown>} env
+ * @returns {Promise<{ persisted: boolean, status: number, code?: string, message: string, emailSent?: boolean }>}
  */
 async function persistSubmission(kind, record, requestId, env) {
   const webhookUrl = typeof env.CRM_WEBHOOK_URL === 'string' ? env.CRM_WEBHOOK_URL.trim() : '';
   const hasD1 = Boolean(env.SUBMISSIONS_DB && typeof env.SUBMISSIONS_DB.prepare === 'function');
+  const hasEmail = Boolean(env.EMAIL && typeof env.EMAIL.send === 'function');
 
-  if (!webhookUrl && !hasD1) {
+  if (!hasD1 && !hasEmail && !webhookUrl) {
     return {
       persisted: false,
       status: 503,
@@ -178,17 +292,17 @@ async function persistSubmission(kind, record, requestId, env) {
     };
   }
 
+  let savedToD1 = false;
   if (hasD1) {
-    const table = kind === 'newsletter' ? 'newsletter_subscribers' : 'contact_enquiries';
     if (kind === 'newsletter') {
       await env.SUBMISSIONS_DB.prepare(
-        `INSERT INTO ${table} (id, email, consent_given, created_at) VALUES (?1, ?2, ?3, ?4)`
+        'INSERT INTO newsletter_subscribers (id, email, consent_given, created_at) VALUES (?1, ?2, ?3, ?4)'
       )
         .bind(requestId, record.email, 1, record.submittedAt)
         .run();
     } else {
       await env.SUBMISSIONS_DB.prepare(
-        `INSERT INTO ${table} (id, full_name, email, phone, organization, enquiry_type, message, consent_given, created_at) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9)`
+        'INSERT INTO contact_enquiries (id, full_name, email, phone, organization, enquiry_type, message, consent_given, created_at) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9)'
       )
         .bind(
           requestId,
@@ -203,6 +317,13 @@ async function persistSubmission(kind, record, requestId, env) {
         )
         .run();
     }
+    savedToD1 = true;
+  }
+
+  let emailSent = false;
+  if (hasEmail) {
+    const emailOutcome = await sendNotificationEmail(kind, record, requestId, env);
+    emailSent = emailOutcome.sent;
   }
 
   if (webhookUrl) {
@@ -220,22 +341,32 @@ async function persistSubmission(kind, record, requestId, env) {
       body: JSON.stringify({ requestId, kind, payload: record })
     });
 
-    if (!upstream.ok) {
+    if (!upstream.ok && !savedToD1 && !emailSent) {
       return {
         persisted: false,
         status: 502,
         code: 'UPSTREAM_REJECTED',
-        message: 'Unable to confirm delivery to institutional CRM. Please email dalitwelfareassociation1@gmail.com.'
+        message: 'Unable to confirm delivery. Please email dalitwelfareassociation1@gmail.com.'
       };
     }
+  }
+
+  if (!savedToD1 && !emailSent && !webhookUrl) {
+    return {
+      persisted: false,
+      status: 502,
+      code: 'DELIVERY_UNCONFIRMED',
+      message: 'Unable to confirm submission right now. Please email dalitwelfareassociation1@gmail.com.'
+    };
   }
 
   return {
     persisted: true,
     status: 201,
+    emailSent,
     message:
       kind === 'newsletter'
-        ? 'Thank you. Your email update preference has been recorded.'
+        ? 'Thank you. Your email update preference has been saved.'
         : 'Thank you. Your enquiry has been received by Dalit Welfare Association.'
   };
 }
@@ -244,7 +375,16 @@ export default {
   async fetch(request, env) {
     const requestId = crypto.randomUUID();
     const url = new URL(request.url);
-    const allowedOrigin = resolveAllowedOrigin(request, env);
+
+    // Serve static assets cleanly if a non-API request ever reaches the Worker script
+    if (!url.pathname.startsWith('/api/')) {
+      if (env.ASSETS && typeof env.ASSETS.fetch === 'function') {
+        return env.ASSETS.fetch(request);
+      }
+      return jsonResponse({ ok: false, error: 'Not found.' }, 404, null);
+    }
+
+    const allowedOrigin = resolveAllowedOrigin(request, url, env);
 
     if (request.method === 'OPTIONS') {
       if (!allowedOrigin) {
@@ -264,10 +404,15 @@ export default {
 
     try {
       if (request.method === 'GET' && url.pathname === '/api/health') {
-        const configured =
-          Boolean(typeof env.CRM_WEBHOOK_URL === 'string' && env.CRM_WEBHOOK_URL.trim()) ||
-          Boolean(env.SUBMISSIONS_DB);
-        return jsonResponse({ ok: true, service: 'dwa-form-api', configured }, 200, allowedOrigin);
+        const hasD1 = Boolean(env.SUBMISSIONS_DB);
+        const hasEmail = Boolean(env.EMAIL);
+        const hasCrm = Boolean(typeof env.CRM_WEBHOOK_URL === 'string' && env.CRM_WEBHOOK_URL.trim());
+        const configured = hasD1 || hasEmail || hasCrm;
+        return jsonResponse(
+          { ok: true, service: 'dwa-form-api', configured, d1: hasD1, email: hasEmail },
+          200,
+          allowedOrigin
+        );
       }
 
       if (request.method !== 'POST' || (url.pathname !== '/api/newsletter' && url.pathname !== '/api/contact')) {
@@ -285,7 +430,7 @@ export default {
 
       const data = bodyResult.data;
 
-      // Silent honeypot drop without calling CRM
+      // Silent honeypot drop without saving or notifying
       const honeypot = cleanText(data.company_website || data.website, 120);
       if (honeypot) {
         console.log(JSON.stringify({ message: 'honeypot triggered', requestId, path: url.pathname }));
@@ -316,7 +461,15 @@ export default {
         }
 
         const result = await persistSubmission('newsletter', { email, consent, submittedAt }, requestId, env);
-        console.log(JSON.stringify({ message: 'newsletter processed', requestId, status: result.status, persisted: result.persisted }));
+        console.log(
+          JSON.stringify({
+            message: 'newsletter processed',
+            requestId,
+            status: result.status,
+            persisted: result.persisted,
+            emailSent: Boolean(result.emailSent)
+          })
+        );
         return jsonResponse(
           { ok: result.persisted, code: result.code, requestId, message: result.message },
           result.status,
@@ -355,7 +508,16 @@ export default {
         requestId,
         env
       );
-      console.log(JSON.stringify({ message: 'contact processed', requestId, status: result.status, persisted: result.persisted, enquiryType }));
+      console.log(
+        JSON.stringify({
+          message: 'contact processed',
+          requestId,
+          status: result.status,
+          persisted: result.persisted,
+          emailSent: Boolean(result.emailSent),
+          enquiryType
+        })
+      );
       return jsonResponse(
         { ok: result.persisted, code: result.code, requestId, message: result.message },
         result.status,
