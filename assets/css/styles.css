@@ -5,17 +5,26 @@
    ========================================================================== */
 
 :root {
-  /* Color Palette (90% Monochrome + Restrained Red Accent) */
+  /* Color Palette: White Primary + Saturated Red-Tinted Alternate Sections + Black Footer */
   --bg-primary: #FFFFFF;
-  --bg-secondary: #F5F5F3;
-  --bg-placeholder: #EFEFEA;
+  --bg-secondary: #F6E4E4;
+  --bg-placeholder: #F3E0E0;
+  --bg-placeholder-alt: #FFFFFF;
   --text-primary: #171717;
-  --text-secondary: #626262;
-  --border-color: #E5E5E5;
-  --border-strong: #C9C9C4;
+  --text-secondary: #574D4D;
+  --border-color: #E2C7C7;
+  --border-strong: #C49E9E;
   --border-dark: #171717;
   --accent-red: #B5121B;
   --accent-red-hover: #8F0E16;
+
+  /* Dark Institutional Footer Tokens */
+  --footer-bg: #121212;
+  --footer-surface: #1D1D1D;
+  --footer-text: #FFFFFF;
+  --footer-text-muted: #D4CECE;
+  --footer-border: #2F2B2B;
+  --footer-accent: #F5737A;
 
   /* Typography (Zero external font network requests) */
   --font-serif: 'Source Serif 4', 'Noto Serif', 'Liberation Serif', Georgia, 'Times New Roman', serif;
@@ -750,6 +759,18 @@ input {
   overflow: hidden;
 }
 
+.band-alt .photo-placeholder,
+.meter-section .photo-placeholder,
+.programs-section .photo-placeholder,
+.international-section .photo-placeholder,
+.page-hero .photo-placeholder {
+  background-color: var(--bg-placeholder-alt);
+}
+
+.international-frame .photo-placeholder {
+  background-color: var(--bg-placeholder);
+}
+
 /* Explicit ratios prevent Cumulative Layout Shift (CLS) */
 .ratio-hero {
   aspect-ratio: 5 / 4;
@@ -896,14 +917,14 @@ input {
    ========================================================================== */
 
 .meter-section {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
-  padding: 2.5rem 0;
+  padding: 3rem 0;
 }
 
 @media (min-width: 1024px) {
   .meter-section {
-    padding: 3.5rem 0;
+    padding: 4.25rem 0;
   }
 }
 
@@ -1006,7 +1027,7 @@ input {
    ========================================================================== */
 
 .vision-section {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
   padding: 4rem 0;
 }
@@ -1089,7 +1110,7 @@ input {
    ========================================================================== */
 
 .programs-section {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
   padding: 4rem 0;
 }
@@ -1173,7 +1194,7 @@ input {
    ========================================================================== */
 
 .credentials-section {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
   padding: 4rem 0;
 }
@@ -1265,7 +1286,7 @@ input {
    ========================================================================== */
 
 .international-section {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
   padding: 4rem 0;
 }
@@ -1277,7 +1298,7 @@ input {
 }
 
 .international-frame {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
   border: 1px solid var(--border-dark);
   border-top: 4px solid var(--accent-red);
   padding: 2rem 1.5rem;
@@ -1321,7 +1342,7 @@ input {
 }
 
 .fcra-disclosure-box {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   padding: 1.5rem;
 }
@@ -1536,13 +1557,14 @@ input {
 }
 
 /* ==========================================================================
-   14. SECTION 8 — INSTITUTIONAL FOOTER
+   14. SECTION 8 — INSTITUTIONAL FOOTER (BLACK EDITORIAL SURFACE)
    Spacious 4-column institutional layout + accessible policy modal triggers
    ========================================================================== */
 
 .site-footer {
-  background-color: var(--bg-secondary);
-  color: var(--text-primary);
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  border-top: 4px solid var(--accent-red);
   padding-top: 4rem;
   padding-bottom: 2.5rem;
 }
@@ -1552,7 +1574,7 @@ input {
   grid-template-columns: 1fr;
   gap: 2.5rem;
   padding-bottom: 3rem;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--footer-border);
 }
 
 @media (min-width: 640px) {
@@ -1579,7 +1601,7 @@ input {
   width: 56px;
   height: 56px;
   flex-shrink: 0;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--footer-border);
   background-color: var(--bg-primary);
 }
 
@@ -1588,16 +1610,17 @@ input {
   font-size: 1.125rem;
   font-weight: 600;
   line-height: 1.2;
+  color: var(--footer-text);
 }
 
 .footer-motto {
   font-size: 0.8125rem;
-  color: var(--text-secondary);
+  color: var(--footer-text-muted);
 }
 
 .footer-desc {
   font-size: 0.875rem;
-  color: var(--text-secondary);
+  color: var(--footer-text-muted);
   line-height: 1.65;
   max-width: 38ch;
 }
@@ -1606,7 +1629,7 @@ input {
   margin-top: 1rem;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--text-secondary);
+  color: var(--footer-text-muted);
   line-height: 1.6;
 }
 
@@ -1615,7 +1638,7 @@ input {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: var(--footer-text-muted);
   margin-bottom: 1rem;
 }
 
@@ -1628,13 +1651,13 @@ input {
 
 .footer-link {
   font-size: 0.9375rem;
-  color: var(--text-primary);
+  color: var(--footer-text);
   text-decoration: none;
   transition: color 0.18s ease;
 }
 
 .footer-link:hover {
-  color: var(--accent-red);
+  color: var(--footer-accent);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -1661,6 +1684,20 @@ input {
   text-decoration-color: var(--accent-red);
 }
 
+.site-footer .footer-contact-block {
+  color: var(--footer-text-muted);
+}
+
+.site-footer .footer-contact-block a {
+  color: var(--footer-text);
+  text-decoration-color: #6B6565;
+}
+
+.site-footer .footer-contact-block a:hover {
+  color: var(--footer-accent);
+  text-decoration-color: var(--footer-accent);
+}
+
 .social-links-row {
   display: flex;
   align-items: center;
@@ -1674,15 +1711,15 @@ input {
   justify-content: center;
   width: 44px;
   height: 44px;
-  border: 1px solid var(--border-strong);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  border: 1px solid #4A4444;
+  background-color: var(--footer-surface);
+  color: var(--footer-text);
   transition: border-color 0.18s ease, color 0.18s ease, background-color 0.18s ease;
 }
 
 .social-icon-link:hover {
-  border-color: var(--accent-red);
-  color: var(--accent-red);
+  border-color: var(--footer-accent);
+  color: var(--footer-accent);
 }
 
 .social-icon-link svg {
@@ -1696,7 +1733,7 @@ input {
   flex-direction: column;
   gap: 1rem;
   font-size: 0.8125rem;
-  color: var(--text-secondary);
+  color: var(--footer-text-muted);
 }
 
 @media (min-width: 768px) {
@@ -1719,14 +1756,24 @@ input {
   border: none;
   padding: 0.25rem 0;
   font-size: 0.8125rem;
-  color: var(--text-primary);
+  color: var(--footer-text);
   text-decoration: underline;
   text-underline-offset: 3px;
   cursor: pointer;
 }
 
 .footer-policy-btn:hover {
-  color: var(--accent-red);
+  color: var(--footer-accent);
+}
+
+.site-footer .editorial-link {
+  color: var(--footer-text);
+  text-decoration-color: #6B6565;
+}
+
+.site-footer .editorial-link:hover {
+  color: var(--footer-accent);
+  text-decoration-color: var(--footer-accent);
 }
 
 /* ==========================================================================
@@ -1857,8 +1904,12 @@ input {
 
 @media (min-width: 1024px) {
   .page-hero {
-    padding: 4.5rem 0 3.75rem;
+    padding: 4rem 0 3.75rem;
   }
+}
+
+.page-hero .split-grid {
+  align-items: center;
 }
 
 .page-hero-title {
