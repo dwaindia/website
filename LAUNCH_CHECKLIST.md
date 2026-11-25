@@ -24,8 +24,9 @@
 - [ ] Verify Open Graph & Twitter preview cards (`dwa-logo-square.png`) and confirm all external links (`Benevity`, `Give.do`, `GuideStar India`, `NGO Darpan`, `Instagram`, `LinkedIn`).
 
 ## Step 4: Cloudflare Pages Deployment, Sign-Off & Rollback
-- [ ] Connect `github.com/dwaindia/website` (`main` branch) to **Cloudflare Pages** (Framework preset: `None`, Build command: empty, Output directory: `/`).
-- [ ] Verify `_headers` (CSP, `X-Frame-Options`, caching) and `_redirects` are active on the Pages deployment.
-- [ ] Connect custom production domain, enforce HTTPS / Universal SSL, and verify live mobile rendering (`320px`, `375px`, `768px`, `1280px`) on real iOS/Android browsers.
+- [ ] Authorize **Cloudflare Pages** GitHub App in Cloudflare Dashboard (**Workers & Pages** > **Create application** > **Pages** > **Import an existing Git repository**) and connect `github.com/dwaindia/website` (`main` branch, project name `dwa-website`, Framework preset: `None`, Build command: empty, Output directory: `/`).
+- [ ] After `dwa-website.pages.dev` deploys successfully, detach `dwaindiaa.org` and `www.dwaindiaa.org` from the `winter-fundraising` Worker (**Workers & Pages** > **winter-fundraising** > **Settings** > **Domains & Routes**), then add `dwaindiaa.org` and `www.dwaindiaa.org` under **dwa-website** > **Custom domains** (or ask the assistant to attach both via Cloudflare API).
+- [ ] Leave Microsoft 365 `MX`/`TXT`/`SPF`/`DKIM` records untouched on both `dwaindiaa.org` and `dwaindia.org`.
+- [ ] Verify `_headers` (CSP, `X-Frame-Options`, caching) and `_redirects` are active on the Pages deployment, enforce HTTPS / Universal SSL, and verify live mobile rendering (`320px`, `375px`, `768px`, `1280px`) on real iOS/Android browsers.
 - [ ] Confirm Governing Body sign-off on **Privacy Policy** and **Refund and Cancellation Policy** modal wording, and update domestic Indian bank transfer details in `donate.html` once ready.
 - [ ] Document rollback procedure: in Cloudflare Pages **Deployments**, click **Rollback to this deployment** on any previous production build, or revert the commit on GitHub `main`.
