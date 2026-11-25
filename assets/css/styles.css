@@ -96,9 +96,10 @@ body.scroll-locked {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  html.js-reveal-ready main > section {
-    opacity: 1;
-    transform: none;
+  html.js-reveal-ready main > section,
+  html.js-reveal-ready .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
@@ -3315,15 +3316,15 @@ input {
 }
 
 /* ==========================================================================
-   19. WHOLE-SITE SECTION SMOOTH SLIDE-UP REVEAL ANIMATION
+   19. WHOLE-SITE SECTION, BOX & IMAGE SMOOTH SLIDE-UP REVEAL ANIMATIONS
    Progressive enhancement: active only when JS sets html.js-reveal-ready
    ========================================================================== */
 
 html.js-reveal-ready main > section {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(22px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
 }
 
@@ -3331,6 +3332,45 @@ html.js-reveal-ready main > section.is-visible {
   opacity: 1;
   transform: translateY(0);
   will-change: auto;
+}
+
+html.js-reveal-ready .reveal-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.62s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+              transform 0.62s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+              border-color 0.2s ease,
+              background-color 0.2s ease;
+  will-change: opacity, transform;
+}
+
+html.js-reveal-ready .photo-figure.reveal-item,
+html.js-reveal-ready img.reveal-item {
+  transform: translateY(24px) scale(0.985);
+}
+
+html.js-reveal-ready .reveal-item:nth-child(2) { --reveal-delay: 60ms; }
+html.js-reveal-ready .reveal-item:nth-child(3) { --reveal-delay: 120ms; }
+html.js-reveal-ready .reveal-item:nth-child(4) { --reveal-delay: 180ms; }
+html.js-reveal-ready .reveal-item:nth-child(5) { --reveal-delay: 240ms; }
+html.js-reveal-ready .reveal-item:nth-child(6) { --reveal-delay: 300ms; }
+
+html.js-reveal-ready .reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  will-change: auto;
+}
+
+html.js-reveal-ready .reveal-item.is-visible:hover {
+  --reveal-delay: 0ms;
+}
+
+html.js-reveal-ready .kit-card.reveal-item.is-visible:hover {
+  transform: translateY(-3px);
+}
+
+html.js-reveal-ready .tier-card.reveal-item.is-visible:hover {
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================
@@ -3348,7 +3388,8 @@ html.js-reveal-ready main > section.is-visible {
   .copy-btn {
     display: none !important;
   }
-  html.js-reveal-ready main > section {
+  html.js-reveal-ready main > section,
+  html.js-reveal-ready .reveal-item {
     opacity: 1 !important;
     transform: none !important;
   }

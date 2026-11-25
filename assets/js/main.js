@@ -634,31 +634,76 @@
   }
 
   /* ------------------------------------------------------------------------
-     8. WHOLE-SITE SMOOTH SECTION SLIDE-UP SCROLL REVEAL
+     8. WHOLE-SITE SMOOTH SECTION, BOX & IMAGE SLIDE-UP SCROLL REVEAL
      Progressive enhancement; respects prefers-reduced-motion
      ------------------------------------------------------------------------ */
+  const BOX_AND_IMAGE_SELECTOR = [
+    '.hero-content',
+    '.page-hero .split-grid > div',
+    '.photo-figure',
+    'main img:not(.site-logo-img)',
+    '.meter-item',
+    '.vision-block',
+    '.programme-item',
+    '.credentials-summary',
+    '.credentials-ledger',
+    '.international-grid > div',
+    '.fcra-disclosure-box',
+    '.newsletter-grid > div',
+    '.newsletter-form',
+    '.editorial-block-item',
+    '.callout-note',
+    '.timeline-row',
+    '.stage-step',
+    '.gov-node',
+    '.table-scroll',
+    '.donation-panel',
+    '.holiday-highlight-item',
+    '.winter-summary-card',
+    '.kit-card',
+    '.tier-card',
+    '.share-quote-box',
+    '#winter-give .split-grid > div:first-child',
+    '#share-appeal .split-grid > div:last-child',
+    '#office .split-grid > div:first-child',
+    '#policies .split-grid > div:first-child',
+    '#domestic-giving .split-grid > div:first-child',
+    '#international-giving .split-grid > div:first-child',
+    '.site-footer .footer-grid > div'
+  ].join(', ');
+
   const revealSections = Array.from(document.querySelectorAll('main > section'));
+  const rawBoxNodes = Array.from(document.querySelectorAll(BOX_AND_IMAGE_SELECTOR)).filter(
+    (el) => !el.closest('#fullscreen-menu') && !el.closest('.modal-backdrop')
+  );
+  // Avoid double-animating nested items (e.g., img inside .photo-figure, or .photo-figure inside .programme-item)
+  const revealItems = rawBoxNodes.filter(
+    (el) => !rawBoxNodes.some((other) => other !== el && other.contains(el))
+  );
+
+  const allRevealTargets = [...revealSections, ...revealItems];
   const reduceMotion =
     typeof window.matchMedia === 'function' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (revealSections.length > 0 && !reduceMotion && 'IntersectionObserver' in window) {
+  if (allRevealTargets.length > 0 && !reduceMotion && 'IntersectionObserver' in window) {
+    revealItems.forEach((el) => el.classList.add('reveal-item'));
     document.documentElement.classList.add('js-reveal-ready');
 
-    function showSection(section) {
-      if (section && !section.classList.contains('is-visible')) {
-        section.classList.add('is-visible');
+    function showTarget(el) {
+      if (el && !el.classList.contains('is-visible')) {
+        el.classList.add('is-visible');
       }
     }
 
     function revealInViewportOrAbove() {
-      const cutoff = window.innerHeight * 0.97;
+      const cutoff = window.innerHeight * 0.98;
       let pending = 0;
-      revealSections.forEach((section) => {
-        if (section.classList.contains('is-visible')) return;
-        const rect = section.getBoundingClientRect();
+      allRevealTargets.forEach((el) => {
+        if (el.classList.contains('is-visible')) return;
+        const rect = el.getBoundingClientRect();
         if (rect.top <= cutoff) {
-          showSection(section);
+          showTarget(el);
         } else {
           pending += 1;
         }
@@ -666,19 +711,19 @@
       return pending;
     }
 
-    const sectionObserver = new IntersectionObserver(
+    const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            showSection(entry.target);
-            sectionObserver.unobserve(entry.target);
+            showTarget(entry.target);
+            revealObserver.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.01, rootMargin: '0px 0px -24px 0px' }
+      { threshold: 0.01, rootMargin: '0px 0px -20px 0px' }
     );
 
-    revealSections.forEach((section) => sectionObserver.observe(section));
+    allRevealTargets.forEach((el) => revealObserver.observe(el));
 
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
@@ -691,11 +736,12 @@
       if (!hash || hash.length < 2) return;
       const target = document.getElementById(hash.slice(1));
       if (!target) return;
-      const targetSection = target.closest('main > section') || target;
-      revealSections.forEach((section) => {
-        showSection(section);
-        if (section === targetSection) {
-          sectionObserver.unobserve(section);
+      const targetBottom = target.getBoundingClientRect().top + window.scrollY;
+      allRevealTargets.forEach((el) => {
+        const elTop = el.getBoundingClientRect().top + window.scrollY;
+        if (elTop <= targetBottom + window.innerHeight || el.contains(target) || target.contains(el)) {
+          showTarget(el);
+          revealObserver.unobserve(el);
         }
       });
     }
@@ -704,12 +750,17 @@
       revealForHash();
     }
     window.addEventListener('hashchange', revealForHash);
-    window.addEventListener('scroll', () => {
-      if (revealInViewportOrAbove() === 0) {
-        revealSections.forEach((s) => sectionObserver.unobserve(s));
-      }
-    }, { passive: true });
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (revealInViewportOrAbove() === 0) {
+          allRevealTargets.forEach((el) => revealObserver.unobserve(el));
+        }
+      },
+      { passive: true }
+    );
   } else {
-    revealSections.forEach((section) => section.classList.add('is-visible'));
+    revealSections.forEach((el) => el.classList.add('is-visible'));
+    revealItems.forEach((el) => el.classList.add('reveal-item', 'is-visible'));
   }
 })();
