@@ -23,10 +23,10 @@
 - [ ] Enable **Cloudflare Web Analytics** (cookie-free) or consent-gated analytics without passing email, phone, or personal names in URLs or events.
 - [ ] Verify Open Graph & Twitter preview cards (`dwa-logo-square.png`) and confirm all external links (`Benevity`, `Give.do`, `GuideStar India`, `NGO Darpan`, `Instagram`, `LinkedIn`).
 
-## Step 4: Cloudflare Pages Deployment, Sign-Off & Rollback
-- [ ] Authorize **Cloudflare Pages** GitHub App in Cloudflare Dashboard (**Workers & Pages** > **Create application** > **Pages** > **Import an existing Git repository**) and connect `github.com/dwaindia/website` (`main` branch, project name `dwa-website`, Framework preset: `None`, Build command: empty, Output directory: `/`).
-- [ ] After `dwa-website.pages.dev` deploys successfully, detach `dwaindiaa.org` and `www.dwaindiaa.org` from the `winter-fundraising` Worker (**Workers & Pages** > **winter-fundraising** > **Settings** > **Domains & Routes**), then add `dwaindiaa.org` and `www.dwaindiaa.org` under **dwa-website** > **Custom domains** (or ask the assistant to attach both via Cloudflare API).
+## Step 4: Cloudflare Workers Static Assets & GitHub Sync
+- [x] Domain **`dwaindiaa.org`** and **`www.dwaindiaa.org`** are attached to the Cloudflare **`website`** Worker (`has_assets: true`).
+- [ ] In Cloudflare Dashboard (**Workers & Pages** > **website** > **Settings** > **Build**), connect `github.com/dwaindia/website` (`main` branch, root directory `/`, deploy command: `npx wrangler deploy`) so tonight's photo upload pushes auto-deploy to `https://dwaindiaa.org` (uses root `wrangler.jsonc` & `.assetsignore`).
 - [ ] Leave Microsoft 365 `MX`/`TXT`/`SPF`/`DKIM` records untouched on both `dwaindiaa.org` and `dwaindia.org`.
-- [ ] Verify `_headers` (CSP, `X-Frame-Options`, caching) and `_redirects` are active on the Pages deployment, enforce HTTPS / Universal SSL, and verify live mobile rendering (`320px`, `375px`, `768px`, `1280px`) on real iOS/Android browsers.
+- [ ] Verify `_headers` (CSP, `X-Frame-Options`, caching) and updated `_redirects` (no `.html` redirect loops), enforce HTTPS / Universal SSL, and verify live mobile rendering (`320px`, `375px`, `768px`, `1280px`) on real iOS/Android browsers.
 - [ ] Confirm Governing Body sign-off on **Privacy Policy** and **Refund and Cancellation Policy** modal wording, and update domestic Indian bank transfer details in `donate.html` once ready.
-- [ ] Document rollback procedure: in Cloudflare Pages **Deployments**, click **Rollback to this deployment** on any previous production build, or revert the commit on GitHub `main`.
+- [ ] Document rollback procedure: in Cloudflare Dashboard (**Workers & Pages** > **website** > **Deployments**), roll back to any previous Worker version, or revert the commit on GitHub `main`.

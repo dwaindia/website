@@ -1,0 +1,13 @@
+.git
+.next
+.gitignore
+.assetsignore
+wrangler.jsonc
+workers
+content.md
+rough.md
+implementation_plan.md
+README.md
+LAUNCH_CHECKLIST.md
+logo.jpg
+assets/documents
