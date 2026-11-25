@@ -452,8 +452,40 @@
   });
 
   /* ------------------------------------------------------------------------
-     7. FORM VALIDATION & AJAX SUBMISSION (/api/submit -> monday.com CRM)
+     7. ANALYTICS CONVERSIONS (GA4 / GOOGLE ADS) & FORM SUBMISSION
      ------------------------------------------------------------------------ */
+  function trackConversionEvent(eventName, params) {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', eventName, params || {});
+  }
+
+  document.addEventListener('click', (event) => {
+    const link = event.target instanceof Element ? event.target.closest('a[href]') : null;
+    if (!link) return;
+    const href = link.getAttribute('href') || '';
+    if (href.startsWith('mailto:')) {
+      trackConversionEvent('contact_click', { method: 'email', page_path: window.location.pathname });
+      return;
+    }
+    if (href.startsWith('tel:')) {
+      trackConversionEvent('contact_click', { method: 'phone', page_path: window.location.pathname });
+      return;
+    }
+    if (/give\.do|benevity\.org/i.test(href) || link.id === 'donate-primary-cta') {
+      let destination = 'donation_portal';
+      try {
+        destination = new URL(link.href, window.location.origin).hostname;
+      } catch {
+        // Ignore URL parsing fallback
+      }
+      trackConversionEvent('donate_click', {
+        destination,
+        link_id: link.id || 'external_giving',
+        page_path: window.location.pathname
+      });
+    }
+  });
+
   function showStatus(box, message, isError) {
     if (!box) return;
     box.textContent = message;
@@ -502,6 +534,17 @@
         window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
       if (response.ok && (data.success === true || data.ok === true)) {
+        const formType = String(formData.get('form_type') || 'contact');
+        const enquiryType = String(formData.get('enquiry_type') || '');
+        if (formType === 'signup') {
+          trackConversionEvent('sign_up', { method: 'website_form', form_id: form.id || 'signup' });
+        } else {
+          trackConversionEvent('generate_lead', {
+            form_type: formType,
+            enquiry_type: enquiryType || 'General',
+            form_id: form.id || 'contact'
+          });
+        }
         showStatus(statusBox, data.message || 'Submitted successfully.', false);
         form.reset();
       } else if ((response.status === 404 || response.status === 405 || response.status === 501) && isLocalStatic) {
