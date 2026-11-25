@@ -255,15 +255,18 @@ input {
   align-items: center;
   justify-content: center;
   min-height: 44px;
+  max-width: 100%;
   padding: 0.75rem 1.5rem;
   font-size: 0.9375rem;
   font-weight: 600;
   letter-spacing: 0.01em;
+  line-height: 1.35;
+  text-align: center;
   text-decoration: none;
   border: 1px solid transparent;
   cursor: pointer;
   transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .btn-primary {
@@ -451,6 +454,8 @@ input {
   min-height: 40px;
   padding: 0.5rem 0.95rem;
   font-size: 0.875rem;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 @media (min-width: 640px) {
@@ -1490,7 +1495,7 @@ input {
   padding: 0.75rem 1rem;
   background-color: var(--bg-primary);
   border: 1px solid var(--border-dark);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   color: var(--text-primary);
 }
 
@@ -1677,6 +1682,7 @@ input {
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-color: var(--border-strong);
+  overflow-wrap: anywhere;
 }
 
 .footer-contact-block a:hover {
@@ -2085,6 +2091,21 @@ input {
   }
 }
 
+/* Prevent CSS Grid tracks from overflowing narrow mobile viewports */
+.hero-grid > *,
+.meter-grid > *,
+.vision-grid > *,
+.programs-grid > *,
+.credentials-layout > *,
+.international-grid > *,
+.newsletter-grid > *,
+.footer-grid > *,
+.split-grid > *,
+.cols-2 > *,
+.cols-3 > * {
+  min-width: 0;
+}
+
 /* Clean Square-Marker Bullet List & Key-Value Rows */
 .bullet-list {
   list-style: none;
@@ -2421,7 +2442,8 @@ input {
 }
 
 .route-toggle {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--border-dark);
   margin-bottom: 1.75rem;
   width: 100%;
@@ -2429,6 +2451,8 @@ input {
 
 @media (min-width: 480px) {
   .route-toggle {
+    display: inline-flex;
+    flex-direction: row;
     width: auto;
   }
 }
@@ -2447,7 +2471,14 @@ input {
 }
 
 .route-tab-btn + .route-tab-btn {
-  border-left: 1px solid var(--border-dark);
+  border-top: 1px solid var(--border-dark);
+}
+
+@media (min-width: 480px) {
+  .route-tab-btn + .route-tab-btn {
+    border-top: none;
+    border-left: 1px solid var(--border-dark);
+  }
 }
 
 .route-tab-btn.is-selected {
@@ -2589,8 +2620,8 @@ input {
 }
 
 .copy-btn {
-  min-height: 32px;
-  padding: 0.2rem 0.5rem;
+  min-height: 38px;
+  padding: 0.35rem 0.75rem;
   font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 600;
@@ -2624,7 +2655,7 @@ input {
   padding: 0.75rem 1rem;
   background-color: var(--bg-primary);
   border: 1px solid var(--border-dark);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   color: var(--text-primary);
 }
 

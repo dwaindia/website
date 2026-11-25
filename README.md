@@ -3,7 +3,7 @@
 Official institutional website for **Dalit Welfare Association (DWA)**, Andhra Pradesh, India.
 
 > **Design Direction (Version 2):** Minimalist, monochrome editorial design inspired by leading international foundations, research institutions, and established human rights organizations.  
-> **Visual Identity:** 90% monochrome with rare, restrained red accents (`#B5121B` / `#8F0E16`). Strictly square corners (`border-radius: 0`) throughout. Generous whitespace, large editorial serif headlines, and authentic documentary photography placeholders.  
+> **Visual Identity:** Editorial typography with crisp `#FFFFFF` primary sections, saturated `#F6E4E4` red-tinted alternate sections, `#121212` dark footer, and controlled `#B5121B` / `#8F0E16` accents. Strictly square corners (`border-radius: 0`) throughout. Generous whitespace, large editorial serif headlines, and 33 labeled documentary photography placeholders.  
 > **Technology Stack:** Pure Semantic HTML5, locally compiled production CSS (`assets/css/styles.css`), and lightweight Vanilla JavaScript. Zero external CDN dependencies. Directly viewable in any modern desktop or mobile browser.  
 > **Implementation Model:** Phased rollout with mandatory approval gates.
 
@@ -15,15 +15,15 @@ Official institutional website for **Dalit Welfare Association (DWA)**, Andhra P
 WEBSITE/
 ├── index.html                # Editorial Homepage with Hero, Meter, Featured Programs, Credentials & Benevity
 ├── about.html                # About Page: Context, 1993–2026 History, Bylaws, Honorary Board & Credentials
-├── programs.html             # Core Programs Page: 4 Priority Focus Sectors, 6-Stage Delivery & Archives
-├── accountability.html       # Public Accountability: Statutory IDs, 5-Year Financials, Governance & Projects
+├── programs.html             # Core Programs Page: 4 Priority Focus Sectors, 6-Stage Delivery & Footprint
+├── accountability.html       # Public Accountability: Statutory IDs, Governance Bylaws, Projects & Registries
 ├── donate.html               # Donate & Support Page: Amount Selector, Domestic/FCRA Giving, Grants & Contact
 ├── assets/
 │   ├── css/
-│   │   └── styles.css        # Monochrome design tokens, fluid typography, inner-page & form utilities (zero CDN)
+│   │   └── styles.css        # Design tokens, fluid typography, mobile grid & form utilities (zero CDN)
 │   ├── js/
 │   │   └── main.js           # Menu overlay, focus traps, scroll-spy tabs, donation selector, Worker form client
-│   ├── documents/            # Public approved statutory certificates & audited PDF library (pending upload)
+│   ├── documents/            # Reserved public statutory certificate folder (safeguards documented)
 │   └── images/               # Square DWA logo variants (WebP/PNG) exported from logo.jpg
 ├── workers/
 │   ├── form-api/             # Phase 3 Cloudflare Worker (POST /api/newsletter, POST /api/contact) & wrangler.jsonc
@@ -43,7 +43,8 @@ WEBSITE/
 | Element | Hex Value | Purpose |
 | :--- | :--- | :--- |
 | **Primary Background** | `#FFFFFF` | Core reading surfaces |
-| **Secondary Background** | `#F5F5F3` | Subtle contrast sections (Vision & Mission, Credentials, Footer) |
+| **Secondary Background** | `#F6E4E4` | Alternating saturated red-tint sections (Vision & Mission, Credentials, inner alternate bands) |
+| **Footer Background** | `#121212` | High-contrast dark editorial footer |
 | **Primary Text** | `#171717` | High-contrast editorial titles, headings, and primary body copy |
 | **Secondary Text** | `#626262` | Subtitles, supporting copy, metadata, and captions |
 | **Borders & Dividers** | `#E5E5E5` | Hairline dividers and structured grids |
@@ -68,7 +69,7 @@ The homepage consists of exactly eight focused sections in the following order:
      - `50` Women per Programme Cycle
      - `2028` FCRA Active Through Sept.
 3. **Vision and Mission:**
-   - Minimal two-column editorial layout on `#F5F5F3` with generous whitespace, large serif typography, and zero decorative cards or icons.
+   - Minimal two-column editorial layout on `#F6E4E4` with generous whitespace, large serif typography, and zero decorative cards or icons.
 4. **Featured Programmes:**
    - Refined editorial grid displaying the four priority areas:
      1. Women's Empowerment and Livelihoods (`programs.html#womens-empowerment`)
