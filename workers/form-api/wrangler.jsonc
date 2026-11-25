@@ -16,7 +16,7 @@
     }
   },
   "vars": {
-    "ALLOWED_ORIGINS": "https://dalitwelfareassociation.org,https://www.dalitwelfareassociation.org,http://localhost:8080"
+    "ALLOWED_ORIGINS": "https://dwaindiaa.org,https://www.dwaindiaa.org,https://dwa-website.pages.dev,http://localhost:8080"
   }
   // Configure sensitive destinations via Wrangler secrets (never commit secrets):
   //   wrangler secret put CRM_WEBHOOK_URL

@@ -3,7 +3,7 @@
 Official institutional website for **Dalit Welfare Association (DWA)**, Andhra Pradesh, India.
 
 > **Design Direction (Version 2):** Minimalist, monochrome editorial design inspired by leading international foundations, research institutions, and established human rights organizations.  
-> **Visual Identity:** Editorial typography with crisp `#FFFFFF` primary sections, saturated `#F6E4E4` red-tinted alternate sections, `#121212` dark footer, and controlled `#B5121B` / `#8F0E16` accents. Strictly square corners (`border-radius: 0`) throughout. Generous whitespace, large editorial serif headlines, and 33 labeled documentary photography placeholders.  
+> **Visual Identity:** Editorial typography with crisp `#FFFFFF` primary sections, saturated `#F6E4E4` red-tinted alternate sections, `#121212` dark footer, and controlled `#B5121B` / `#8F0E16` accents. Strictly square corners (`border-radius: 0`) throughout. Generous whitespace, large editorial serif headlines, smooth scroll slide-up section transitions, top seasonal Happy Holidays campaign banner, and 34 labeled documentary photography placeholders.  
 > **Technology Stack:** Pure Semantic HTML5, locally compiled production CSS (`assets/css/styles.css`), and lightweight Vanilla JavaScript. Zero external CDN dependencies. Directly viewable in any modern desktop or mobile browser.  
 > **Implementation Model:** Phased rollout with mandatory approval gates.
 
@@ -18,11 +18,12 @@ WEBSITE/
 ├── programs.html             # Core Programs Page: 4 Priority Focus Sectors, 6-Stage Delivery & Footprint
 ├── accountability.html       # Public Accountability: Statutory IDs, Governance Bylaws, Projects & Registries
 ├── donate.html               # Donate & Support Page: Amount Selector, Domestic/FCRA Giving, Grants & Contact
+├── winter-appeal.html        # Happy Holidays Emergency Relief Appeal: Crisis Spotlight, 3 Kits & Impact Matrix
 ├── assets/
 │   ├── css/
 │   │   └── styles.css        # Design tokens, fluid typography, mobile grid & form utilities (zero CDN)
 │   ├── js/
-│   │   └── main.js           # Menu overlay, focus traps, scroll-spy tabs, donation selector, Worker form client
+│   │   └── main.js           # Menu overlay, focus traps, scroll-spy tabs, scroll reveal, donation selector, Worker client
 │   ├── documents/            # Reserved public statutory certificate folder (safeguards documented)
 │   └── images/               # Square DWA logo variants (WebP/PNG) exported from logo.jpg
 ├── workers/
@@ -32,7 +33,7 @@ WEBSITE/
 ├── _redirects                # Clean canonical extensionless route redirects
 ├── LAUNCH_CHECKLIST.md       # Phases 4–6 media, analytics, DNS & production launch checklist
 ├── robots.txt                # Search engine crawler directives
-├── sitemap.xml               # Approved 5-page canonical sitemap
+├── sitemap.xml               # Approved 6-page canonical sitemap
 └── README.md                 # Project architecture, design decisions & preview guide
 ```
 
@@ -139,6 +140,6 @@ This website is built with 100% static standard HTML5, CSS3, and modern Vanilla 
 ### Step 3: Connect Custom Domain
 1. In the Cloudflare Pages project dashboard, click on the **Custom domains** tab.
 2. Click **Set up a custom domain**.
-3. Enter your domain name (e.g., `dalitwelfareassociation.org` or your registered apex/subdomain).
+3. Enter your domain name (e.g., `dwaindiaa.org` and `www.dwaindiaa.org`).
 4. If your domain's DNS is managed on Cloudflare, Cloudflare will automatically configure the CNAME records. If managed elsewhere, add the CNAME record pointing to `<project-name>.pages.dev` as instructed.
 5. Cloudflare will automatically provision a free universal SSL/TLS certificate and enable global edge caching.

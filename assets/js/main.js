@@ -298,6 +298,7 @@
     const routeNoteEl = document.getElementById('donation-route-note');
     const primaryCta = document.getElementById('donation-route-cta');
     const fundButtons = selectorWidget.querySelectorAll('[data-fund-name]');
+    const winterPresetButtons = selectorWidget.querySelectorAll('[data-winter-route]');
 
     function formatAmount(route, amount) {
       const cfg = ROUTE_CONFIG[route];
@@ -306,6 +307,43 @@
         return cfg.currencySymbol + safe.toLocaleString('en-IN');
       }
       return cfg.currencySymbol + safe.toLocaleString('en-US') + ' ' + cfg.code;
+    }
+
+    function setActiveRoute(nextRoute, overrideAmount) {
+      if (!ROUTE_CONFIG[nextRoute]) return;
+      currentRoute = nextRoute;
+      currentAmount =
+        typeof overrideAmount === 'number' && Number.isFinite(overrideAmount) && overrideAmount > 0
+          ? Math.round(overrideAmount)
+          : ROUTE_CONFIG[currentRoute].defaultAmount;
+
+      routeButtons.forEach((b) => {
+        const active = b.getAttribute('data-route') === currentRoute;
+        b.classList.toggle('is-selected', active);
+        b.setAttribute('aria-pressed', String(active));
+      });
+
+      if (customLabel) {
+        customLabel.textContent = 'Custom amount (' + ROUTE_CONFIG[currentRoute].code + ' ' + ROUTE_CONFIG[currentRoute].currencySymbol + ')';
+      }
+      if (customInput) customInput.value = String(currentAmount);
+    }
+
+    function setActiveFund(fundName) {
+      if (!fundName) return;
+      let matched = null;
+      fundButtons.forEach((b) => {
+        if (b.getAttribute('data-fund-name') === fundName) {
+          matched = b;
+        }
+      });
+      if (!matched) return;
+      currentFund = fundName;
+      fundButtons.forEach((b) => {
+        const active = b === matched;
+        b.classList.toggle('is-selected', active);
+        b.setAttribute('aria-pressed', String(active));
+      });
     }
 
     function renderDonationState() {
@@ -340,19 +378,7 @@
       btn.addEventListener('click', () => {
         const nextRoute = btn.getAttribute('data-route');
         if (!ROUTE_CONFIG[nextRoute] || nextRoute === currentRoute) return;
-        currentRoute = nextRoute;
-        currentAmount = ROUTE_CONFIG[currentRoute].defaultAmount;
-
-        routeButtons.forEach((b) => {
-          const active = b.getAttribute('data-route') === currentRoute;
-          b.classList.toggle('is-selected', active);
-          b.setAttribute('aria-pressed', String(active));
-        });
-
-        if (customLabel) {
-          customLabel.textContent = 'Custom amount (' + ROUTE_CONFIG[currentRoute].code + ' ' + ROUTE_CONFIG[currentRoute].currencySymbol + ')';
-        }
-        if (customInput) customInput.value = String(currentAmount);
+        setActiveRoute(nextRoute);
         renderDonationState();
       });
     });
@@ -375,15 +401,33 @@
 
     fundButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        currentFund = btn.getAttribute('data-fund-name') || currentFund;
-        fundButtons.forEach((b) => {
-          const active = b === btn;
-          b.classList.toggle('is-selected', active);
-          b.setAttribute('aria-pressed', String(active));
-        });
+        setActiveFund(btn.getAttribute('data-fund-name'));
         renderDonationState();
       });
     });
+
+    winterPresetButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const route = btn.getAttribute('data-winter-route') || 'domestic';
+        const amount = parseFloat(btn.getAttribute('data-winter-amount') || '1700');
+        const fund = btn.getAttribute('data-winter-fund') || 'Emergency Relief & Community Care Fund';
+        setActiveFund(fund);
+        setActiveRoute(route, amount);
+        renderDonationState();
+      });
+    });
+
+    // Apply URL query parameters (?route=...&amount=...&fund=...) for deep links from Winter Appeal
+    const params = new URLSearchParams(window.location.search);
+    const paramRoute = params.get('route');
+    const paramAmount = parseFloat(params.get('amount') || '');
+    const paramFund = params.get('fund');
+    if (paramFund) setActiveFund(paramFund);
+    if (paramRoute && ROUTE_CONFIG[paramRoute]) {
+      setActiveRoute(paramRoute, Number.isFinite(paramAmount) && paramAmount > 0 ? paramAmount : undefined);
+    } else if (Number.isFinite(paramAmount) && paramAmount > 0) {
+      setActiveRoute(currentRoute, paramAmount);
+    }
 
     renderDonationState();
   }
@@ -579,5 +623,85 @@
           '). Configure <meta name="dwa-api-base"> with your deployed Cloudflare Worker URL (workers/form-api) to submit directly; meanwhile, please email dalitwelfareassociation1@gmail.com or call +91 8309744864.'
       );
     });
+  }
+
+  /* ------------------------------------------------------------------------
+     8. WHOLE-SITE SMOOTH SECTION SLIDE-UP SCROLL REVEAL
+     Progressive enhancement; respects prefers-reduced-motion
+     ------------------------------------------------------------------------ */
+  const revealSections = Array.from(document.querySelectorAll('main > section'));
+  const reduceMotion =
+    typeof window.matchMedia === 'function' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (revealSections.length > 0 && !reduceMotion && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('js-reveal-ready');
+
+    function showSection(section) {
+      if (section && !section.classList.contains('is-visible')) {
+        section.classList.add('is-visible');
+      }
+    }
+
+    function revealInViewportOrAbove() {
+      const cutoff = window.innerHeight * 0.97;
+      let pending = 0;
+      revealSections.forEach((section) => {
+        if (section.classList.contains('is-visible')) return;
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= cutoff) {
+          showSection(section);
+        } else {
+          pending += 1;
+        }
+      });
+      return pending;
+    }
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            showSection(entry.target);
+            sectionObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.01, rootMargin: '0px 0px -24px 0px' }
+    );
+
+    revealSections.forEach((section) => sectionObserver.observe(section));
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        revealInViewportOrAbove();
+      });
+    });
+
+    function revealForHash() {
+      const hash = window.location.hash;
+      if (!hash || hash.length < 2) return;
+      const target = document.getElementById(hash.slice(1));
+      if (!target) return;
+      const targetSection = target.closest('main > section') || target;
+      revealSections.forEach((section) => {
+        showSection(section);
+        if (section === targetSection) {
+          sectionObserver.unobserve(section);
+        }
+      });
+    }
+
+    if (window.location.hash) {
+      revealForHash();
+    }
+    window.addEventListener('hashchange', revealForHash);
+    window.addEventListener('scroll', () => {
+      if (revealInViewportOrAbove() === 0) {
+        revealSections.forEach((s) => sectionObserver.unobserve(s));
+      }
+    }, { passive: true });
+  } else {
+    revealSections.forEach((section) => section.classList.add('is-visible'));
   }
 })();

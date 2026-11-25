@@ -96,6 +96,10 @@ body.scroll-locked {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  html.js-reveal-ready main > section {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Anchor scroll offset below sticky header & in-page subnav bar */
@@ -2696,10 +2700,646 @@ input {
 .sub-heading-sm { font-size: 1.2rem; margin-bottom: 0.5rem; }
 
 /* ==========================================================================
-   18. PRINT STYLESHEET
+   18. TOP WINTER HOLIDAYS CAMPAIGN BANNER & APPEAL PAGE
+   Non-religious "Happy Holidays" framing | Snowfall & Holiday SVG Animations
+   ========================================================================== */
+
+:root {
+  --holiday-bg-deep: #18090B;
+  --holiday-bg-panel: #251012;
+  --holiday-pine: #1F4D36;
+  --holiday-pine-light: #7FD4A6;
+  --holiday-gold: #F2CC7E;
+  --holiday-ivory: #FFF9F3;
+  --holiday-muted: #E3D2D2;
+  --holiday-border: #4D2428;
+}
+
+@keyframes holidayBannerDrift {
+  0% { background-position: 0 0, 20px 14px; }
+  100% { background-position: 80px 80px, 100px 94px; }
+}
+
+@keyframes holidaySnowFall {
+  0% {
+    transform: translate3d(0, -10%, 0) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.8;
+  }
+  85% {
+    opacity: 0.65;
+  }
+  100% {
+    transform: translate3d(18px, 460px, 0) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes holidayTwinkle {
+  0%, 100% {
+    opacity: 0.72;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes holidaySpinSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes holidayFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Site-Wide Top Campaign Banner */
+.holiday-top-banner {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--holiday-bg-deep);
+  color: var(--holiday-ivory);
+  border-top: 4px solid var(--accent-red);
+  border-bottom: 1px solid var(--holiday-border);
+  padding: 0.65rem 0;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.22) 1px, transparent 1px),
+    radial-gradient(rgba(242, 204, 126, 0.2) 1px, transparent 1px);
+  background-size: 40px 40px, 56px 56px;
+  animation: holidayBannerDrift 18s linear infinite;
+}
+
+.holiday-top-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--accent-red) 0 18px,
+    var(--holiday-pine) 18px 36px,
+    var(--holiday-gold) 36px 46px
+  );
+}
+
+.holiday-banner-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.65rem;
+}
+
+@media (min-width: 1024px) {
+  .holiday-banner-inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+
+.holiday-banner-lead {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .holiday-banner-lead {
+    align-items: center;
+  }
+}
+
+.holiday-banner-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+  padding: 0.3rem 0.45rem;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--holiday-border);
+}
+
+.holiday-icon-svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.holiday-anim-spin {
+  animation: holidaySpinSlow 16s linear infinite;
+}
+
+.holiday-anim-twinkle {
+  transform-origin: center;
+  animation: holidayTwinkle 2.6s ease-in-out infinite;
+}
+
+.holiday-anim-float {
+  animation: holidayFloat 3.4s ease-in-out infinite;
+}
+
+.holiday-banner-copy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.65rem;
+  font-size: 0.84rem;
+  line-height: 1.4;
+  color: var(--holiday-ivory);
+  min-width: 0;
+}
+
+.holiday-banner-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.16rem 0.5rem;
+  background-color: var(--holiday-pine);
+  border: 1px solid var(--holiday-pine-light);
+  color: var(--holiday-ivory);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.holiday-banner-text strong {
+  color: var(--holiday-gold);
+}
+
+.holiday-banner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.holiday-btn-appeal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0.35rem 0.85rem;
+  background-color: var(--accent-red);
+  color: var(--holiday-ivory);
+  border: 1px solid var(--accent-red);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.holiday-btn-appeal:hover {
+  background-color: var(--accent-red-hover);
+  border-color: var(--holiday-gold);
+}
+
+.holiday-btn-give {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0.35rem 0.85rem;
+  background-color: transparent;
+  color: var(--holiday-ivory);
+  border: 1px solid rgba(255, 249, 243, 0.45);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.holiday-btn-give:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--holiday-ivory);
+}
+
+/* Dedicated Winter Holidays Appeal Hero (winter-appeal.html) */
+.winter-hero {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--holiday-bg-deep);
+  color: var(--holiday-ivory);
+  border-bottom: 1px solid var(--holiday-border);
+  padding: 3.5rem 0 4rem;
+}
+
+@media (min-width: 1024px) {
+  .winter-hero {
+    padding: 4.75rem 0 5rem;
+  }
+}
+
+.holiday-snow-stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.snow-particle {
+  position: absolute;
+  top: -16px;
+  width: 7px;
+  height: 7px;
+  background-color: rgba(255, 249, 243, 0.55);
+  border: 1px solid rgba(242, 204, 126, 0.35);
+  animation: holidaySnowFall 11s linear infinite;
+}
+
+.snow-p1 { left: 6%;  width: 6px; height: 6px; animation-duration: 9.5s;  animation-delay: -2s; }
+.snow-p2 { left: 16%; width: 8px; height: 8px; animation-duration: 13s;   animation-delay: -5s; }
+.snow-p3 { left: 28%; width: 5px; height: 5px; animation-duration: 10.5s; animation-delay: -1s; }
+.snow-p4 { left: 41%; width: 7px; height: 7px; animation-duration: 12s;   animation-delay: -7s; }
+.snow-p5 { left: 54%; width: 6px; height: 6px; animation-duration: 14s;   animation-delay: -3.5s; }
+.snow-p6 { left: 68%; width: 8px; height: 8px; animation-duration: 10s;   animation-delay: -6s; }
+.snow-p7 { left: 81%; width: 5px; height: 5px; animation-duration: 11.5s; animation-delay: -4s; }
+.snow-p8 { left: 92%; width: 7px; height: 7px; animation-duration: 12.5s; animation-delay: -8s; }
+
+.winter-hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .winter-hero-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+  }
+}
+
+.winter-hero-grid > * {
+  min-width: 0;
+}
+
+.holiday-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.holiday-pill-festive {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  background-color: var(--holiday-pine);
+  border: 1px solid var(--holiday-pine-light);
+  color: var(--holiday-ivory);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.holiday-pill-alert {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  background-color: rgba(181, 18, 27, 0.28);
+  border: 1px solid var(--accent-red);
+  color: var(--holiday-gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.winter-hero-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.15rem, 4.4vw, 3.65rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--holiday-ivory);
+  max-width: 20ch;
+}
+
+.winter-hero-lead {
+  margin-top: 1.35rem;
+  font-size: 1.0625rem;
+  line-height: 1.68;
+  color: var(--holiday-muted);
+  max-width: 58ch;
+}
+
+.holiday-impact-highlights {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+@media (min-width: 640px) {
+  .holiday-impact-highlights {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.holiday-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.85rem;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--holiday-border);
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--holiday-ivory);
+}
+
+.holiday-highlight-item svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--holiday-gold);
+  margin-top: 1px;
+}
+
+.winter-hero .btn-secondary {
+  border-color: var(--holiday-ivory);
+  color: var(--holiday-ivory);
+  background-color: transparent;
+}
+
+.winter-hero .btn-secondary:hover {
+  background-color: var(--holiday-ivory);
+  color: var(--holiday-bg-deep);
+}
+
+.winter-summary-card {
+  background-color: var(--holiday-ivory);
+  color: var(--text-primary);
+  border: 1px solid var(--holiday-border);
+  border-top: 4px solid var(--holiday-pine);
+  padding: 1.75rem;
+}
+
+.winter-summary-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1.25rem;
+}
+
+.winter-summary-head h2 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.winter-summary-emblems {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--holiday-pine);
+  flex-shrink: 0;
+}
+
+.winter-summary-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.winter-summary-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.85rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.winter-summary-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.winter-summary-cost {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--accent-red);
+  white-space: nowrap;
+}
+
+/* Kit Cards & Impact Matrix Cards */
+.kit-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-strong);
+  border-top: 3px solid var(--text-primary);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  transition: transform 0.22s ease, border-color 0.22s ease;
+}
+
+.kit-card:hover {
+  transform: translateY(-3px);
+  border-top-color: var(--accent-red);
+}
+
+.kit-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.kit-icon-box {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-strong);
+  color: var(--accent-red);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.kit-card:hover .kit-icon-box {
+  background-color: var(--holiday-pine);
+  border-color: var(--holiday-pine);
+  color: var(--holiday-ivory);
+}
+
+.kit-icon-box svg {
+  width: 24px;
+  height: 24px;
+}
+
+.kit-price-badge {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 0.3rem 0.65rem;
+  background-color: var(--holiday-bg-deep);
+  color: var(--holiday-gold);
+  white-space: nowrap;
+}
+
+.kit-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.22;
+  color: var(--text-primary);
+  margin-top: 0.75rem;
+}
+
+.kit-card-sub {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+.tier-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-top: 2px solid var(--border-dark);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.tier-card:hover {
+  border-color: var(--accent-red);
+  transform: translateY(-2px);
+}
+
+.tier-card--featured {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--accent-red);
+  border-top: 4px solid var(--accent-red);
+}
+
+.tier-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.tier-amount {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  line-height: 1.1;
+  color: var(--accent-red);
+}
+
+.tier-name {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-top: 0.45rem;
+}
+
+.tier-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.winter-quick-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.winter-preset-chip {
+  min-height: 40px;
+  padding: 0.45rem 0.85rem;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-dark);
+  color: var(--text-primary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.winter-preset-chip:hover {
+  background-color: var(--holiday-pine);
+  border-color: var(--holiday-pine);
+  color: var(--holiday-ivory);
+}
+
+.share-quote-box {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-strong);
+  border-left: 4px solid var(--holiday-pine);
+  padding: 1.5rem;
+}
+
+.share-quote-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  white-space: pre-line;
+}
+
+/* ==========================================================================
+   19. WHOLE-SITE SECTION SMOOTH SLIDE-UP REVEAL ANIMATION
+   Progressive enhancement: active only when JS sets html.js-reveal-ready
+   ========================================================================== */
+
+html.js-reveal-ready main > section {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+html.js-reveal-ready main > section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+/* ==========================================================================
+   20. PRINT STYLESHEET
    ========================================================================== */
 
 @media print {
+  .holiday-top-banner,
+  .holiday-snow-stage,
   .site-header-actions,
   .subnav-bar,
   .fullscreen-overlay,
@@ -2707,6 +3347,10 @@ input {
   .modal-backdrop,
   .copy-btn {
     display: none !important;
+  }
+  html.js-reveal-ready main > section {
+    opacity: 1 !important;
+    transform: none !important;
   }
   .site-header {
     position: static;
