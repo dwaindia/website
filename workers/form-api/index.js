@@ -207,8 +207,9 @@ async function sendNotificationEmail(kind, record, requestId, env) {
 
   const textBody = isNewsletter
     ? [
-        'Dalit Welfare Association — New Newsletter Subscription',
+        'Dalit Welfare Association — New Newsletter / Updates Signup',
         `Reference ID: ${requestId}`,
+        `Full Name: ${record.fullName || 'Not provided'}`,
         `Email: ${record.email}`,
         `Privacy Consent: Confirmed`,
         `Submitted At (UTC): ${record.submittedAt}`
@@ -229,8 +230,9 @@ async function sendNotificationEmail(kind, record, requestId, env) {
 
   const htmlBody = isNewsletter
     ? `<div style="font-family:sans-serif;max-width:600px;border:1px solid #e2c7c7;padding:20px;">
-        <h2 style="margin:0 0 12px;color:#171717;">New Newsletter Subscription</h2>
+        <h2 style="margin:0 0 12px;color:#171717;">New Newsletter / Updates Signup</h2>
         <p style="margin:4px 0;"><strong>Reference ID:</strong> ${escapeHtml(requestId)}</p>
+        <p style="margin:4px 0;"><strong>Full Name:</strong> ${escapeHtml(record.fullName || 'Not provided')}</p>
         <p style="margin:4px 0;"><strong>Subscriber Email:</strong> ${escapeHtml(record.email)}</p>
         <p style="margin:4px 0;"><strong>Privacy Consent:</strong> Confirmed</p>
         <p style="margin:4px 0;"><strong>Submitted (UTC):</strong> ${escapeHtml(record.submittedAt)}</p>
@@ -296,9 +298,9 @@ async function persistSubmission(kind, record, requestId, env) {
   if (hasD1) {
     if (kind === 'newsletter') {
       await env.SUBMISSIONS_DB.prepare(
-        'INSERT INTO newsletter_subscribers (id, email, consent_given, created_at) VALUES (?1, ?2, ?3, ?4)'
+        'INSERT INTO newsletter_subscribers (id, full_name, email, consent_given, created_at) VALUES (?1, ?2, ?3, ?4, ?5)'
       )
-        .bind(requestId, record.email, 1, record.submittedAt)
+        .bind(requestId, record.fullName || null, record.email, 1, record.submittedAt)
         .run();
     } else {
       await env.SUBMISSIONS_DB.prepare(
@@ -491,15 +493,25 @@ export default {
         const submittedAt = new Date().toISOString();
         const isSignup = formType === 'signup';
         const hasFallbackBackend = Boolean(env.SUBMISSIONS_DB || env.EMAIL || env.CRM_WEBHOOK_URL);
+        let fallbackPersisted = false;
+
         if (hasFallbackBackend) {
-          await persistSubmission(
+          const persistResult = await persistSubmission(
             isSignup ? 'newsletter' : 'contact',
             isSignup
-              ? { email, consent: true, submittedAt }
+              ? { fullName, email, consent: true, submittedAt }
               : { fullName, email, phone, organization, enquiryType, message: rawMessage || `Website ${formType} submission`, consent: true, submittedAt },
             requestId,
             env
           );
+          fallbackPersisted = persistResult.persisted;
+          if (!fallbackPersisted && !mondayId) {
+            return jsonResponse(
+              { success: false, ok: false, code: persistResult.code, message: persistResult.message },
+              persistResult.status,
+              allowedOrigin
+            );
+          }
         } else if (!mondayId) {
           return jsonResponse(
             { success: false, ok: false, message: 'Form backend is not configured yet. Please email dalitwelfareassociation1@gmail.com.' },
@@ -557,6 +569,7 @@ export default {
       const submittedAt = new Date().toISOString();
 
       if (url.pathname === '/api/newsletter') {
+        const fullName = cleanText(data.name || data.full_name, 120);
         const email = cleanText(data.email, 254).toLowerCase();
         const consent = data.consent === true;
 
@@ -567,7 +580,7 @@ export default {
           return jsonResponse({ ok: false, error: 'Privacy consent is required.' }, 400, allowedOrigin);
         }
 
-        const result = await persistSubmission('newsletter', { email, consent, submittedAt }, requestId, env);
+        const result = await persistSubmission('newsletter', { fullName, email, consent, submittedAt }, requestId, env);
         console.log(
           JSON.stringify({
             message: 'newsletter processed',

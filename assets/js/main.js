@@ -582,6 +582,12 @@
     const honeypotInput = document.getElementById('newsletter-bot-field');
     const statusBox = document.getElementById('newsletter-status');
 
+    newsletterForm.addEventListener('input', () => {
+      if (statusBox && statusBox.classList.contains('is-error')) {
+        statusBox.setAttribute('hidden', '');
+      }
+    });
+
     newsletterForm.addEventListener('submit', (event) => {
       event.preventDefault();
       if (honeypotInput && honeypotInput.value.trim() !== '') return;
@@ -628,6 +634,20 @@
     const consentInput = document.getElementById('contact-consent');
     const honeypotInput = document.getElementById('contact-bot-field');
     const statusBox = document.getElementById('contact-status');
+
+    const enquiryParam = new URLSearchParams(window.location.search).get('enquiry');
+    if (enquiryParam && typeSelect) {
+      const matched = Array.from(typeSelect.options).find(
+        (opt) => opt.value.toLowerCase() === enquiryParam.trim().toLowerCase()
+      );
+      if (matched) typeSelect.value = matched.value;
+    }
+
+    contactForm.addEventListener('input', () => {
+      if (statusBox && statusBox.classList.contains('is-error')) {
+        statusBox.setAttribute('hidden', '');
+      }
+    });
 
     contactForm.addEventListener('submit', (event) => {
       event.preventDefault();

@@ -4,6 +4,15 @@
    Zero external CDN dependencies | Strictly square geometry (border-radius: 0)
    ========================================================================== */
 
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/inter-var-latin.woff2') format('woff2-variations'),
+       url('../fonts/inter-var-latin.woff2') format('woff2');
+}
+
 :root {
   /* Color Palette: White Primary + Saturated Red-Tinted Alternate Sections + Black Footer */
   --bg-primary: #FFFFFF;
@@ -26,9 +35,9 @@
   --footer-border: #2F2B2B;
   --footer-accent: #F5737A;
 
-  /* Typography (Zero external font network requests) */
+  /* Typography (Self-hosted Inter body font; zero external CDN requests) */
   --font-serif: 'Source Serif 4', 'Noto Serif', 'Liberation Serif', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Inter', 'Noto Sans', 'Liberation Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
 
   /* Layout & Spacing */
@@ -145,7 +154,9 @@ a {
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
   color: inherit;
 }
@@ -1214,8 +1225,15 @@ input {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  height: 100%;
   padding-bottom: 2rem;
   border-bottom: 1px solid var(--border-color);
+}
+
+@media (min-width: 768px) {
+  .programs-grid .photo-figure .photo-caption {
+    min-height: 2.9em;
+  }
 }
 
 .programme-meta {
@@ -1245,7 +1263,8 @@ input {
 }
 
 .programme-action {
-  margin-top: 1.125rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
 }
 
 /* ==========================================================================
@@ -1558,6 +1577,17 @@ input {
   .newsletter-input-row .form-input {
     border-right: none;
   }
+}
+
+.newsletter-input-row .form-input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.newsletter-input-row .btn {
+  min-height: 48px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .form-input::placeholder {
@@ -2634,6 +2664,10 @@ input {
 }
 
 .fund-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
   text-align: left;
   padding: 1rem;
   border: 1px solid var(--border-color);
@@ -2702,6 +2736,15 @@ input {
   .form-grid--2col {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+.form-grid--2col > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-grid--2col > div .form-input {
+  margin-top: auto;
 }
 
 .form-select,
@@ -2805,8 +2848,8 @@ input {
 }
 
 @keyframes holidayFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  0%, 100% { opacity: 0.88; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.06); }
 }
 
 /* Site-Wide Top Campaign Banner */
@@ -2845,7 +2888,7 @@ input {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: space-between;
   gap: 0.65rem;
 }
@@ -2854,21 +2897,16 @@ input {
   .holiday-banner-inner {
     flex-direction: row;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 }
 
 .holiday-banner-lead {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.75rem;
+  flex: 1 1 auto;
   min-width: 0;
-}
-
-@media (min-width: 768px) {
-  .holiday-banner-lead {
-    align-items: center;
-  }
 }
 
 .holiday-banner-icons {
@@ -2876,7 +2914,7 @@ input {
   align-items: center;
   gap: 0.35rem;
   flex-shrink: 0;
-  padding: 0.3rem 0.45rem;
+  padding: 0.25rem 0.4rem;
   background-color: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--holiday-border);
 }
@@ -2900,30 +2938,51 @@ input {
   animation: holidayFloat 3.4s ease-in-out infinite;
 }
 
+.holiday-top-banner .holiday-anim-float {
+  animation: none;
+}
+
 .holiday-banner-copy {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.4rem 0.65rem;
-  font-size: 0.84rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  font-size: 0.8125rem;
   line-height: 1.4;
   color: var(--holiday-ivory);
   min-width: 0;
+}
+
+@media (min-width: 1140px) {
+  .holiday-banner-copy {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.65rem;
+  }
 }
 
 .holiday-banner-tag {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.16rem 0.5rem;
+  flex-shrink: 0;
+  padding: 0.2rem 0.5rem;
   background-color: var(--holiday-pine);
   border: 1px solid var(--holiday-pine-light);
   color: var(--holiday-ivory);
   font-size: 0.6875rem;
   font-weight: 700;
+  line-height: 1.2;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+.holiday-banner-text {
+  display: block;
+  margin: 0;
+  line-height: 1.4;
 }
 
 .holiday-banner-text strong {
@@ -2949,6 +3008,8 @@ input {
   border: 1px solid var(--accent-red);
   font-size: 0.8125rem;
   font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
   text-decoration: none;
   transition: background-color 0.18s ease, border-color 0.18s ease;
 }
@@ -2969,6 +3030,8 @@ input {
   border: 1px solid rgba(255, 249, 243, 0.45);
   font-size: 0.8125rem;
   font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
   text-decoration: none;
   transition: background-color 0.18s ease, border-color 0.18s ease;
 }
